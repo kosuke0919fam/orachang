@@ -1,409 +1,168 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>orachang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="ja" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>orachang</title><meta name="author" content="orachang"><meta name="copyright" content="orachang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="orachang">
 <meta property="og:url" content="https://kosuke0919fam.github.io/orachang/index.html">
 <meta property="og:site_name" content="orachang">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kosuke0919fam.github.io/orachang/img/butterfly-icon.png">
 <meta property="article:author" content="orachang">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/orachang/atom.xml" title="orachang" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/orachang/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/orachang/css/style.css">
+<meta name="twitter:image" content="https://kosuke0919fam.github.io/orachang/img/butterfly-icon.png"><link rel="shortcut icon" href="/orachang/img/favicon.png"><link rel="canonical" href="https://kosuke0919fam.github.io/orachang/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/orachang/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/orachang/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/orachang/" id="logo">orachang</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/orachang/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'コピー成功',
+    error: 'コピー失敗',
+    noSupport: 'ブラウザが対応していません'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'たった今',
+    min: '分前',
+    hour: '時間前',
+    day: '日前',
+    month: 'ヶ月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'もっと見る'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'orachang',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/orachang/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/orachang/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/orachang/archives/"><div class="headline">記事</div><div class="length-num">1</div></a><a href="/orachang/tags/"><div class="headline">タグ</div><div class="length-num">1</div></a><a href="/orachang/categories/"><div class="headline">カテゴリ</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/orachang/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/orachang/"><span class="site-name">orachang</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/orachang/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/orachang/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">orachang</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/orachang/0001/" title="水族館">水族館</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">作成日</span><time datetime="2025-02-28T15:00:00.000Z" title="作成日 2025-03-01 00:00:00">2025-03-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/orachang/categories/report/">report</a></span></div><div class="content">1. 都市伝説「人が消える水族館」オカルト雑誌のライター(③)が書いた「水族館で人が消える」という記事を読んだ①（調査者）は、その奇妙な内容に興味を抱き、さらに詳しく調べることにした。 記事では「水族館で働くスタッフが突如姿を消す」という都市伝説が取り上げられていたが、情報源は曖昧で、具体的な証拠もなかった。しかし、SNSを調べていると、「この水族館では本当にスタッフが失踪している」と主張する投稿を発見する。 投稿主に興味を持った①は、すぐにコンタクトを取ることにした。  2. 元SNS担当（⓪）の失踪①が連絡を取った投稿主は、失踪した元スタッフ(⓪)の恋人(②)だった。②は①に対し、⓪の失踪に関する詳細を話し始める。 ⓪は水族館の広報担当で、SNS運用を主に担当していた。しかし、1週間以上前に突然消息を絶った。 それまでは毎日決まった時間に②へ連絡を入れていたが、失踪当日を境にぱったりと音信不通になった。 ...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/orachang/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/orachang/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">orachang</div><div class="author-info-description"></div><div class="site-data"><a href="/orachang/archives/"><div class="headline">記事</div><div class="length-num">1</div></a><a href="/orachang/tags/"><div class="headline">タグ</div><div class="length-num">1</div></a><a href="/orachang/categories/"><div class="headline">カテゴリ</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最近の記事</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/orachang/0001/" title="水族館">水族館</a><time datetime="2025-02-28T15:00:00.000Z" title="作成日 2025-03-01 00:00:00">2025-03-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>カテゴリ</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/orachang/categories/report/"><span class="card-category-list-name">report</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>タグ</span></div><div class="card-tag-cloud"><a href="/orachang/tags/mistery/" style="font-size: 1.1em; color: #999">mistery</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>アーカイブ</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/orachang/">Home</a>
-        
-          <a class="main-nav-link" href="/orachang/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/orachang/atom.xml" title="RSSフィード"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="検索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kosuke0919fam.github.io/orachang"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-0001" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/orachang/0001/" class="article-date">
-  <time class="dt-published" datetime="2025-02-28T15:00:00.000Z" itemprop="datePublished">2025-03-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/orachang/categories/report/">report</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/orachang/0001/">水族館</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <h2 id="登場人物"><a href="#登場人物" class="headerlink" title="登場人物"></a>登場人物</h2><table>
-<thead>
-<tr>
-<th>番号</th>
-<th>名前</th>
-<th>役職・立場</th>
-<th>特徴・関係性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>①</td>
-<td>都市伝説解明系動画投稿者</td>
-<td></td>
-<td>水族館の不正を調査する</td>
-</tr>
-<tr>
-<td>②</td>
-<td>元SNS担当(⓪)の恋人</td>
-<td></td>
-<td>⓪の失踪に疑念を抱いている</td>
-</tr>
-<tr>
-<td>③</td>
-<td>オカルト雑誌のライター</td>
-<td></td>
-<td>②から話を聞いていたが、当初は記事にしなかった。のちに調査に協力</td>
-</tr>
-<tr>
-<td>④</td>
-<td>現SNS担当者</td>
-<td></td>
-<td>⑤をよく思っておらず、削除された画像の存在を教える</td>
-</tr>
-<tr>
-<td>⑤</td>
-<td>水族館の経理担当</td>
-<td></td>
-<td>パワハラで従業員と対立。削除された画像に執着する理由がある</td>
-</tr>
-<tr>
-<td>⓪</td>
-<td>元SNS担当</td>
-<td></td>
-<td>失踪。</td>
-</tr>
-</tbody></table>
-<h2 id="第1章：水族館の不祥事発覚"><a href="#第1章：水族館の不祥事発覚" class="headerlink" title="第1章：水族館の不祥事発覚"></a><strong>第1章：水族館の不祥事発覚</strong></h2><h3 id="1-都市伝説としての噂が浮上"><a href="#1-都市伝説としての噂が浮上" class="headerlink" title="1. 都市伝説としての噂が浮上"></a>1. 都市伝説としての噂が浮上</h3><ul>
-<li>ある水族館で「人が消える」という都市伝説が掲載された雑誌を見た①（調査者）。</li>
-<li>SNSで、この水族館のスタッフが本当に疾走していると主張する人物を発見。</li>
-<li>①はこの話に興味を持ち、この人物に連絡を取る。</li>
-</ul>
-<h3 id="2-元SNS担当（⓪）の失踪"><a href="#2-元SNS担当（⓪）の失踪" class="headerlink" title="2. 元SNS担当（⓪）の失踪"></a>2. 元SNS担当（⓪）の失踪</h3><ul>
-<li>この人物が言うには、失踪したのは広報担当でSNSをメインに担当していた水族館スタッフ(⓪)とのこと。</li>
-<li>この人物は⓪の恋人(②)だという。</li>
-<li>失踪したのは1週間以上前から。</li>
-<li>いつも帰る時刻に連絡が届いていたのだが、失踪した日を境にぱったりと連絡が途絶えたという。</li>
-<li>水族館にも問い合わせたが、その日はいつ<br>も通り出勤も退勤もしていたと回答されたという。</li>
-<li>警察にも申し出たが、特に進展がない状況だという。</li>
-<li>雑誌の記事のことを話したところ、これらの話をライターに伝えたはずなのに掲載されなかったと不満を漏らす②。</li>
-<li>①はこの話に興味を持ち、このライター(③)に連絡を取る。</li>
-</ul>
-<h3 id="3-オカルト雑誌ライター（③）の証言"><a href="#3-オカルト雑誌ライター（③）の証言" class="headerlink" title="3. オカルト雑誌ライター（③）の証言"></a>3. オカルト雑誌ライター（③）の証言</h3><ul>
-<li>その話を以前③（オカルト系雑誌のライター）に伝えていたが、<strong>③は「信憑性に欠ける」として記事にはしなかった。</strong></li>
-<li>しかし、③は<strong>水族館での従業員の異常な退職率</strong>や、<strong>経理(⑤)が過去のSNS投稿を過剰にチェックしていたこと</strong>を聞いており、少し興味を抱く。  </li>
-<li>①の説得により、③は再調査に協力することを決意。</li>
-</ul>
-<h3 id="4-現SNS担当（④）の証言と問題の画像"><a href="#4-現SNS担当（④）の証言と問題の画像" class="headerlink" title="4. 現SNS担当（④）の証言と問題の画像"></a>4. 現SNS担当（④）の証言と問題の画像</h3><ul>
-<li>④は現SNS担当で、<strong>⑤を快く思っていない</strong>。</li>
-<li>④の話によると、失踪した⓪がSNSに投稿した画像に関して、<strong>⑤が異常なほど激昂し、削除を指示したことがある</strong>。</li>
-<li>その画像は、<strong>水槽の前で撮影されたもので、従業員や水族のほか、通行人が数名写っていた</strong>。</li>
-<li>そのうちの一人、<strong>真っ赤な服を着た人物</strong>に対し、⑤が特に強い執着を見せたという。</li>
-<li>④は「まだ検索すれば見つかるはず」と言い、<strong>消されたはずの画像を①と③に渡す</strong>。</li>
-<li>③は、「都市伝説の正体は、水族館のパワハラによる従業員の大量離職なのでは？」という記事を書き、<strong>削除された画像にモザイクをかけて掲載する</strong>。</li>
-</ul>
-<h3 id="5-画像の削除要請と再調査の開始"><a href="#5-画像の削除要請と再調査の開始" class="headerlink" title="5. 画像の削除要請と再調査の開始"></a>5. 画像の削除要請と再調査の開始</h3><ul>
-<li>記事の公開後、すぐに水族館側から<strong>記事の削除と画像の全面削除を求めるメール</strong>が届く。  </li>
-<li>この要請には<strong>⑤が裏で関与していたが、その事実は明らかにならない。</strong>  </li>
-<li><strong>①と③は、なぜこの画像をここまで削除したがるのか疑問を持ち、本格的な調査を開始。</strong></li>
-</ul>
-<h3 id="6-防犯映像と赤い服の人物の謎"><a href="#6-防犯映像と赤い服の人物の謎" class="headerlink" title="6. 防犯映像と赤い服の人物の謎**"></a>6. 防犯映像と赤い服の人物の謎**</h3><ol>
-<li><p><strong>①と③の分担調査開始</strong>  </p>
-<ul>
-<li>①は赤い服の人物が誰なのか調べる。  </li>
-<li>③は防犯カメラ映像を詳しく確認する。</li>
-</ul>
-</li>
-<li><p><strong>③からの報告</strong>  </p>
-<ul>
-<li>①は赤い服の人物を特定できずにいたが、後日③から連絡を受ける。  </li>
-<li>③は防犯カメラ映像の日付と、削除された投稿の日付が<strong>完全に一致</strong>していることを発見。  </li>
-<li>これにより、防犯カメラ映像に何か決定的な秘密があると確信した③は、改めて映像を精査した。</li>
-</ul>
-</li>
-<li><p><strong>防犯カメラ映像の異変</strong>  </p>
-<ul>
-<li>①が「何か映っていたのか？」と尋ねると、③は「映っていなかった」と答える。  </li>
-<li><strong>赤い服の人物が、防犯カメラ映像の全編を通じて、一度も登場していなかった。</strong>  </li>
-<li>画像には確かに写っていたのに、<strong>防犯カメラ映像には最初からいなかった</strong>。</li>
-</ul>
-</li>
-<li><p><strong>映像改ざんの可能性</strong>  </p>
-<ul>
-<li>「画像が偽造された可能性は？」と①が問う。  </li>
-<li>しかし、その画像は<strong>失踪した元SNS担当（⓪）が撮影・投稿したもの</strong>であり、⓪が加工する理由は考えにくい。  </li>
-<li>③はむしろ「<strong>実在していた赤い服の人物を、防犯カメラの映像から消したのではないか？</strong>」と推測。  </li>
-<li>①は「なぜそんなことを？」と聞くが、③もまだ理由は分からない。</li>
-</ul>
-</li>
-<li><p><strong>さらなる疑惑</strong>  </p>
-<ul>
-<li>③は「<strong>他の防犯カメラ映像も、同じように赤い服の人物が消されている可能性がある</strong>」と考え始める。  </li>
-<li>①と③は、<strong>水族館の内部事情を知る現SNS担当（④）に再度取材を試みることを決める。</strong></li>
-</ul>
-</li>
-</ol>
-<p>第8章：防犯カメラの管理者と加工の可能性</p>
-<ol>
-<li><p><strong>④の証言：防犯カメラデータの管理者</strong></p>
-<p> ①と③は④に再度接触し、防犯カメラ映像の管理者は誰なのかを尋ねる。<br> ④によると、「担当は決まっていないが、実質的に⑤が管理している」とのこと。<br> ⑤は経理の仕事だけでなく、以前はSNS管理も担当していたため、画像や映像データの扱いに長けている可能性がある。<br> さらに、補助金で防犯カメラを最新のものに更新した際、⓪がAI搭載の動画編集ソフトを導入していた。<br> つまり、⑤には映像を編集できる環境が整っていた。</p>
-</li>
-<li><p><strong>④の証言：赤い服の人物について</strong></p>
-<p> ①と③は、赤い服の人物と⑤の関係について④に尋ねる。<br> ④は「その人物と⑤に特別な関係はないだろう」と答える。<br> ④は来館者の服装を比較的よく覚えているが、この赤い服の人物が来館したのは一度きりだったと推測。<br> もし複数回訪れていれば、覚えているはずだという。</p>
-</li>
-<li><p><strong>③の提案：防犯カメラ映像の証拠確保</strong></p>
-<p> ③は④に対し、以下の2つの依頼をする。<br> 削除された画像が撮影された日の防犯カメラ映像を確認し、他のカメラでも赤い服の人物が映っていないか調べてほしい。<br> ⑤が加工しているかを確かめるため、編集前の防犯カメラ映像を事前に取得しておいてほしい。（編集が行われるとすれば、次の日以降のはず）<br> ④は、⑤を失脚させるチャンスと考え、この提案を快諾する。</p>
-</li>
-</ol>
-<p>第9章：防犯カメラ映像の改ざん発覚</p>
-<ol>
-<li><p><strong>④からの報告：決定的な証拠</strong></p>
-<p> 2週間後、④が申し訳なさそうに①と③へ連絡。<br> 「すぐに連絡しなくてごめん。確実な証拠をつかみたくて、慎重になっていた」<br> ③の依頼を受け、⑤が加工する前の防犯カメラ映像を事前に取得しておいた。<br> 「編集が行われるとすれば、翌日以降のはずだから、その前に保存しておくべきだと思った」<br> その後、保存した映像と、数日後に共有フォルダに上がった同日付の映像を比較。<br> その結果、後者の映像では人が何人か映っていないことが判明。<br> しかも、この改ざんが1つだけでなく、複数の映像で発生していた。<br> さらに、⑤が編集ソフトを使用した形跡も発見。<br> 表面上、編集履歴は削除されていたが、ログファイルが完全には消されておらず、⑤がソフトにログインし使用していた記録が残っていた。<br> ⑤が防犯カメラ映像を改ざんしていたことが決定的となる。</p>
-</li>
-<li><p><strong>⑤の動機を考察</strong></p>
-<p> ①と③は、「なぜ⑤は防犯カメラ映像を改ざんしていたのか？」 を改めて考える。<br> ①は、防犯カメラの映像がどのように使われているのかを④に尋ねる。<br> ④の証言：<br> 具体的な実務は分からないが、防犯カメラにはAI機能が実装されており、映像内の人物を識別・カウントできる。<br> この来場者数データを売上の証憑（しょうひょう）として利用しているらしい。<br> この情報から、①と③は「⑤が売上を横領しているのでは？」という疑惑にたどり着く。<br> 来場者数を水増しし、売上の数字を操作している可能性が浮上。<br> そのため、本来カウントされるはずの来場者を、防犯カメラ映像から消していたのではないか？</p>
-</li>
-</ol>
-<p>–③は④に対して、お願いしたいことがあると持ち掛ける<br>（その後場面転換。謝罪の場面へ）</p>
-<h2 id="決着の場"><a href="#決着の場" class="headerlink" title="決着の場"></a><strong>決着の場</strong></h2><p>①と③は、先日の記事の謝罪を名目に水族館経営者、⑤、広報担当との会合をセッティングした。当然、④もその場に同席する形になる。①と③は④と初対面であるかのように装い、慎重に話を進める。</p>
-<p>「先日はご迷惑をおかけしました。」③が形式的な謝罪を述べる。  </p>
-<p>記事の件について一通り話が終わった頃、③は唐突に問いかけた。  </p>
-<p>「そういえば、SNSに投稿された例の画像ですが、どうして削除されたのでしょうか？」  </p>
-<p>⑤は一瞬表情を強張らせたが、すぐに平静を取り戻し、言い訳を口にする。  </p>
-<p>「内部チェックが済んでいない状態でアップロードされてしまったので、削除しました。雑誌への削除依頼は来館者のプライバシーを守るためです。」  </p>
-<p>「しかし、十分に配慮されており、問題視するほどではないのでは？」③は食い下がる。  </p>
-<p>⑤は「他の理由などない」と言い張るが、①が静かに口を開く。  </p>
-<p>「実は最近、防犯カメラ映像の流出を確認しました。その中に——あの削除された画像と同じ日付の映像がありました」  </p>
-<p>場が静まり返る。⑤の指がテーブルを叩くように動いた。  </p>
-<p>「その映像には、赤い服を着た人物が映っていませんでした」  </p>
-<p>⑤は一瞬視線を泳がせたが、すぐに声を荒げる。  </p>
-<p>「そんなの偽の映像だ！」  </p>
-<p>④が演技を交えながら⑤に同調するふりをする。  </p>
-<p>「確かに、流出した映像がフェイクだという可能性もある。でも、それを証明するために、ちゃんとした映像をここで確認しませんか？」  </p>
-<p>「そんな必要はない！」⑤が制止しようとするが、経営者がそれを遮る。  </p>
-<p>「確かに、一度確認しておいた方がいいだろう」  </p>
-<p>④が用意していた映像を再生する。流出した映像と見比べると、映るべき人物が消されていることが明らかだった。  </p>
-<p>⑤は「映像ではなく、元の画像がフェイクだ」と苦し紛れの主張をするが、③が静かに反論する。  </p>
-<p>「即日アップロードされた画像です。それが改ざんされていたとは考えにくい」  </p>
-<p>④が追い討ちをかける。「それに、編集ソフトのログも確認済みです」  </p>
-<p>経営者が眉をひそめ、「調べられるか？」と④に尋ねる。④がログを解析すると、削除されたはずの編集履歴が確認でき、⑤が複数の映像を編集していたことが明るみに出る。  </p>
-<p>「なぜこんなことをした？」経営者が詰め寄る。  </p>
-<p>⑤はしばらく沈黙した後、「証拠がない……」と呟くが、③が冷静に告げる。  </p>
-<p>「これだけの証拠が揃っています。あなたが映像を改ざんし、防犯カメラの来館者カウントを操作し、売上を過小計上していた可能性が極めて高い」  </p>
-<p>④が業務の詳細を補足する。「入館方法や支払い方法が複数あり、最終的な日時の集計は⑤だけが担当していました。つまり、⑤が自由に数字を操作できる立場だったわけです」  </p>
-<p>経営者の怒りが頂点に達し、「警察に通報する！」と声を荒らげる。  </p>
-<p>しかし、①は冷静に続ける。  </p>
-<p>「その前にもう一つ、確かめたいことがあります」  </p>
-<p>⑤が再び警戒の色を浮かべる。  </p>
-<p>「以前ここで働いていた⓪さんが失踪した件について——何かご存じではありませんか？」  </p>
-<p>⑤の表情が一瞬引きつる。  </p>
-<p>①はさらに追い詰める。「流出した映像の中に、⓪さんが映っているものがありました。しかし、その映像には違和感があります」  </p>
-<p>「違和感……？」⑤の声がわずかに震える。  </p>
-<p>（ここで回想シーン。③が④に依頼していたもう一つの内容についての会話シーンを追加）</p>
-<p>「⓪さんは、曜日ごとに私服のパターンを決めていました。しかし、その映像の日付と服装が一致していませんでした」  </p>
-<p>④も思い出したように頷く。「確かに、そうでした」  </p>
-<p>「これは仮説ですが——」①は言葉を区切る。  </p>
-<p>「この映像もまた加工されていたのでは？ 消すのではなく、あたかも存在したかのように」  </p>
-<p>⑤の呼吸が乱れる。③がさらに追及する。  </p>
-<p>「先ほど確認した編集ログに、この日の映像の編集記録が残っていました。あなたは、この映像を改ざんしていたのではありませんか？」  </p>
-<p>「それは……」⑤の声が震え、指が微かに痙攣する。  </p>
-<p>「⑤さん、あなたは不正をしていました。そして、その不正に気づいた⓪さんが、あなたを追及したのではありませんか？」  </p>
-<p>「……違う……私は……そんな……」  </p>
-<p>⑤の体がわずかに揺れる。  </p>
-<p>①は静かに言った。「私たちはこれ以上追及できません。ですが——」  </p>
-<p>冷たい視線で⑤を見据える。  </p>
-<p>「この先は、警察にお任せします」  </p>
-<p>⑤は顔面蒼白になり、崩れ落ちるように椅子に座り込んだ。  </p>
-<p>経営者がスマートフォンを手に取り、通報の準備を始める。  </p>
-<p>——⑤の運命は、すでに決まっていた。  </p>
-
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/orachang/archives/2025/03/">
+            <span class="card-archive-list-date">
+              3月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kosuke0919fam.github.io/orachang/0001/" data-id="cm8bpz0lj0002ewvlcc6pd79j" data-title="水族館" class="article-share-link"><span class="fa fa-share">共有</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/orachang/tags/mistery/" rel="tag">mistery</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">カテゴリ</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/orachang/categories/report/">report</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">タグ</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/orachang/tags/mistery/" rel="tag">mistery</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">タグクラウド</h3>
-    <div class="widget tagcloud">
-      <a href="/orachang/tags/mistery/" style="font-size: 10px;">mistery</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">アーカイブ</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/orachang/archives/2025/03/">3月 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最近の投稿</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/orachang/0001/">水族館</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 orachang<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/orachang/" class="mobile-nav-link">Home</a>
-  
-    <a href="/orachang/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/orachang/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/orachang/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/orachang/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By orachang</div><div class="framework-info"><span>フレームワーク </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>テーマ </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="ライトモード/ダークモード切り替え"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="シングルカラムとダブルカラムの切り替え"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="トップに戻る"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/orachang/js/utils.js"></script><script src="/orachang/js/main.js"></script><div class="js-pjax"></div></div></body></html>

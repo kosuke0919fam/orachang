@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
-  const keyword = urlParams.get("keyword");
+  const keyword = urlParams.get("query");
   if (!keyword) return;
 
-  fetch("/search.json")
+  fetch("/orachang/search.json")
     .then(res => res.json())
     .then(posts => {
-      const results = posts.filter(post => post.title.includes(keyword) || post.text.includes(keyword));
+      const results = posts.filter(post =>
+        post.title.includes(keyword) || post.text.includes(keyword)
+      );
       const container = document.getElementById("search-results");
       container.innerHTML = "";
 
@@ -20,10 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
         li.classList.add("article-card");
         li.innerHTML = `
           <a href="${post.url}">
-            <div class="thumbnail"><img src="${post.thumbnail || '/images/default-thumb.jpg'}"></div>
+            <div class="thumbnail"><img src="${post.thumbnail || '/orachang/images/default-thumb.jpg'}"></div>
             <div class="content">
               <span class="category">${post.categories?.[0] || ''}</span>
               <h2 class="title">${post.title}</h2>
+              <p class="excerpt">${post.text.slice(0, 50)}...</p>
             </div>
           </a>
         `;

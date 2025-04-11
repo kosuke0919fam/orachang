@@ -1,124 +1,73 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background: #f8f8f8;
+  padding: 0;
+  background: #f9f9f9;
 }
 
-.page-container {
-  max-width: 720px;
+.site-header, .site-footer {
+  padding: 1em 2em;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner, .page-container {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 2em 1em;
-  line-height: 1.8;
-  font-size: 1.1em;
 }
 
-.post-title {
-  font-size: 1.8em;
-  margin-bottom: 1em;
-  text-align: center;
-}
-
-.post-content p {
-  margin-bottom: 1.2em;
-}
-
-.post-content ul {
-  padding-left: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-.post-content a {
-  color: #0070f3;
-  text-decoration: underline;
-}
-
-.post-content a:hover {
+.site-title a {
+  font-size: 2em;
   text-decoration: none;
+  color: #333;
+}
+
+.search-form {
+  float: right;
 }
 
 .article-list {
   list-style: none;
   padding: 0;
-  margin: 2em auto;
-  max-width: 960px;
 }
 
 .article-card {
   display: flex;
+  margin: 1em 0;
   background: #fff;
-  margin-bottom: 1.5em;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-.article-card a {
-  display: flex;
-  color: inherit;
-  text-decoration: none;
-  width: 100%;
-}
-
-.article-card .thumbnail {
-  width: 40%;
-  max-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .article-card .thumbnail img {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: auto;
   object-fit: cover;
-  display: block;
 }
 
 .article-card .content {
   padding: 1em;
-  flex: 1;
-  position: relative;
 }
 
-.article-card .category {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  background: #00aaff;
-  color: #fff;
-  font-size: 0.75em;
-  padding: 0.3em 0.6em;
-  border-radius: 4px;
+.category {
+  display: inline-block;
+  margin-bottom: 0.5em;
   font-weight: bold;
+  color: #888;
 }
 
-.article-card .title {
-  margin-top: 2.5em;
-  font-size: 1.1em;
+.excerpt {
+  color: #555;
 }
 
-/* ページ送りナビ */
-.post-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
+.page-nav {
   margin-top: 2em;
-  font-size: 0.95em;
-  color: #444;
 }
 
-.post-pagination a {
-  text-decoration: none;
-  padding: 0.5em 1em;
-  background: #e0f0ff;
-  color: #0070f3;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.post-pagination a:hover {
-  background: #cde6fa;
-}
-
-.post-pagination .page-number {
-  font-weight: bold;
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }

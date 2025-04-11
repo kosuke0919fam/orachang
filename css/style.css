@@ -1,10 +1,1 @@
-body { font-family: sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-.container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
-.site-header, .site-footer { padding: 1em 0; background: #fff; border-bottom: 1px solid #ddd; text-align: left; }
-.article-list { list-style: none; padding: 0; }
-.article-card { display: flex; margin: 1em 0; background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
-.thumbnail-img { width: 200px; height: auto; object-fit: cover; display: block; }
-.content { padding: 1em; flex: 1; }
-.category { font-size: 0.85em; color: #888; }
-.title { font-size: 1.2em; margin: 0.5em 0; }
-.excerpt { font-size: 0.95em; color: #444; }
+body{margin:0;font-family:sans-serif;}.container{max-width:960px;margin:0 auto;padding:1rem;}.thumbnail img{width:100%;height:auto;}

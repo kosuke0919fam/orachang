@@ -10,8 +10,14 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="header-inner">
+  <div class="header-inner page-container">
     <h1 class="site-title"><a href="/orachang/">Hexo</a></h1>
+
+    <form class="search-form" action="/search/" method="get">
+      <input type="text" name="q" placeholder="検索...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+
     <button class="menu-toggle" aria-label="メニュー"><i class="fas fa-bars"></i></button>
     <nav class="nav-links">
       <ul>
@@ -20,21 +26,16 @@
         <li><a href="/orachang/tags/">タグ</a></li>
       </ul>
     </nav>
-    <form class="search-form" action="/search/" method="get">
-      <input type="text" name="q" placeholder="検索...">
-      <button type="submit"><i class="fas fa-search"></i></button>
-    </form>
   </div>
 </header>
 
-  <script>
-    document.querySelector('.hamburger-menu').addEventListener('click', function() {
-      const menu = document.querySelector('.header-menu');
-      menu.classList.toggle('active');
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
     });
-  </script>
-</body>
-</html>
+  });
+</script>
 
 <main class='page-container'>
 <h2>カテゴリ: カテゴリ3</h2>

@@ -158,3 +158,36 @@ body {
     display: block;
   }
 }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-links.menu-open {
+  display: block;
+}
+
+.page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5em 1em;
+}
+
+.site-header, .site-footer {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-footer .footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}

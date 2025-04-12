@@ -1,1 +1,1 @@
-console.log('Search script loaded');
+console.log('Search logic');

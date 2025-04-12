@@ -1,1 +1,1 @@
-<!-- search.js (dummy content for source/js) -->
+console.log('Search script loaded');

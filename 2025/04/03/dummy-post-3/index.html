@@ -12,19 +12,32 @@
   <header class="site-header">
     <div class="header-inner">
       <h1 class="site-title">
-        <a href="/orachang/">Hexo</a>
+        <a href="/">Hexo</a>
       </h1>
-      <div class="header-menu">
-        <button class="hamburger-menu">
-          <i class="fa fa-bars"></i>
-        </button>
-        <form class="search-form" action="/search/" method="get">
-          <input type="text" name="query" placeholder="検索..." required>
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+      <form class="search-form" action="/search">
+        <input type="text" name="query" placeholder="検索...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <div class="hamburger-menu">
+        <i class="fa fa-bars"></i>
       </div>
     </div>
+    <nav class="header-menu">
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/categories">カテゴリ</a></li>
+        <li><a href="/tags">タグ</a></li>
+      </ul>
+    </nav>
   </header>
+  <script>
+    document.querySelector('.hamburger-menu').addEventListener('click', function() {
+      const menu = document.querySelector('.header-menu');
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
 
 <main class='page-container'>
 <p>これはダミー記事 3 の本文です。</p>

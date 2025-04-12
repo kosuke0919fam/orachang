@@ -9,27 +9,24 @@
   <meta name="generator" content="Hexo">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">
-        <a href="/">Hexo</a>
-      </h1>
-      <form class="search-form" action="/search">
-        <input type="text" name="query" placeholder="検索...">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <div class="hamburger-menu">
-        <i class="fa fa-bars"></i>
-      </div>
-    </div>
-    <nav class="header-menu">
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="site-title"><a href="/orachang/">Hexo</a></h1>
+    <button class="menu-toggle" aria-label="メニュー"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links">
       <ul>
-        <li><a href="/">ホーム</a></li>
-        <li><a href="/categories">カテゴリ</a></li>
-        <li><a href="/tags">タグ</a></li>
+        <li><a href="/orachang/">ホーム</a></li>
+        <li><a href="/orachang/categories/">カテゴリ</a></li>
+        <li><a href="/orachang/tags/">タグ</a></li>
       </ul>
     </nav>
-  </header>
+    <form class="search-form" action="/search/" method="get">
+      <input type="text" name="q" placeholder="検索...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</header>
+
   <script>
     document.querySelector('.hamburger-menu').addEventListener('click', function() {
       const menu = document.querySelector('.header-menu');
@@ -53,12 +50,7 @@
       <h2 class="title">ダミー記事 8</h2>
       <p class="excerpt">
         これはダミー記事 8 の本文です。
-
-
-こちらはページ2の内容です。
-
-
-こちらはページ3の内容です...
+...
       </p>
     </div>
   </a>
@@ -75,12 +67,7 @@
       <h2 class="title">ダミー記事 3</h2>
       <p class="excerpt">
         これはダミー記事 3 の本文です。
-
-
-こちらはページ2の内容です。
-
-
-こちらはページ3の内容です...
+...
       </p>
     </div>
   </a>

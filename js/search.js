@@ -1,1 +1,1 @@
-// Search logic JS
+// dummy search script

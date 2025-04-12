@@ -9,7 +9,22 @@
   <meta name="generator" content="Hexo">
 </head>
 <body>
-  <!-- ここにヘッダーのコンテンツを追加できます -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">
+        <a href="/orachang/">Hexo</a>
+      </h1>
+      <div class="header-menu">
+        <button class="hamburger-menu">
+          <i class="fa fa-bars"></i>
+        </button>
+        <form class="search-form" action="/search/" method="get">
+          <input type="text" name="query" placeholder="検索..." required>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </header>
 
 <main class='page-container'>
 <p>これはダミー記事 6 の本文です。</p>
@@ -22,4 +37,8 @@
 
 <div class='post-pagination'>...</div>
 </main>
-<footer class='site-footer'>...</footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; Hexo | All rights reserved.</p>
+  </div>
+</footer>

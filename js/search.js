@@ -1,1 +1,1 @@
-console.log('Search JS Loaded');
+// Search logic JS

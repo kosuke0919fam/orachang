@@ -1,1 +1,1 @@
-/* responsive CSS */
+body{margin:0;font-family:sans-serif}.container{max-width:960px;margin:0 auto;padding:1rem}.site-header,.site-footer{background:#f8f8f8;padding:1rem}.article-card{display:flex;align-items:center;border-bottom:1px solid #ccc;padding:1rem 0}.thumbnail{width:160px}.thumbnail img{width:100%;height:auto}.content{margin-left:1rem}.title{font-size:1.2rem}.category{font-size:0.8rem;color:#888}

@@ -1,1 +1,1 @@
-// dummy search logic
+<!-- search.js (dummy content for source/js) -->

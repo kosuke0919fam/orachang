@@ -1,3 +1,10 @@
+/* リセット＆共通設定 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Meiryo', sans-serif;
   margin: 0;
@@ -11,13 +18,18 @@ a {
   text-decoration: none;
 }
 
-.container, .page-container {
+/* 全体の基本レイアウト */
+.container,
+.page-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.site-header, .site-footer {
+/* ヘッダー・フッター共通 */
+.site-header,
+.site-footer {
   background: #f4f4f4;
   padding: 10px 0;
   text-align: center;
@@ -28,47 +40,46 @@ a {
   font-weight: bold;
 }
 
+/* トップページ記事リスト（2列ブログカード） */
 .article-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: -0.5rem; /* カード間スペース相殺 */
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
-.article-list.two-column > li {
-  width: calc(50% - 10px);
-  box-sizing: border-box;
+.article-card {
+  width: 50%;
+  padding: 0.5rem;
 }
 
-.article-card img {
-  border: 1px solid #ccc;
-  padding: 10px;
+.article-card a {
+  display: block;
   background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.article-card a:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .article-card img {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
 .article-card .title {
   font-weight: bold;
-  margin-top: 8px;
+  padding: 0.5rem;
 }
 
-.no-thumbnail {
-  background: #ddd;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 0.9em;
-}
+/* 記事ページ */
 .post-thumbnail img {
   width: 100%;
   max-width: 100%;
@@ -77,9 +88,11 @@ a {
   margin: 1rem 0;
 }
 
+/* 関連記事（カードグリッド） */
 .related-posts {
   margin-top: 3rem;
 }
+
 .related-posts h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
@@ -93,14 +106,15 @@ a {
 
 .card {
   display: block;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  background: #fff;
   transition: box-shadow 0.3s;
 }
+
 .card:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -117,10 +131,22 @@ a {
   font-weight: bold;
   padding: 0.5rem;
 }
-.page-container,
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+
+/* サムネイルなしのカード */
+.no-thumbnail {
+  background: #ddd;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .article-card {
+    width: 100%;
+  }
 }

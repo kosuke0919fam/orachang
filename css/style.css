@@ -1,4 +1,6 @@
-/* リセット＆共通設定 */
+/* -----------------------------
+   リセット & 共通設定
+------------------------------ */
 *,
 *::before,
 *::after {
@@ -6,11 +8,12 @@
 }
 
 body {
-  font-family: 'Meiryo', sans-serif;
+  font-family: "メイリオ", Meiryo, sans-serif;
   margin: 0;
   padding: 0;
   background: #fff;
   color: #333;
+  line-height: 1.6;
 }
 
 a {
@@ -18,44 +21,59 @@ a {
   text-decoration: none;
 }
 
-/* 全体の基本レイアウト */
+/* -----------------------------
+   レイアウト全体
+------------------------------ */
 .container,
 .page-container {
   max-width: 960px;
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 }
 
-/* ヘッダー・フッター共通 */
-.site-header,
-.site-footer {
+/* -----------------------------
+   ヘッダー
+------------------------------ */
+.site-header {
   background: #f4f4f4;
-  padding: 10px 0;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
   text-align: center;
 }
 
 .site-title {
-  font-size: 1.8em;
+  margin: 0;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
-/* トップページ記事リスト（2列ブログカード） */
+/* -----------------------------
+   フッター
+------------------------------ */
+.site-footer {
+  background: #f4f4f4;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* -----------------------------
+   トップページ記事リスト（2列固定）
+------------------------------ */
 .article-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   list-style: none;
   padding: 0;
-  margin: -0.5rem; /* カード間スペース相殺 */
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0;
 }
 
 .article-card {
-  width: 50%;
-  padding: 0.5rem;
-}
-
-.article-card a {
-  display: block;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -63,13 +81,12 @@ a {
   transition: box-shadow 0.3s;
 }
 
-.article-card a:hover {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.article-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .article-card img {
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
@@ -79,16 +96,39 @@ a {
   padding: 0.5rem;
 }
 
-/* 記事ページ */
-.post-thumbnail img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 1rem 0;
+/* -----------------------------
+   投稿ページ（記事詳細）
+------------------------------ */
+.post-thumbnail {
+  margin: 1.5rem 0;
 }
 
-/* 関連記事（カードグリッド） */
+.post-thumbnail img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.post-title {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.post-content {
+  font-size: 1rem;
+}
+
+/* -----------------------------
+   関連記事セクション（2列）
+------------------------------ */
 .related-posts {
   margin-top: 3rem;
 }
@@ -98,14 +138,13 @@ a {
   margin-bottom: 1rem;
 }
 
-.card-grid.two-column {
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
 .card {
-  display: block;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -116,14 +155,14 @@ a {
 }
 
 .card:hover {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-thumb img,
 .card-thumb-placeholder {
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   background: #eee;
 }
 
@@ -132,21 +171,10 @@ a {
   padding: 0.5rem;
 }
 
-/* サムネイルなしのカード */
-.no-thumbnail {
-  background: #ddd;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.card-thumb-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
   color: #888;
   font-size: 0.9em;
-}
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 768px) {
-  .article-card {
-    width: 100%;
-  }
 }

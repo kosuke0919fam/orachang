@@ -1,52 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // pagebreak.js の処理
+document.addEventListener('DOMContentLoaded', () => {
   const content = document.querySelector('.post-content');
-  if (content && content.innerHTML.includes('<!-- pagebreak -->')) {
-    const segments = content.innerHTML.split('<!-- pagebreak -->');
-    const container = document.createElement('div');
+  if (!content) return;
+
+  const rawPages = content.innerHTML.split('<!-- pagebreak -->');
+  if (rawPages.length <= 1) return;
+
+  // ハッシュからページ番号を取得（例: #page=2）
+  const getPageFromHash = () => {
+    const match = window.location.hash.match(/page=(\d+)/);
+    const pageNum = match ? parseInt(match[1], 10) : 1;
+    return Math.min(Math.max(pageNum, 1), rawPages.length);
+  };
+
+  // 表示切替処理
+  const renderPage = (page) => {
+    content.innerHTML = rawPages[page - 1];
     const nav = document.createElement('nav');
     nav.className = 'pagebreak-nav';
 
-    segments.forEach((segment, index) => {
-      const page = document.createElement('div');
-      page.className = 'pagebreak-segment';
-      page.innerHTML = segment;
-      if (index !== 0) page.style.display = 'none';
-      container.appendChild(page);
+    for (let i = 1; i <= rawPages.length; i++) {
+      const btn = document.createElement('a');
+      btn.textContent = i;
+      btn.href = `#page=${i}`;
+      btn.className = 'page-number' + (i === page ? ' current' : '');
+      nav.appendChild(btn);
+    }
 
-      const link = document.createElement('button');
-      link.textContent = index + 1;
-      link.addEventListener('click', () => {
-        container.querySelectorAll('.pagebreak-segment').forEach((el, i) => {
-          el.style.display = (i === index) ? 'block' : 'none';
-        });
-      });
-      nav.appendChild(link);
-    });
-
-    content.innerHTML = '';
-    content.appendChild(container);
     content.appendChild(nav);
-  }
+  };
 
-  // search.js の処理（例: Hexo SearchDBベース）
-  if (document.getElementById('search-input')) {
-    const input = document.getElementById('search-input');
-    const resultBox = document.getElementById('search-results');
-    fetch('/search.json')
-      .then(res => res.json())
-      .then(data => {
-        input.addEventListener('input', () => {
-          const keyword = input.value.toLowerCase();
-          const results = data.filter(post =>
-            post.title.toLowerCase().includes(keyword) ||
-            post.content.toLowerCase().includes(keyword)
-          );
-          resultBox.innerHTML = results.map(post => `
-            <div class="search-hit">
-              <a href="${post.url}">${post.title}</a>
-            </div>`).join('');
-        });
-      });
-  }
+  // 初期描画＆ハッシュ変更対応
+  const init = () => renderPage(getPageFromHash());
+  window.addEventListener('hashchange', init);
+  init();
 });

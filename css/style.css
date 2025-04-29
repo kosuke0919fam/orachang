@@ -1,19 +1,17 @@
-/* 共通リセット */
+/* リセット */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ベース設定 */
+/* 全体設定 */
 body {
   font-family: "Meiryo", sans-serif;
   font-size: 16px;
   line-height: 1.8;
   background: #f9f9f9;
   color: #333;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -24,7 +22,7 @@ a:hover {
   color: #007acc;
 }
 
-/* コンテナ */
+/* レイアウト */
 .page-container {
   max-width: 960px;
   margin: 3rem auto;
@@ -45,7 +43,7 @@ a:hover {
   color: #000;
 }
 
-/* 記事一覧 */
+/* 記事一覧グリッド */
 .article-list {
   list-style: none;
   display: grid;
@@ -53,12 +51,12 @@ a:hover {
   gap: 2rem;
 }
 
+/* 記事カード */
 .article-card {
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  transition: none;
 }
 
 .article-card a {
@@ -68,7 +66,7 @@ a:hover {
 
 .article-card img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
 }
@@ -95,17 +93,17 @@ a:hover {
 
 .post-thumbnail img {
   width: 100%;
-  max-height: 400px;
   object-fit: cover;
   border-radius: 8px;
   margin: 1rem 0;
+  aspect-ratio: 16 / 9;
 }
 
 .post-content {
   line-height: 1.9;
 }
 
-/* 関連記事カード */
+/* 関連記事 */
 .related-posts {
   margin-top: 4rem;
 }
@@ -124,12 +122,11 @@ a:hover {
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow: hidden;
-  text-decoration: none;
 }
 .card-thumb img,
 .card-thumb-placeholder {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #ccc;
 }
@@ -140,37 +137,50 @@ a:hover {
   color: #000;
 }
 
-/* ページナビゲーション（共通） */
-.page-nav {
-  margin-top: 3rem;
-  text-align: center;
+/* 共通ページナビゲーション（pagination + pagebreak） */
+.pagination, .page-nav {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+  gap: 0.5em;
   font-size: 1rem;
 }
+
+.pagination .page-number,
 .page-nav .page-number,
+.pagination .prev,
+.pagination .next,
 .page-nav .prev,
 .page-nav .next {
-  display: inline-block;
-  margin: 0 0.3em;
-  padding: 0.5em 1em;
-  background: #fff;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
+  background-color: #fff;
   color: #000;
-  text-decoration: none;
-  border-radius: 6px;
+  border-radius: 0.5em;
   border: 1px solid #ccc;
-  transition: background 0.2s, color 0.2s;
-}
-.page-nav .page-number:hover,
-.page-nav .prev:hover,
-.page-nav .next:hover {
-  background: #f0f0f0;
-}
-.page-nav .current {
-  background: #333;
-  color: #fff;
+  text-decoration: none;
   font-weight: bold;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* レスポンシブ（スマホ対応） */
+.pagination .page-number:hover,
+.page-nav .page-number:hover,
+.pagination .prev:hover,
+.pagination .next:hover,
+.page-nav .prev:hover,
+.page-nav .next:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .current,
+.page-nav .current {
+  background-color: #333;
+  color: #fff;
+}
+
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
   .article-list,
   .card-grid {
@@ -180,4 +190,3 @@ a:hover {
     margin: 2rem 1rem;
   }
 }
-s

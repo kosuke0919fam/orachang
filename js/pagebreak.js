@@ -1,17 +1,37 @@
-'use strict';
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector('.post-content');
+  if (!content) return;
 
-hexo.extend.filter.register('before_post_render', function (data) {
-  if (!data.layout || data.layout !== 'post') return data;
+  const pages = content.innerHTML.split('<!-- pagebreak -->');
+  if (pages.length <= 1) return;
 
-  if (data.content.includes('<!-- pagebreak -->')) {
-    const pages = data.content.split('<!-- pagebreak -->');
-    data.content = pages.map((content, index) => {
-      return `<div class="page" id="page-${index + 1}">${content.trim()}</div>`;
-    }).join('');
-    data.pagebreak = true;
-  } else {
-    data.pagebreak = false;
+  let currentPage = 0;
+
+  function renderPage(pageIndex) {
+    content.innerHTML = pages[pageIndex];
+    updatePagination();
   }
 
-  return data;
+  function updatePagination() {
+    const pagination = document.createElement('div');
+    pagination.className = 'pagebreak-pagination';
+
+    for (let i = 0; i < pages.length; i++) {
+      const link = document.createElement('button');
+      link.textContent = i + 1;
+      link.disabled = (i === currentPage);
+      link.addEventListener('click', () => {
+        currentPage = i;
+        renderPage(currentPage);
+      });
+      pagination.appendChild(link);
+    }
+
+    const oldPagination = document.querySelector('.pagebreak-pagination');
+    if (oldPagination) oldPagination.remove();
+
+    content.parentNode.insertBefore(pagination, content.nextSibling);
+  }
+
+  renderPage(currentPage);
 });

@@ -1,88 +1,84 @@
-/* -----------------------------
-   リセット & 共通設定
------------------------------- */
+/* 基本リセット */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body {
-  font-family: "メイリオ", Meiryo, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff;
-  color: #333;
+}
+
+/* サイト全体のベース */
+body {
+  font-family: "Meiryo", sans-serif;
   line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  font-size: 16px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* -----------------------------
-   レイアウト全体
------------------------------- */
-.container,
-.page-container {
-  max-width: 960px;
+/* コンテナ共通 */
+.container {
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-/* -----------------------------
-   ヘッダー
------------------------------- */
+/* ヘッダー */
 .site-header {
-  background: #f4f4f4;
+  background-color: #fafafa;
   padding: 1.5rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .site-title {
-  margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
+  text-align: center;
 }
 
-/* -----------------------------
-   フッター
------------------------------- */
-.site-footer {
-  background: #f4f4f4;
+.site-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* メインコンテンツ */
+.page-container {
   padding: 2rem 0;
+}
+
+/* フッター */
+.site-footer {
+  background-color: #fafafa;
+  padding: 1.5rem 0;
   margin-top: 3rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #e0e0e0;
   text-align: center;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* -----------------------------
-   トップページ記事リスト（2列固定）
------------------------------- */
+/* 記事リスト（トップ、カテゴリー、タグページ共通） */
 .article-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.article-list.two-column {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .article-card {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  transition: box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .article-card:hover {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .article-card img {
@@ -92,120 +88,143 @@ a {
 }
 
 .article-card .title {
+  padding: 0.8rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  padding: 0.5rem;
+  color: #333;
 }
 
-/* -----------------------------
-   投稿ページ（記事詳細）
------------------------------- */
-.post-thumbnail {
-  margin: 1.5rem 0;
-}
-
-.post-thumbnail img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
-
+/* 個別記事 */
 .post-title {
-  font-size: 1.75rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .post-meta {
   font-size: 0.9rem;
-  color: #777;
+  color: #888;
   margin-bottom: 1.5rem;
 }
 
-.post-content {
-  font-size: 1rem;
+.post-thumbnail {
+  margin-bottom: 1.5rem;
 }
 
-/* -----------------------------
-   関連記事セクション（2列）
------------------------------- */
+.post-thumbnail img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 本文 */
+.post-content {
+  margin-top: 2rem;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+}
+
+/* 関連記事セクション */
 .related-posts {
   margin-top: 3rem;
 }
 
 .related-posts h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
+.card-grid.two-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .card {
-  background: #fff;
+  display: block;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
-  transition: box-shadow 0.3s;
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card-thumb img,
-.card-thumb-placeholder {
+.card-thumb img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background: #eee;
 }
 
 .card-title {
+  padding: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 0.5rem;
 }
 
-.card-thumb-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 0.9em;
-}
-/* -----------------------------
-   ページネーション
------------------------------- */
+/* ページネーション */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  gap: 8px;
-  flex-wrap: wrap;
+  margin-top: 2rem;
+  text-align: center;
 }
 
-.pagination a, .pagination .page-number {
+.pagination a,
+.pagination span {
   display: inline-block;
-  padding: 8px 14px;
-  background: #f5f5f5;
-  border-radius: 6px;
+  margin: 0 0.3rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   text-decoration: none;
   color: #333;
-  transition: background 0.3s;
-  font-size: 14px;
-}
-
-.pagination a:hover {
-  background: #ddd;
 }
 
 .pagination .current {
-  background: #333;
+  background-color: #333;
   color: #fff;
+  border-color: #333;
+}
+
+.pagination .prev,
+.pagination .next {
+  font-weight: bold;
+}
+
+/* pagebreak対応 */
+.pagebreak-pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagebreak-pagination button {
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagebreak-pagination button:disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .article-list.two-column,
+  .card-grid.two-column {
+    grid-template-columns: 1fr;
+  }
 }

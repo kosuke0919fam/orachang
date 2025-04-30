@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderPage = (page) => {
     content.innerHTML = rawPages[page - 1];
     const nav = document.createElement('nav');
-    nav.className = 'pagebreak-nav';
+    nav.className = 'page-nav';
 
     for (let i = 1; i <= rawPages.length; i++) {
       const btn = document.createElement('a');

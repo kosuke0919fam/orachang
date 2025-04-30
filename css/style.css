@@ -176,17 +176,14 @@ a:hover {
 
 .pagination .current,
 .page-nav .current {
-  background-color: #333;
-  color: #fff;
+  background-color: transparent;
+  color: #333;
+  border: none;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .article-list,
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-  .page-container {
-    margin: 2rem 1rem;
-  }
+.pagination .current:hover,
+.page-nav .current:hover {
+  background-color: transparent;
+  color: #333;
+  cursor: default;
 }

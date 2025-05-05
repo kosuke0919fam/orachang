@@ -1,14 +1,9 @@
-// source/js/scroll-top.js
-window.addEventListener('load', () => {
-  if (window.location.href.match(/page\/\d+/) || window.location.hash.includes('#page')) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
+window.addEventListener('DOMContentLoaded', () => {
+  // ユーザーが明示的にページ番号へ遷移した場合のみスクロール
+  const path = window.location.pathname;
+  const isPaged = /\/page\/\d+\/?$/.test(path);
 
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.location.hash.includes('#page')) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (isPaged) {
+    window.scrollTo({ top: 0, behavior: 'auto' }); // instant scroll
   }
 });

@@ -17,7 +17,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   margin: 0 auto;
   padding: 2em 1em;
 }
-
+/* === Hero Section === */
 .hero {
   text-align: center;
   margin-bottom: 2em;
@@ -44,6 +44,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   transform: translate(-50%, -50%);
 }
 
+/* === Button === */
 .btn {
   background-color: #6c3b4b;
   color: white;
@@ -58,7 +59,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   background-color: #5a2f3f;
 }
 
-/* post page */
+/* === Post Page === */
 .post-img-wrapper {
   text-align: center;
   margin-bottom: 1.5em;
@@ -70,7 +71,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   border-radius: 8px;
 }
 
-
+/* === Fivech (掲示板風) === */
 .fivech {
   background-color: #f0f0f0;
   font-family: "MS PGothic", "Osaka", sans-serif;
@@ -92,6 +93,8 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
 .fivech .res-body {
   margin-left: 1em;
 }
+
+/* === Tweet Card === */
 .tweet {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -101,7 +104,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   margin: 2rem auto;
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #0f1419;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .tweet-header {
@@ -147,6 +150,7 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   font-size: 0.85rem;
 }
 
+/* === DM風 UI === */
 .dm-frame {
   max-width: 480px;
   margin: 0 auto;
@@ -212,6 +216,8 @@ box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
   padding: 0 0.3em;
   align-self: flex-end;
 }
+
+/* === Headings === */
 h3 {
   background-color: #d8c7b0;
   border-left: 6px solid #6c3b4b;
@@ -219,5 +225,5 @@ h3 {
   font-family: 'Georgia', serif;
   font-weight: bold;
   color: #3c2f2c;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }

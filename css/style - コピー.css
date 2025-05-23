@@ -1,24 +1,25 @@
 html, body {
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-y: auto;
-  font-size: 16px;
-  line-height: 1.6;
-  font-family: "MS PGothic", "Osaka", sans-serif;
 }
 
 body {
-  box-shadow: inset 0 0 100px 20px rgba(210, 190, 160, 0.9);
+  font-family: "MS PGothic", "Osaka", sans-serif;
+  /*font-family: "Helvetica Neue", Arial, sans-serif;*/
+  /*font-family: 'Georgia', serif;*/
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
 }
-
 .container {
   max-width: 720px;
   margin: 0 auto;
   padding: 2em 1em;
 }
-
-/* Hero */
+/* === Hero Section === */
 .hero {
   text-align: center;
   margin-bottom: 2em;
@@ -31,9 +32,9 @@ body {
 }
 
 .hero-thumbnail {
-  display: block;
   max-width: 100%;
   height: auto;
+  display: block;
   margin: 0 auto;
   border-radius: 8px;
 }
@@ -45,12 +46,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Button */
+/* === Button === */
 .btn {
-  display: inline-block;
-  padding: 0.6em 1.2em;
   background-color: #6c3b4b;
   color: white;
+  padding: 0.6em 1.2em;
   text-decoration: none;
   border: 1px solid #6c3b4b;
   border-radius: 4px;
@@ -61,7 +61,7 @@ body {
   background-color: #5a2f3f;
 }
 
-/* Post */
+/* === Post Page === */
 .post-img-wrapper {
   text-align: center;
   margin-bottom: 1.5em;
@@ -73,12 +73,14 @@ body {
   border-radius: 8px;
 }
 
-/* Fivech */
+/* === Fivech (掲示板風) === */
 .fivech {
   background-color: #f0f0f0;
-  font-size: 1rem;
+  font-family: "MS PGothic", "Osaka", sans-serif;
+  font-size: 16px;
   padding: 1em;
   border: 1px solid #ccc;
+  line-height: 1.6;
 }
 
 .fivech .res {
@@ -94,17 +96,17 @@ body {
   margin-left: 1em;
 }
 
-/* Tweet */
+/* === Tweet Card === */
 .tweet {
-  max-width: 550px;
-  margin: 2rem auto;
-  padding: 1rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 16px;
+  max-width: 550px;
+  padding: 1rem;
+  margin: 2rem auto;
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #0f1419;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .tweet-header {
@@ -127,15 +129,17 @@ body {
 
 .tweet-name {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .tweet-handle {
-  font-size: 0.9rem;
   color: #536471;
+  font-size: 0.9rem;
 }
 
 .tweet-body {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
   margin-bottom: 0.75rem;
 }
 
@@ -144,27 +148,30 @@ body {
 }
 
 .tweet-footer {
-  font-size: 0.85rem;
   color: #536471;
+  font-size: 0.85rem;
 }
 
-/* DM UI */
+/* === DM風 UI === */
 .dm-frame {
   max-width: 480px;
   margin: 0 auto;
-  padding: 1rem;
   background-color: #000;
   border: 1px solid #333;
   border-radius: 12px;
+  padding: 1rem;
 }
 
 .dm-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 1.1rem;
+  justify-content: center;
   font-weight: bold;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
+}
+
+.dm-title {
   color: white;
 }
 
@@ -184,22 +191,22 @@ body {
 .bubble {
   padding: 0.8em 1em;
   border-radius: 1.5em;
-  font-size: 0.95rem;
   line-height: 1.8;
+  font-size: 0.95rem;
   word-break: break-word;
   max-width: 85%;
 }
 
 .dm-message.left .bubble {
-  align-self: flex-start;
   background-color: #2f3336;
+  align-self: flex-start;
   color: white;
   border-bottom-left-radius: 0.3em;
 }
 
 .dm-message.right .bubble {
-  align-self: flex-end;
   background-color: #1d9bf0;
+  align-self: flex-end;
   color: white;
   border-bottom-right-radius: 0.3em;
 }
@@ -212,11 +219,11 @@ body {
   align-self: flex-end;
 }
 
-/* Heading */
+/* === Headings === */
 h3 {
-  padding: 0.4em 1em;
   background-color: #d8c7b0;
   border-left: 6px solid #6c3b4b;
+  padding: 0.4em 1em;
   font-family: 'Georgia', serif;
   font-weight: bold;
   color: #3c2f2c;

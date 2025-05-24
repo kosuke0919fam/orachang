@@ -1,67 +1,90 @@
 html, body {
-  overflow-y: auto;
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  /*font-family: "MS PGothic", "Osaka", sans-serif;*/
 }
 
 body {
-  font-family: "MS PGothic", "Osaka", sans-serif;
-  /*font-family: "Helvetica Neue", Arial, sans-serif;*/
-  /*font-family: 'Georgia', serif;*/
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  box-shadow: inset 0 0 100px 50px rgba(240, 230, 220, 0.9);
+  box-shadow: inset 0 0 100px 20px rgba(210, 190, 160, 0.7);
 }
+
 .container {
   max-width: 720px;
   margin: 0 auto;
   padding: 2em 1em;
 }
-/* === Hero Section === */
-.hero {
-  text-align: center;
-  margin-bottom: 2em;
+
+/* Hero */
+.hero-section {
+  width: 100%;
+  padding: 2rem 1rem;
 }
 
-.hero-img-wrapper {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.hero-thumbnail {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
-  border-radius: 8px;
+  gap: 2rem;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* 正方形画像 */
+.hero-image-wrapper {
+  flex: 1 1 400px;
+  aspect-ratio: 1 / 1;       /* 正方形を保つ */
+  overflow: hidden;
+  width: 100%;
 }
 
-/* === Button === */
-.btn {
-  background-color: #6c3b4b;
-  color: white;
-  padding: 0.6em 1.2em;
-  text-decoration: none;
-  border: 1px solid #6c3b4b;
-  border-radius: 4px;
-  font-weight: bold;
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* コンテナにフィットしつつ、中心をトリミング */
+  display: block;
 }
 
-.btn:hover {
-  background-color: #5a2f3f;
+/* テキストとボタン */
+.hero-content {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* === Post Page === */
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+}
+
+/* レスポンシブ切り替え */
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto; /* 明示的に解除（必要に応じて） */
+  }
+}
+/* Post */
 .post-img-wrapper {
   text-align: center;
   margin-bottom: 1.5em;
@@ -73,40 +96,122 @@ body {
   border-radius: 8px;
 }
 
-/* === Fivech (掲示板風) === */
+/* Fivech */
 .fivech {
-  background-color: #f0f0f0;
-  font-family: "MS PGothic", "Osaka", sans-serif;
-  font-size: 16px;
-  padding: 1em;
-  border: 1px solid #ccc;
-  line-height: 1.6;
+  background-color: #fdfaf4; /* 薄クラフト紙風 */
+  border: 2px solid #ccc;
+  padding: 1rem;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  /*transform: rotate(-1deg); /* 軽く傾けて手作業感 */*/
+  max-width: 640px;
+  margin: 2rem auto;
+  font-family: 'Courier New', Courier, monospace;
 }
 
+.fivech::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  width: 60px;
+  height: 20px;
+  background-color: #f6f1e9;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  /*transform: rotate(-3deg);*/
+  z-index: 1;
+}
+
+/* タイトルの見出し（スレッドタイトル） */
+.fivech .res-title {
+  font-weight: bold;
+  background-color: #fffaf2;
+  padding: 0.75em 1em;
+  margin-bottom: 1.5em;
+  border-left: 5px solid #bb856a;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+}
+
+/* 各レス全体 */
 .fivech .res {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  background-color: #ffffff;
+  padding: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+  border: 1px solid #ccc;
+  /*transform: rotate(-0.5deg);*/
+  position: relative;
 }
 
+/* ピン止め風の飾り */
+.fivech .res::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: #bb856a;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ヘッダー（名前・日付） */
 .fivech .res-header {
   font-weight: bold;
-  color: #333;
+  color: #444;
+  font-size: 0.9rem;
+  margin-bottom: 0.3em;
 }
 
+/* 本文 */
 .fivech .res-body {
-  margin-left: 1em;
+  margin-left: 0.5em;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
-/* === Tweet Card === */
+.narration-note {
+  background: #fcf8f3;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 1.2em 1.5em;
+  max-width: 100%;
+  margin: 2em auto;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  position: relative;
+  /*transform: rotate(1deg);*/
+}
+
+/* 上部の留め紙・テープ風 */
+.narration-note::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 40px;
+  width: 60px;
+  height: 16px;
+  background-color: #d2b48c;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  /*transform: rotate(-2deg);*/
+}
+
+/* Tweet */
 .tweet {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 16px;
-  max-width: 550px;
-  padding: 1rem;
-  margin: 2rem auto;
-  font-family: "Helvetica Neue", Arial, sans-serif;
   color: #0f1419;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .tweet-header {
@@ -129,17 +234,15 @@ body {
 
 .tweet-name {
   font-weight: bold;
-  font-size: 1rem;
 }
 
 .tweet-handle {
-  color: #536471;
   font-size: 0.9rem;
+  color: #536471;
 }
 
 .tweet-body {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1rem;
   margin-bottom: 0.75rem;
 }
 
@@ -148,30 +251,42 @@ body {
 }
 
 .tweet-footer {
-  color: #536471;
   font-size: 0.85rem;
+  color: #536471;
 }
 
-/* === DM風 UI === */
+/* DM UI */
+/* 台紙に貼ったようなスクラップ風 */
 .dm-frame {
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: #000;
-  border: 1px solid #333;
-  border-radius: 12px;
+  background-color: #fdf8f3;
   padding: 1rem;
+  border: 1px solid #d2c5b0;
+  border-radius: 8px;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
+  /*transform: rotate(-0.5deg);*/
+  position: relative;
 }
-
+/* ピン留め・テープ風の擬似要素（上部） */
+.dm-frame::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 40px;
+  width: 60px;
+  height: 16px;
+  background-color: #c1a177;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  /*transform: rotate(-2deg);*/
+  border-radius: 3px;
+  z-index: 2;
+}
 .dm-header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: bold;
+  align-items: center;
   font-size: 1.1rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-}
-
-.dm-title {
   color: white;
 }
 
@@ -185,30 +300,65 @@ body {
 .dm-message {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+  max-width: 80%;
+  position: relative;
 }
-
+/* DMの吹き出し（印刷感を強める） */
 .bubble {
-  padding: 0.8em 1em;
-  border-radius: 1.5em;
-  line-height: 1.8;
+  position: relative;
+  font-family: 'Georgia', serif;
   font-size: 0.95rem;
-  word-break: break-word;
-  max-width: 85%;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  line-height: 1.7;
+  background-color: transparent;
+  border: none;
+}
+/* 左吹き出し（グレー） */
+.dm-message.left {
+  align-items: flex-start;
+  margin-right: auto;
 }
 
 .dm-message.left .bubble {
-  background-color: #2f3336;
-  align-self: flex-start;
-  color: white;
-  border-bottom-left-radius: 0.3em;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.dm-message.left .bubble::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: 12px; /* 下から12pxに調整 */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #f2f2f2 transparent transparent;
+}
+/* 右吹き出し（ブルー） */
+.dm-message.right {
+  align-items: flex-end;
+  margin-left: auto;
 }
 
 .dm-message.right .bubble {
-  background-color: #1d9bf0;
-  align-self: flex-end;
-  color: white;
-  border-bottom-right-radius: 0.3em;
+  background-color: #d6ecff;
+  color: #222;
+}
+
+.dm-message.right .bubble::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: 12px; /* 下から12pxに調整 */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #d6ecff;
 }
 
 .timestamp {
@@ -219,13 +369,64 @@ body {
   align-self: flex-end;
 }
 
-/* === Headings === */
+/* Heading */
 h3 {
+  padding: 0.4em 1em;
   background-color: #d8c7b0;
   border-left: 6px solid #6c3b4b;
-  padding: 0.4em 1em;
-  font-family: 'Georgia', serif;
+  /*font-family: 'Georgia', serif;*/
   font-weight: bold;
   color: #3c2f2c;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.dialogue-block {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  background: #fdfaf6;
+  padding: 1em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  max-width: 720px;
+  margin: 2em auto;
+  position: relative;
+}
+.dialogue-block .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  color: #3c2f2c;
+  border-left: 5px solid #6c3b4b;
+  padding: 0.5em 1em;
+  margin-bottom: 1.5em;
+  background-color: #f6f0e6;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+  position: relative;
+}
+
+.label {
+  flex: 0 0 3em; /* 固定幅で回り込み防止 */
+  font-weight: bold;
+  color: #4b4b4b;
+  margin-right: 0.5em;
+  line-height: 1.8;
+}
+
+.speaker-1 .label {
+  color: #3c2f2c; /* ①：色 */
+}
+
+.speaker-2 .label {
+  color: #0d5867; /* ②：色 */
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
 }

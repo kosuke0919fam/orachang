@@ -141,7 +141,7 @@ body {
 }
 
 /* タイトルの見出し（スレッドタイトル） */
-.fivech .res-title {
+.fivech .title {
   font-weight: bold;
   background-color: #fffaf2;
   padding: 0.75em 1em;
@@ -194,7 +194,7 @@ body {
   background: #fcf8f3;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-  padding: 1.2em 1.5em;
+  padding: 1em;
   max-width: 100%;
   margin: 2em auto;
   font-family: 'Courier New', Courier, monospace;
@@ -277,12 +277,12 @@ body {
 /* 台紙に貼ったようなスクラップ風 */
 .dm-frame {
   background-color: #fdf8f3;
-  padding: 1rem;
   border: 1px solid #d2c5b0;
   border-radius: 8px;
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
   /*transform: rotate(-0.5deg);*/
   position: relative;
+  margin: 2em auto;
 }
 /* ピン留め・テープ風の擬似要素（上部） */
 .dm-frame::before {
@@ -390,19 +390,24 @@ body {
 .dm-message.left .bubble {
   background-color: #d8d2c7;
   color: #222;
+  position: relative;
+  padding: 0 1em;
+  border-radius: 1em;
+  margin-left: 1em; /* 三角が見えるスペースを作る */
 }
 
 .dm-message.left .bubble::after {
   content: "";
   position: absolute;
-  left: -10px;
-  bottom: 12px; /* 下から12pxに調整 */
+  bottom: 1em;     /* 高さを調整（角丸の少し上） */
+  left: -10px;     /* 外に突き出す */
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 10px 10px 0;
+  border-width: 8px 10px 8px 0;
   border-color: transparent #d8d2c7 transparent transparent;
 }
+
 /* 右吹き出し（ブルー） */
 .dm-message.right {
   align-items: flex-end;
@@ -412,17 +417,21 @@ body {
 .dm-message.right .bubble {
   background-color: #337ab7;
   color: #fff;
+  position: relative;
+  padding: 0 1em;
+  border-radius: 1em;
+  margin-right: 1em; /* 三角が見えるスペースを作る */
 }
 
 .dm-message.right .bubble::after {
   content: "";
   position: absolute;
-  right: -10px;
-  bottom: 12px; /* 下から12pxに調整 */
+  bottom: 1em;     /* 高さを調整して角丸に干渉しないように */
+  right: -10px;    /* 外側に突き出す */
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 0 10px 10px;
+  border-width: 8px 0 8px 10px;
   border-color: transparent transparent transparent #337ab7;
 }
 
@@ -472,20 +481,30 @@ h3 {
 
 .line {
   display: flex;
-  align-items: flex-start;
+align-items: stretch; 
   margin-bottom: 1.5em;
   position: relative;
+  /*padding-left: 1.5em;*/
 }
 
+
+.divider {
+  display: block;
+  width: 1px;
+  background-color: #a58b6f;
+  margin: 0 0.75em;
+}
+
+/* ラベル部分 */
 .label {
-  flex: 0 0 4.2em; /* 固定幅で回り込み防止 */
+  position: relative;
+  z-index: 1;
+  flex: 0 0 3.2em;
   text-align: right;
   font-weight: bold;
   color: #4b4b4b;
-  margin-right: 0.0em;
   line-height: 1.8;
 }
-
 .speaker-1,
 .speaker-1 .label {
   color: #2a4dad; /* ①：色 */

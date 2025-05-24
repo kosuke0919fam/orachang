@@ -374,12 +374,13 @@ body {
 /* 左吹き出し（グレー） */
 .dm-message.left {
   align-items: flex-start;
+  color: #fff;
   margin-right: auto;
 }
 
 .dm-message.left .bubble {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #d8d2c7;
+  color: #222;
 }
 
 .dm-message.left .bubble::after {
@@ -391,7 +392,7 @@ body {
   height: 0;
   border-style: solid;
   border-width: 10px 10px 10px 0;
-  border-color: transparent #f2f2f2 transparent transparent;
+  border-color: transparent #d8d2c7 transparent transparent;
 }
 /* 右吹き出し（ブルー） */
 .dm-message.right {
@@ -400,8 +401,8 @@ body {
 }
 
 .dm-message.right .bubble {
-  background-color: #d6ecff;
-  color: #222;
+  background-color: #337ab7;
+  color: #fff;
 }
 
 .dm-message.right .bubble::after {
@@ -413,7 +414,7 @@ body {
   height: 0;
   border-style: solid;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #d6ecff;
+  border-color: transparent transparent transparent #337ab7;
 }
 
 .timestamp {
@@ -474,8 +475,9 @@ h3 {
   line-height: 1.8;
 }
 
+.speaker-1,
 .speaker-1 .label {
-  color: #3c2f2c; /* ①：色 */
+  color: #337ab7; /* ①：色 */
 }
 
 .speaker-2 .label {

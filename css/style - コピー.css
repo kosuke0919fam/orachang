@@ -5,18 +5,37 @@ html, body {
   overflow-y: auto;
   font-size: 16px;
   line-height: 1.6;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  /*font-family: "MS PGothic", "Osaka", sans-serif;*/
+  font-family: 'Courier New', Courier, monospace;
+  /* 背景画像の設定を追加 */
+  background-image: url("../images/scrapbook_kraft_texture_seamless.jpg");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  background-attachment: fixed; /* スクロール時も背景を固定する場合 */
+  /*box-shadow: inset 0 0 100px 20px rgba(210, 190, 160, 0.7);*/
 }
 
+
 body {
-  box-shadow: inset 0 0 100px 20px rgba(210, 190, 160, 0.7);
 }
 
 .container {
   max-width: 720px;
   margin: 0 auto;
-  padding: 2em 1em;
+  padding: 1em 1em;
+}
+
+main.container {
+
+  /* 背景画像の指定（シームレス） */
+  background-image: url("../images/vintage_book_paper_texture_seamless.jpg");
+  background-repeat: repeat;
+  background-size: auto; /* 必要に応じて cover でも可 */
+  background-position: top left;
+  background-color: #fdfaf6; /* 背景色と混ぜたい場合 */
+
+  /* 見やすさのために、角に少し影を入れることもおすすめ */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Hero */
@@ -98,17 +117,17 @@ body {
 
 /* Fivech */
 .fivech {
-  background-color: #fdfaf4; /* 薄クラフト紙風 */
-  border: 2px solid #ccc;
-  padding: 1rem;
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  /*transform: rotate(-1deg); /* 軽く傾けて手作業感 */*/
-  max-width: 640px;
+  background-color: #fdfaf4;
+  border: 2px solid #ccc;
+  padding: 2.5em 1em 1em; /* 上に余白を追加してh3の重なり分を確保 */
   margin: 2rem auto;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 640px;
   font-family: 'Courier New', Courier, monospace;
 }
 
+/*
 .fivech::before {
   content: '';
   position: absolute;
@@ -122,18 +141,18 @@ body {
   /*transform: rotate(-3deg);*/
   z-index: 1;
 }
+*/
 
-/* タイトルの見出し（スレッドタイトル） */
-.fivech .res-title {
+div.fivech > div.fivech-title {
   font-weight: bold;
-  background-color: #fffaf2;
-  padding: 0.75em 1em;
-  margin-bottom: 1.5em;
-  border-left: 5px solid #bb856a;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  color: #0000cc;
   font-size: 1.1rem;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  border-left: 5px solid #0000cc;
+  background-color: #f9f9f9;
+  font-family: "MS PGothic", "Osaka", sans-serif;
 }
-
 /* 各レス全体 */
 .fivech .res {
   margin-bottom: 1.5em;
@@ -177,10 +196,10 @@ body {
   background: #fcf8f3;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-  padding: 1.2em 1.5em;
+  padding: 1em;
   max-width: 100%;
   margin: 2em auto;
-  font-family: 'Georgia', serif;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   line-height: 1.8;
   color: #333;
@@ -212,6 +231,7 @@ body {
   border-radius: 16px;
   color: #0f1419;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .tweet-header {
@@ -259,12 +279,12 @@ body {
 /* 台紙に貼ったようなスクラップ風 */
 .dm-frame {
   background-color: #fdf8f3;
-  padding: 1rem;
   border: 1px solid #d2c5b0;
   border-radius: 8px;
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
   /*transform: rotate(-0.5deg);*/
   position: relative;
+  margin: 2em auto;
 }
 /* ピン留め・テープ風の擬似要素（上部） */
 .dm-frame::before {
@@ -289,6 +309,52 @@ body {
   margin-bottom: 1rem;
   color: white;
 }
+.dm-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.back-text,
+.info-text {
+  font-size: 1.2rem;
+  color: #333;
+  user-select: none;
+  cursor: default;
+}
+
+.back-text {
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.info-text {
+  font-weight: bold;
+  margin-left: auto;
+}
+
+
+.dm-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dm-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.dm-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #222;
+}
 
 .dm-date {
   text-align: center;
@@ -300,44 +366,50 @@ body {
 .dm-message {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.2rem;
+  margin: 1rem 0;
   max-width: 80%;
   position: relative;
 }
 /* DMの吹き出し（印刷感を強める） */
 .bubble {
   position: relative;
-  font-family: 'Georgia', serif;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 0.95rem;
-  padding: 1em;
+  padding: 0 1em;
   border-radius: 8px;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  line-height: 1.7;
+  line-height: 1.5;
   background-color: transparent;
   border: none;
 }
 /* 左吹き出し（グレー） */
 .dm-message.left {
   align-items: flex-start;
+  color: #fff;
   margin-right: auto;
 }
 
 .dm-message.left .bubble {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #d8d2c7;
+  color: #222;
+  position: relative;
+  padding: 0 1em;
+  border-radius: 1em;
+  margin-left: 1em; /* 三角が見えるスペースを作る */
 }
 
 .dm-message.left .bubble::after {
   content: "";
   position: absolute;
-  left: -10px;
-  bottom: 12px; /* 下から12pxに調整 */
+  bottom: 1em;     /* 高さを調整（角丸の少し上） */
+  left: -10px;     /* 外に突き出す */
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #f2f2f2 transparent transparent;
+  border-width: 8px 10px 8px 0;
+  border-color: transparent #d8d2c7 transparent transparent;
 }
+
 /* 右吹き出し（ブルー） */
 .dm-message.right {
   align-items: flex-end;
@@ -345,20 +417,24 @@ body {
 }
 
 .dm-message.right .bubble {
-  background-color: #d6ecff;
-  color: #222;
+  background-color: #337ab7;
+  color: #fff;
+  position: relative;
+  padding: 0 1em;
+  border-radius: 1em;
+  margin-right: 1em; /* 三角が見えるスペースを作る */
 }
 
 .dm-message.right .bubble::after {
   content: "";
   position: absolute;
-  right: -10px;
-  bottom: 12px; /* 下から12pxに調整 */
+  bottom: 1em;     /* 高さを調整して角丸に干渉しないように */
+  right: -10px;    /* 外側に突き出す */
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #d6ecff;
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent #337ab7;
 }
 
 .timestamp {
@@ -379,8 +455,31 @@ h3 {
   color: #3c2f2c;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.dialogue-block {
+
+.fivech::before {
+  content: none; /* 無効化 */
+}
+
+/* h3見出しをfivech枠の上に重ねる */
+.fivech-heading {
+  position: absolute;
+  top: -1.2em;
+  left: 1em;
+  padding: 0.4em 1em;
+  background-color: #d8c7b0;
+  color: #3c2f2c;
+  border-left: 6px solid #6c3b4b;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  border-radius: 4px;
+  z-index: 2;
+  margin: 0; /* h3 の上下余白を消して調整しやすく */
+}
+
+.dialogue-block {
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   line-height: 1.8;
   background: #fdfaf6;
@@ -390,11 +489,13 @@ h3 {
   max-width: 720px;
   margin: 2em auto;
   position: relative;
+
+  box-shadow: inset 0 0 100px 20px rgba(210, 190, 160, 0.7);
 }
 .dialogue-block .title {
   font-size: 1.25rem;
   font-weight: bold;
-  font-family: 'Georgia', serif;
+  font-family: 'Courier New', Courier, monospace;
   color: #3c2f2c;
   border-left: 5px solid #6c3b4b;
   padding: 0.5em 1em;
@@ -405,21 +506,32 @@ h3 {
 
 .line {
   display: flex;
-  align-items: flex-start;
+align-items: stretch; 
   margin-bottom: 1.5em;
   position: relative;
+  /*padding-left: 1.5em;*/
 }
 
+
+.divider {
+  display: block;
+  width: 1px;
+  background-color: #a58b6f;
+  margin: 0 0.75em;
+}
+
+/* ラベル部分 */
 .label {
-  flex: 0 0 3em; /* 固定幅で回り込み防止 */
+  position: relative;
+  z-index: 1;
+  flex: 0 0 3.2em;
+  text-align: right;
   font-weight: bold;
   color: #4b4b4b;
-  margin-right: 0.5em;
-  line-height: 1.8;
 }
-
+.speaker-1,
 .speaker-1 .label {
-  color: #3c2f2c; /* ①：色 */
+  color: #2a4dad; /* ①：色 */
 }
 
 .speaker-2 .label {

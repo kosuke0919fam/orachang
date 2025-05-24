@@ -156,7 +156,6 @@ main.container {
 h2.article-title {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
-  margin: 2em 1em 1em;
   text-align: left;
   color: #2f2f2f;
   position: relative;
@@ -248,7 +247,7 @@ div.fivech > div.fivech-title {
 .fivech-heading {
   position: absolute;
   top: -1.2em;
-  left: 1em;
+  left: -0.5em;
   padding: 0.4em 1em;
   background-color: #d8c7b0;
   color: #3c2f2c;

@@ -191,15 +191,16 @@ div.fivech > div.fivech-title {
   position: absolute;
   top: -14px;
   left: 50%;
+  transform: translateX(-50%);
   width: 80px;
   height: 24px;
-background-image: url("../images/masking_tape.png");
+  background-image: url("../images/masking_tape.png");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 5;
   pointer-events: none;
-  transform-origin: center;
 }
+
 
 /* ========== Tweet風カード ========== */
 .tweet {

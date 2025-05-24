@@ -100,7 +100,7 @@ body {
 .fivech {
   background-color: #fdfaf4; /* 薄クラフト紙風 */
   border: 2px solid #ccc;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   /*transform: rotate(-1deg); /* 軽く傾けて手作業感 */*/
@@ -206,7 +206,7 @@ body {
 .tweet {
   max-width: 100%;
   margin: 2rem auto;
-  padding: 1.2rem 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 16px;
@@ -256,15 +256,30 @@ body {
 }
 
 /* DM UI */
+/* 台紙に貼ったようなスクラップ風 */
 .dm-frame {
-  max-width: 480px;
-  margin: 0 auto;
+  background-color: #fdf8f3;
   padding: 1rem;
-  background-color: #000;
-  border: 1px solid #333;
-  border-radius: 12px;
+  border: 1px solid #d2c5b0;
+  border-radius: 8px;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
+  /*transform: rotate(-0.5deg);*/
+  position: relative;
 }
-
+/* ピン留め・テープ風の擬似要素（上部） */
+.dm-frame::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 40px;
+  width: 60px;
+  height: 16px;
+  background-color: #c1a177;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  /*transform: rotate(-2deg);*/
+  border-radius: 3px;
+  z-index: 2;
+}
 .dm-header {
   display: flex;
   justify-content: center;
@@ -285,30 +300,65 @@ body {
 .dm-message {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+  max-width: 80%;
+  position: relative;
 }
-
+/* DMの吹き出し（印刷感を強める） */
 .bubble {
-  padding: 0.8em 1em;
-  border-radius: 1.5em;
+  position: relative;
+  font-family: 'Georgia', serif;
   font-size: 0.95rem;
-  line-height: 1.8;
-  word-break: break-word;
-  max-width: 85%;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  line-height: 1.7;
+  background-color: transparent;
+  border: none;
+}
+/* 左吹き出し（グレー） */
+.dm-message.left {
+  align-items: flex-start;
+  margin-right: auto;
 }
 
 .dm-message.left .bubble {
-  align-self: flex-start;
-  background-color: #2f3336;
-  color: white;
-  border-bottom-left-radius: 0.3em;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.dm-message.left .bubble::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: 12px; /* 下から12pxに調整 */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #f2f2f2 transparent transparent;
+}
+/* 右吹き出し（ブルー） */
+.dm-message.right {
+  align-items: flex-end;
+  margin-left: auto;
 }
 
 .dm-message.right .bubble {
-  align-self: flex-end;
-  background-color: #1d9bf0;
-  color: white;
-  border-bottom-right-radius: 0.3em;
+  background-color: #d6ecff;
+  color: #222;
+}
+
+.dm-message.right .bubble::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: 12px; /* 下から12pxに調整 */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #d6ecff;
 }
 
 .timestamp {
@@ -334,7 +384,7 @@ h3 {
   font-size: 1rem;
   line-height: 1.8;
   background: #fdfaf6;
-  padding: 2em;
+  padding: 1em;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
   max-width: 720px;

@@ -499,3 +499,10 @@ align-items: stretch;
 .speaker-2 .label {
   color: #0d5867; /* ②：色 */
 }
+.hero-background {
+  background-image: url("../images/top_bg_fadecenter.jpg"); /* フェード加工済の画像 */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #000; /* フェードアウト後の端色に合わせる */
+}

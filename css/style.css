@@ -196,7 +196,6 @@ main.container {
 .file-title {
   font-family: 'YuMincho', 'Hiragino Mincho ProN', serif;
   font-size: 0.6875em;
-  margin-bottom: 2em; /* 下に余白を広めに取ることで、画像を相対的に中央へ */
 letter-spacing: 0.05em;
 color: #3c2f2c;
 }
@@ -206,15 +205,15 @@ color: #3c2f2c;
   width: 90%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  background-color: #f5f2eb;
-  border: 10px solid #f5f2eb;
-  border-bottom-width: 30px;
+  background-color: #f5f2eb; /* 紙っぽい淡いグレージュ */
+  border: 8px solid #f5f2eb;
+  border-bottom-width: 24px;
   box-shadow:
-    0 3px 6px rgba(0,0,0,0.15),
-    inset 0 0 4px rgba(0,0,0,0.05); /* 内側の影で埋まり感を出す */
-  transform: rotate(-1deg);
-  margin: 1.5em 0;
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.08); /* 柔らかめの影 */
+  margin:1.5em 0;
 }
+
 
 
 

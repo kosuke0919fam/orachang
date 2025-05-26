@@ -141,7 +141,7 @@ main.container {
   z-index: 1;
   width: 100%;
   height: 100%;
-  padding: 6% 8%;
+  padding: 5% 8%; /* 上を少し詰める */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -150,6 +150,7 @@ main.container {
   text-align: center;
 }
 
+
 .file-id-wrapper {
   font-size: inherit; /* ← hero-frameに追従 */
   display: flex;
@@ -157,6 +158,8 @@ main.container {
   align-items: center;
   gap: 0.5em;
   margin: 2em 0;
+  margin-top: 0.5em; /* より上に */
+  margin-bottom: 1em;
 }
 
 .file-id {
@@ -173,7 +176,8 @@ main.container {
 
 /* file-titleをレスポンシブに修正 */
 .file-title {
-  font-size: 0.6875em; /* 32px基準なら ≒22px、完全同期 */
+  font-size: 0.6875em;
+  margin-bottom: 2em; /* 下に余白を広めに取ることで、画像を相対的に中央へ */
 }
 
 
@@ -181,15 +185,16 @@ main.container {
   width: 90%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  padding: 0;
-  background-color: #fff;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  border: 8px solid #fff;
-  border-bottom-width: 24px; /* 下だけ太くする */
-  margin: 1.5em auto;
-  display: block;
-  transform: rotate(-0.75deg); /* 少し傾けると“写真”感UP */
+  background-color: #f5f2eb;
+  border: 8px solid #f5f2eb;
+  border-bottom-width: 24px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: rotate(-0.75deg);
+  margin-bottom: 1.5em;
 }
+
 
 .read-link {
   font-size: clamp(0.8rem, 1.5vw, 1rem); /* 動的な文字サイズ */

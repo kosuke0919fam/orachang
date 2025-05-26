@@ -17,6 +17,20 @@ html, body {
   color: #fdfaf4;
 }
 
+.site-title-label {
+  font-family: 'YuMincho', 'Hiragino Mincho ProN', serif;
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #3c2f2c;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+
 .header-strip {
   display: inline-block;
   padding: 1em 2em;
@@ -163,21 +177,28 @@ main.container {
 }
 
 .file-id {
-  font-size: 1em; /* ← inheritした32pxまたは可変値 */
-  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  color: #2f2f2f;
+  letter-spacing: 0.1em;
+  margin: 0.5em 0;
+  position: relative;
 }
 
 .file-id-line {
   width: 8em;        /* ← 文字より長く、同率で縮む */
   height: 0.0625em;  /* ← 2px相当 */
-  background-color: #333;
+  background-color: #666;
   opacity: 0.8;
 }
 
 /* file-titleをレスポンシブに修正 */
 .file-title {
+  font-family: 'YuMincho', 'Hiragino Mincho ProN', serif;
   font-size: 0.6875em;
   margin-bottom: 2em; /* 下に余白を広めに取ることで、画像を相対的に中央へ */
+letter-spacing: 0.05em;
+color: #3c2f2c;
 }
 
 
@@ -186,32 +207,37 @@ main.container {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   background-color: #f5f2eb;
-  border: 8px solid #f5f2eb;
-  border-bottom-width: 24px;
+  border: 10px solid #f5f2eb;
+  border-bottom-width: 30px;
   box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.08);
-  transform: rotate(-0.75deg);
-  margin-bottom: 1.5em;
+    0 3px 6px rgba(0,0,0,0.15),
+    inset 0 0 4px rgba(0,0,0,0.05); /* 内側の影で埋まり感を出す */
+  transform: rotate(-1deg);
+  margin: 1.5em 0;
 }
 
 
+
 .read-link {
-  font-size: clamp(0.8rem, 1.5vw, 1rem); /* 動的な文字サイズ */
-  padding: 0.5em 1.2em;
-  background-color: #fdfaf4;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  background-color: #f5f2eb;
   color: #3c2f2c;
+  padding: 0.4em 1.2em;
   border: 1px solid #6c3b4b;
-  border-radius: 4px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  box-shadow:
+    1px 1px 3px rgba(0,0,0,0.1),
+    inset 0 0 2px rgba(108,59,75,0.15);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .read-link:hover {
   background-color: #6c3b4b;
   color: #fff;
 }
+
 
 
 /* ========== 投稿サムネイル ========== */

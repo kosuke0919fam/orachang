@@ -13,15 +13,15 @@
 <body>
   <h1>SITE NAME</h1>
 
-
-
+  
+  
 
   
 
   
     <p style="color:red;">
       ⚠ 表示できる記事がありません。<br>
-      `_config.yml` の `featured_article_ids` に指定した ID が、`source/_posts` 内の `.md` ファイルと一致しているかを確認してください。
+      `_config.yml` の `featured_article_paths` に、正しい相対URL（例: `/entry-1/`）が含まれているかを確認してください。
     </p>
 
     <!-- デバッグ出力 -->
@@ -29,19 +29,20 @@
 [
   {
     &#34;title&#34;: &#34;山の旅&#34;,
-    &#34;slug&#34;: &#34;entry-1&#34;,
-    &#34;permalink&#34;: &#34;https://kosuke0919fam.github.io/2025/05/01/entry-1/&#34;
+    &#34;permalink&#34;: &#34;https://kosuke0919fam.github.io/entry-1/&#34;
   },
   {
     &#34;title&#34;: &#34;海の思い出&#34;,
-    &#34;slug&#34;: &#34;entry-2&#34;,
-    &#34;permalink&#34;: &#34;https://kosuke0919fam.github.io/2025/05/02/entry-2/&#34;
+    &#34;permalink&#34;: &#34;https://kosuke0919fam.github.io/entry-2/&#34;
   }
 ]
     </pre>
-<pre>
-
-</pre>
+    <pre>
+[
+  &#34;/entry-1/&#34;,
+  &#34;/entry-2/&#34;
+]
+    </pre>
   
 
 </body>

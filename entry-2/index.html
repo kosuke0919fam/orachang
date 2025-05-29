@@ -23,25 +23,24 @@
       border-radius: 8px;
     }
 
-    #article-slider {
-      display: flex;
+    #thumbnail-wrapper {
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
       gap: 16px;
-      padding: 1rem;
+      padding: 1rem 0;
       border: 1px solid #ccc;
       background: #f9f9f9;
-      scroll-snap-type: x mandatory;
     }
 
     .thumbnail {
       flex: 0 0 auto;
       width: 120px;
       text-align: center;
-      scroll-snap-align: start;
       border: 2px solid transparent;
-      border-radius: 6px;
       background: white;
       padding: 4px;
+      border-radius: 6px;
       cursor: pointer;
     }
 
@@ -49,7 +48,6 @@
       width: 100%;
       height: auto;
       border-radius: 4px;
-      display: block;
     }
 
     .thumbnail.active {
@@ -70,11 +68,6 @@
     #mode-switch a:hover {
       text-decoration: underline;
     }
-
-    .thumbnail p {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
   </style>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
@@ -90,15 +83,12 @@
     <a id="video-link" href="#">Video</a>
   </div>
 
-  <div id="article-slider"></div>
+  <div id="thumbnail-wrapper"></div>
 
   <script>
     const root = "/orachang/";
-
     const allPosts = [{"title":"山の旅","slug":"entry-1","permalink":"https://kosuke0919fam.github.io/entry-1/","cover":"/images/posts/yama.jpg","video_url":"https://youtube.com/watch?v=xxx"},{"title":"海の思い出","slug":"entry-2","permalink":"https://kosuke0919fam.github.io/entry-2/","cover":"/images/posts/umi.jpg","video_url":"https://youtube.com/watch?v=yyy"}];
-
     const featuredPaths = ["/entry-1/","/entry-2/"];
-
     const normalize = path => path.endsWith('/') ? path : path + '/';
 
     const featured = allPosts.filter(p => {
@@ -114,7 +104,16 @@
     const mainTitle = document.getElementById('main-title');
     const blogLink = document.getElementById('blog-link');
     const videoLink = document.getElementById('video-link');
-    const slider = document.getElementById('article-slider');
+    const wrapper = document.getElementById('thumbnail-wrapper');
+
+    // 補完（少数スライドに対応）
+    const cloneForLoop = (list) => {
+      if (list.length === 1) return [list[0], list[0], list[0]];
+      if (list.length === 2) return [list[0], list[1], list[0]];
+      return list;
+    };
+
+    const enhanced = cloneForLoop(featured);
 
     function renderArticle(article) {
       mainCover.src = root + article.cover;
@@ -124,19 +123,14 @@
       videoLink.href = article.video_url || '#';
 
       document.querySelectorAll('.thumbnail').forEach(el => el.classList.remove('active'));
-      const activeThumb = document.querySelector(`.thumbnail[data-id="${article.permalink}"]`);
-      if (activeThumb) activeThumb.classList.add('active');
+      const active = document.querySelector(`.thumbnail[data-id="${article.permalink}"]`);
+      if (active) active.classList.add('active');
     }
 
     if (featured.length === 0) {
-      document.body.innerHTML += `
-        <p style="color:red;">
-          ⚠ 表示できる記事がありません。<br>
-          coverパスや画像ファイルの存在、URLの整合性を確認してください。
-        </p>
-      `;
+      document.body.innerHTML += `<p style="color:red;">⚠ 表示できる記事がありません。</p>`;
     } else {
-      featured.forEach(article => {
+      enhanced.forEach(article => {
         const thumb = document.createElement('div');
         thumb.className = 'thumbnail';
         thumb.setAttribute('data-id', article.permalink);
@@ -145,10 +139,9 @@
           <p>${article.title}</p>
         `;
         thumb.onclick = () => renderArticle(article);
-        slider.appendChild(thumb);
+        wrapper.appendChild(thumb);
       });
-
-      renderArticle(featured[0]); // 初期表示
+      renderArticle(featured[0]);
     }
   </script>
 </body>

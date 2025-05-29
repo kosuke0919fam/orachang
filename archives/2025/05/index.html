@@ -3,52 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>都市伝説</title>
-  <link rel="stylesheet" href="/orachang/css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #main-display img { width: 300px; display: block; }
+    #article-slider { white-space: nowrap; overflow-x: auto; }
+    .thumbnail { display: inline-block; margin-right: 10px; cursor: pointer; width: 100px; }
+    .thumbnail img { width: 100px; }
+  </style>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
+  <h1>SITE NAME</h1>
 
-  <!-- Hero背景 -->
-  <header class="hero-outer">
-    <div class="site-tag">
-      <a href="/" class="site-title-label">
-        都市伝説
-      </a>
-    </div>
-  </header>
+  
+  
 
-
-
-
-<section class="hero-outer">
-  <div class="hero-frame">
-    <div class="paper-image-wrapper">
-      <img src="/orachang/images/paper.png" alt="紙背景" class="paper-image">
-
-      <div class="paper-content">
-        <div class="file-id-wrapper">
-          <div class="file-id-line"></div>
-          <div class="file-id">FILE.001</div>
-          <div class="file-id-line"></div>
-        </div>
-
-        <div class="file-title">水族館の真相(仮)</div>
-
-        
-          <img src="/orachang/images/posts/thumb_0010.jpg" alt="hero thumbnail" class="file-image">
-        
-
-        <a href="/orachang/2025/05/16/dummy-post_0013/" class="read-link">▶ 記事を読む</a>
-      </div>
-    </div>
+  <!-- 中央の大きな表示エリア（②） -->
+  <div id="main-display">
+    <img id="main-cover" src="/images/yama.jpg" alt="山の旅">
+    <h2 id="main-title">山の旅</h2>
   </div>
-</section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 都市伝説</p>
-    </div>
-  </footer>
+  <!-- blog / video 切替（③） -->
+  <div id="mode-switch">
+    <a id="blog-link" href="/blog/entry-1/">Blog</a>
+    <a id="video-link" target="_blank" rel="noopener" href="https://youtube.com/watch?v=xxx">Video</a>
+  </div>
+
+  <!-- 横スクロールのサムネイルリスト（④） -->
+  <div id="article-slider">
+    
+      <div class="thumbnail" onclick="selectArticle('entry-1')">
+        <img src="/images/yama.jpg" alt="山の旅">
+        <p>山の旅</p>
+      </div>
+    
+      <div class="thumbnail" onclick="selectArticle('entry-2')">
+        <img src="/images/umi.jpg" alt="海の思い出">
+        <p>海の思い出</p>
+      </div>
+    
+  </div>
+
+  <script>
+    const articles = [{"id":"entry-1","title":"山の旅","cover":"/images/yama.jpg","blog_url":"/blog/entry-1/","video_url":"https://youtube.com/watch?v=xxx"},{"id":"entry-2","title":"海の思い出","cover":"/images/umi.jpg","blog_url":"/blog/entry-2/","video_url":"https://youtube.com/watch?v=yyy"}];
+
+    function selectArticle(id) {
+      const article = articles.find(a => a.id === id);
+      if (!article) return;
+
+      document.getElementById('main-cover').src = article.cover;
+      document.getElementById('main-title').textContent = article.title;
+      document.getElementById('blog-link').href = article.blog_url;
+      document.getElementById('video-link').href = article.video_url;
+    }
+  </script>
 </body>
 </html>
-

@@ -31,6 +31,8 @@
       padding: 1rem 0;
       border: 1px solid #ccc;
       background: #f9f9f9;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
     }
 
     .thumbnail {
@@ -42,6 +44,7 @@
       padding: 4px;
       border-radius: 6px;
       cursor: pointer;
+      scroll-snap-align: start;
     }
 
     .thumbnail img {
@@ -106,7 +109,6 @@
     const videoLink = document.getElementById('video-link');
     const wrapper = document.getElementById('thumbnail-wrapper');
 
-    // 補完（少数スライドに対応）
     const cloneForLoop = (list) => {
       if (list.length === 1) return [list[0], list[0], list[0]];
       if (list.length === 2) return [list[0], list[1], list[0]];
@@ -138,9 +140,13 @@
           <img src="${root + article.cover}" alt="${article.title}">
           <p>${article.title}</p>
         `;
-        thumb.onclick = () => renderArticle(article);
+        thumb.onclick = () => {
+          renderArticle(article);
+          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        };
         wrapper.appendChild(thumb);
       });
+
       renderArticle(featured[0]);
     }
   </script>

@@ -3,15 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>都市伝説</title>
+
+  <!-- Swiper ローカル CSS -->
+  <link rel="stylesheet" href="/orachang/css/swiper.css" />
+
   <style>
-    body {
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
       font-family: sans-serif;
-      margin: 2rem;
+      background: url('/orachang/images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
     }
 
-    h1 a {
-      text-decoration: none;
-      color: black;
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 1rem 0;
+    }
+
+    #main-display {
+      position: relative;
+      display: inline-block;
+      max-width: 90vw;
     }
 
     #main-display img {
@@ -19,41 +41,61 @@
       max-width: 500px;
       height: auto;
       display: block;
-      margin-bottom: 1rem;
+      margin: 0 auto;
       border-radius: 8px;
     }
 
-    #thumbnail-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      display: flex;
-      gap: 16px;
-      padding: 1rem 0;
-      border: 1px solid #ccc;
-      background: #f9f9f9;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
+    #main-slug {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
     }
 
-    .thumbnail {
-      flex: 0 0 auto;
-      width: 120px;
-      text-align: center;
+    #main-title {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 1.1rem;
+    }
+
+    .swiper {
+      width: 90vw;
+      height: auto;
+      position: relative;
+    }
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-slide {
+      width: 80px;
+      height: auto;
       border: 2px solid transparent;
       background: white;
       padding: 4px;
       border-radius: 6px;
       cursor: pointer;
-      scroll-snap-align: start;
     }
 
-    .thumbnail img {
+    .swiper-slide img {
       width: 100%;
       height: auto;
       border-radius: 4px;
     }
 
-    .thumbnail.active {
+    .swiper-slide.active {
       border-color: #007acc;
     }
 
@@ -62,7 +104,7 @@
     }
 
     #mode-switch a {
-      margin-right: 1rem;
+      margin: 0 0.5rem;
       color: #007acc;
       text-decoration: none;
       font-weight: bold;
@@ -77,21 +119,37 @@
   <h1><a href="/orachang/">SITE NAME</a></h1>
 
   <div id="main-display">
-    <img id="main-cover" src="" alt="">
-    <h2 id="main-title"></h2>
+    <a id="main-link" href="#">
+      <img id="main-cover" src="" alt="">
+      <div id="main-slug"></div>
+      <div id="main-title"></div>
+    </a>
   </div>
 
+  <!-- Blog / Video リンク -->
   <div id="mode-switch">
     <a id="blog-link" href="#">Blog</a>
     <a id="video-link" href="#">Video</a>
   </div>
 
-  <div id="thumbnail-wrapper"></div>
+  <!-- Swiper スライダー -->
+  <div class="swiper">
+    <div class="swiper-wrapper" id="article-slider"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Swiper ローカル JS -->
+  <script src="/orachang/js/swiper.js"></script>
 
   <script>
     const root = "/orachang/";
+
     const allPosts = [{"title":"山の旅","slug":"entry-1","permalink":"https://kosuke0919fam.github.io/entry-1/","cover":"/images/posts/yama.jpg","video_url":"https://youtube.com/watch?v=xxx"},{"title":"海の思い出","slug":"entry-2","permalink":"https://kosuke0919fam.github.io/entry-2/","cover":"/images/posts/umi.jpg","video_url":"https://youtube.com/watch?v=yyy"}];
+
     const featuredPaths = ["/entry-1/","/entry-2/"];
+
     const normalize = path => path.endsWith('/') ? path : path + '/';
 
     const featured = allPosts.filter(p => {
@@ -105,46 +163,56 @@
 
     const mainCover = document.getElementById('main-cover');
     const mainTitle = document.getElementById('main-title');
+    const mainSlug = document.getElementById('main-slug');
     const blogLink = document.getElementById('blog-link');
     const videoLink = document.getElementById('video-link');
-    const wrapper = document.getElementById('thumbnail-wrapper');
-
-    const cloneForLoop = (list) => {
-      if (list.length === 1) return [list[0], list[0], list[0]];
-      if (list.length === 2) return [list[0], list[1], list[0]];
-      return list;
-    };
-
-    const enhanced = cloneForLoop(featured);
+    const mainLink = document.getElementById('main-link');
+    const sliderWrapper = document.getElementById('article-slider');
 
     function renderArticle(article) {
       mainCover.src = root + article.cover;
       mainCover.alt = article.title;
       mainTitle.textContent = article.title;
+      mainSlug.textContent = article.slug;
       blogLink.href = article.permalink;
       videoLink.href = article.video_url || '#';
+      mainLink.href = article.permalink;
 
-      document.querySelectorAll('.thumbnail').forEach(el => el.classList.remove('active'));
-      const active = document.querySelector(`.thumbnail[data-id="${article.permalink}"]`);
+      document.querySelectorAll('.swiper-slide').forEach(el => el.classList.remove('active'));
+      const active = document.querySelector(`.swiper-slide[data-id="${article.permalink}"]`);
       if (active) active.classList.add('active');
     }
 
     if (featured.length === 0) {
-      document.body.innerHTML += `<p style="color:red;">⚠ 表示できる記事がありません。</p>`;
+      document.body.innerHTML += `
+        <p style="color:red;">
+          ⚠ 表示できる記事がありません。<br>
+          coverパスや画像ファイルの存在、URLの整合性を確認してください。
+        </p>
+      `;
     } else {
-      enhanced.forEach(article => {
-        const thumb = document.createElement('div');
-        thumb.className = 'thumbnail';
-        thumb.setAttribute('data-id', article.permalink);
-        thumb.innerHTML = `
-          <img src="${root + article.cover}" alt="${article.title}">
-          <p>${article.title}</p>
-        `;
-        thumb.onclick = () => {
-          renderArticle(article);
-          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        };
-        wrapper.appendChild(thumb);
+      featured.forEach(article => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.setAttribute('data-id', article.permalink);
+        slide.innerHTML = `<img src="${root + article.cover}" alt="">`;
+        slide.onclick = () => renderArticle(article);
+        sliderWrapper.appendChild(slide);
+      });
+
+      new Swiper('.swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        loop: true,
+        freeMode: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
       });
 
       renderArticle(featured[0]);

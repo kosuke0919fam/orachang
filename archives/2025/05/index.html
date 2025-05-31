@@ -71,32 +71,65 @@
 
     .swiper {
       width: 90vw;
-      height: auto;
       position: relative;
     }
 
     .swiper-wrapper {
+      display: flex;
       align-items: center;
     }
 
     .swiper-slide {
-      width: 80px;
-      height: auto;
-      border: 2px solid transparent;
+      width: 100px;
+      margin-right: 16px;
       background: white;
-      padding: 4px;
       border-radius: 6px;
-      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
     }
 
     .swiper-slide img {
       width: 100%;
       height: auto;
       border-radius: 4px;
+      display: block;
     }
 
-    .swiper-slide.active {
-      border-color: #007acc;
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: white;
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      height: 44px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .swiper-button-prev {
+      left: 10px;
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.7;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
     }
 
     #mode-switch {
@@ -126,13 +159,11 @@
     </a>
   </div>
 
-  <!-- Blog / Video リンク -->
   <div id="mode-switch">
     <a id="blog-link" href="#">Blog</a>
     <a id="video-link" href="#">Video</a>
   </div>
 
-  <!-- Swiper スライダー -->
   <div class="swiper">
     <div class="swiper-wrapper" id="article-slider"></div>
     <div class="swiper-pagination"></div>
@@ -140,13 +171,12 @@
     <div class="swiper-button-next"></div>
   </div>
 
-  <!-- Swiper ローカル JS -->
   <script src="/orachang/js/swiper.js"></script>
 
   <script>
     const root = "/orachang/";
 
-    const allPosts = [{"title":"山の旅","slug":"entry-1","permalink":"https://kosuke0919fam.github.io/entry-1/","cover":"/images/posts/yama.jpg","video_url":"https://youtube.com/watch?v=xxx"},{"title":"海の思い出","slug":"entry-2","permalink":"https://kosuke0919fam.github.io/entry-2/","cover":"/images/posts/umi.jpg","video_url":"https://youtube.com/watch?v=yyy"}];
+    const allPosts = [{"title":"海の思い出","slug":"entry-2","permalink":"https://kosuke0919fam.github.io/entry-2/","cover":"/images/posts/umi.jpg","video_url":"https://youtube.com/watch?v=yyy"},{"title":"山の旅","slug":"entry-1","permalink":"https://kosuke0919fam.github.io/entry-1/","cover":"/images/posts/yama.jpg","video_url":"https://youtube.com/watch?v=xxx"}];
 
     const featuredPaths = ["/entry-1/","/entry-2/"];
 
@@ -200,6 +230,7 @@
         sliderWrapper.appendChild(slide);
       });
 
+      // Swiper 初期化後にメイン表示を更新
       new Swiper('.swiper', {
         slidesPerView: 'auto',
         spaceBetween: 16,
@@ -215,7 +246,7 @@
         }
       });
 
-      renderArticle(featured[0]);
+      renderArticle(featured[0]); // ← これを最後に実行する
     }
   </script>
 </body>

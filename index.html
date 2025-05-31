@@ -3,41 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>都市伝説</title>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="/orachang/css/swiper.css" />
-
   <style>
-    html, body {
-      height: 100%;
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background: url('/orachang/images/background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      overflow: hidden;
+      text-align: center;
     }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    h1 {
+      color: #00f;
+      margin-top: 1rem;
+    }
+
+    #mode-switch a {
+      margin: 0 1rem;
+      color: #00f;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     #main-display {
       position: relative;
-      display: inline-block;
+      margin: 2rem auto;
       max-width: 90vw;
     }
 
-    #main-display img {
+    #main-cover {
       width: 100%;
       max-width: 500px;
-      height: auto;
-      border-radius: 8px;
-      display: block;
+      border-radius: 12px;
     }
 
     #main-slug, #main-title {
@@ -45,220 +42,114 @@
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-
-    #main-slug {
-      top: 8px;
-      font-size: 0.9rem;
-    }
-
-    #main-title {
-      bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    #mode-switch {
-      margin: 1rem 0;
-    }
-
-    #mode-switch a {
-      margin: 0 0.5rem;
-      color: #007acc;
-      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 6px;
       font-weight: bold;
+      color: #fff;
     }
 
-    #mode-switch a:hover {
-      text-decoration: underline;
-    }
+    #main-slug { top: 8px; font-size: 0.9rem; }
+    #main-title { bottom: 8px; font-size: 1.1rem; }
 
     .swiper {
-      width: 90vw;
-      margin-top: 2rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 2rem auto;
       position: relative;
-      overflow: hidden;
     }
 
-    /* .swiper-wrapper {
+    .swiper-wrapper {
       display: flex;
-      justify-content: center;
-    } */
+      overflow: hidden;
+      scroll-behavior: smooth;
+      padding: 0 36px;
+    }
 
     .swiper-slide {
-      width: 100px;
-      margin-right: 16px;
-      background: #fff;
-      padding: 4px;
-      border-radius: 6px;
-      flex-shrink: 0;
-      text-align: center;
+      min-width: 100px;
+      margin: 0 6px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
 
     .swiper-slide img {
       width: 100%;
-      border-radius: 4px;
       display: block;
-      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    .swiper-slide:hover {
+      transform: scale(1.05);
     }
 
     .swiper-button-prev,
     .swiper-button-next {
-      display: flex !important;
-      color: white;
-      top: 50%;
-      width: 27px;
-      height: 44px;
-      margin-top: -22px;
-      z-index: 10;
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      width: 30px;
+      height: 50px;
+      color: white;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
       cursor: pointer;
-      pointer-events: auto;
+      z-index: 10;
     }
 
-    .swiper-button-prev {
-      left: 10px;
-    }
-
-    .swiper-button-next {
-      right: 10px;
-    }
+    .swiper-button-prev { left: 0; }
+    .swiper-button-next { right: 0; }
 
     .swiper-pagination {
-      display: block !important;
-      position: absolute;
-      bottom: 4px;
-      width: 100%;
       text-align: center;
-      z-index: 10;
+      margin-top: 0.5rem;
     }
 
-    .swiper-pagination-bullet {
-      background: white;
-      opacity: 0.7;
+    .swiper-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 3px;
+      background: #999;
+      border-radius: 50%;
     }
 
-    .swiper-pagination-bullet-active {
-      opacity: 1;
+    .swiper-dot.active {
+      background: #fff;
     }
   </style>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <h1><a href="/orachang/">SITE NAME</a></h1>
-
-  <div id="main-display">
-    <a id="main-link" href="#">
-      <img id="main-cover" src="" alt="">
-      <div id="main-slug"></div>
-      <div id="main-title"></div>
-    </a>
-  </div>
+  <h1>SITE NAME</h1>
 
   <div id="mode-switch">
-    <a id="blog-link" href="#">Blog</a>
-    <a id="video-link" href="#" target="_blank">Video</a>
+    <a href="#">Blog</a>
+    <a href="#">Video</a>
   </div>
 
-  <!-- Swiper スライダー -->
+  <div id="main-display">
+    <img id="main-cover" src="" alt="メイン画像">
+    <div id="main-slug"></div>
+    <div id="main-title"></div>
+  </div>
+
   <div class="swiper">
-    <div class="swiper-wrapper" id="swiper-thumbnails">
-      <!-- JSで記事から生成 -->
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev" id="prev-button">&#10094;</div>
+    <div class="swiper-wrapper" id="slider-wrapper"></div>
+    <div class="swiper-button-next" id="next-button">&#10095;</div>
   </div>
 
-  <!-- Swiper JS -->
-  <script src="/orachang/js/swiper.js"></script>
+  <div class="swiper-pagination" id="pagination"></div>
 
+  <!-- Hexoから記事データを渡す（thumbnail は使用せず cover のみ） -->
   <script>
-    window.addEventListener('load', () => {
-      const root = "/orachang/";
-
-      const allPosts = [{"title":"山の旅","slug":"entry-1","permalink":"https://kosuke0919fam.github.io/entry-1/","cover":"/images/posts/yama.jpg","video_url":"https://youtube.com/watch?v=xxx"},{"title":"海の思い出","slug":"entry-2","permalink":"https://kosuke0919fam.github.io/entry-2/","cover":"/images/posts/umi.jpg","video_url":"https://youtube.com/watch?v=yyy"}];
-
-      const featuredPaths = ["/entry-1/","/entry-2/"];
-
-      const normalize = path => path.replace(/^\/|\/$/g, '') + '/';
-
-      const featured = allPosts.filter(p => {
-        try {
-          const path = normalize(new URL(p.permalink).pathname);
-          return featuredPaths.map(normalize).includes(path);
-        } catch {
-          return false;
-        }
-      });
-
-      const mainCover = document.getElementById('main-cover');
-      const mainTitle = document.getElementById('main-title');
-      const mainSlug = document.getElementById('main-slug');
-      const blogLink = document.getElementById('blog-link');
-      const videoLink = document.getElementById('video-link');
-      const mainLink = document.getElementById('main-link');
-
-      function renderArticle(article) {
-        if (!article) return;
-        mainCover.src = root + article.cover;
-        mainCover.alt = article.title;
-        mainTitle.textContent = article.title;
-        mainSlug.textContent = article.slug;
-        blogLink.href = article.permalink;
-        videoLink.href = article.video_url || '#';
-        videoLink.target = '_blank';
-        mainLink.href = article.permalink;
-      }
-
-      if (featured.length === 0) {
-        document.body.innerHTML += `
-          <p style="color:red;">⚠ 表示できる記事がありません。<br>
-          featured_article_paths や cover パスの確認をしてください。</p>`;
-      } else {
-        renderArticle(featured[0]);
-      }
-
-      // Swiperスライダーに表示する投稿を最大3件取得
-      let displayPosts = allPosts.filter(p => p.cover).slice(0, 3);
-
-      if (displayPosts.length === 1) {
-        displayPosts = [displayPosts[0], displayPosts[0], displayPosts[0]];
-      } else if (displayPosts.length === 2) {
-        displayPosts = [displayPosts[1], displayPosts[0], displayPosts[1]];
-      }
-
-      const swiperWrapper = document.getElementById('swiper-thumbnails');
-      displayPosts.forEach(post => {
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide';
-        slide.innerHTML = `
-          <a href="${post.permalink}">
-            <img src="${root + post.cover}" alt="${post.title}">
-          </a>
-        `;
-        swiperWrapper.appendChild(slide);
-      });
-
-      // Swiper 初期化（1回のみ）
-      setTimeout(() => {
-        new Swiper('.swiper', {
-          slidesPerView: 'auto',
-          spaceBetween: 16,
-          loop: true,
-          centeredSlides: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
-        });
-      }, 100);
-    });
+    const articles = [{"title":"海の思い出","slug":"entry-2","cover":"/images/posts/umi.jpg"},{"title":"山の旅","slug":"entry-1","cover":"/images/posts/yama.jpg"}];
   </script>
+  <script src="/orachang/js/swiper.js"></script>
 </body>
 </html>

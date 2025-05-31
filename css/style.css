@@ -1,0 +1,83 @@
+/* ========== サイトタイトル ========== */
+.site-title {
+  text-decoration: none;
+  color: #000;
+}
+.site-title:hover {
+  text-decoration: underline;
+}
+/* ========== Swiper本体 ========== */
+.swiper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+.swiper-wrapper {
+  width: 100%;
+}
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* ========== スライド内容の構造 ========== */
+.slide-board-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.slide-board {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.slide-cover {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 720px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+/* ========== カバー画像上のオーバーレイ ========== */
+.slide-overlay {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 720px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+  z-index: 3;
+  pointer-events: none;
+  color: #fff;
+}
+.slide-slug {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.slide-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}

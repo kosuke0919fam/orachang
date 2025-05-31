@@ -25,16 +25,23 @@
       font-weight: bold;
     }
 
+    .content-container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
     #main-display {
       position: relative;
       margin: 2rem auto;
-      max-width: 90vw;
     }
 
     #main-cover {
       width: 100%;
-      max-width: 500px;
       border-radius: 12px;
+      display: block;
     }
 
     #main-slug, #main-title {
@@ -52,8 +59,6 @@
     #main-title { bottom: 8px; font-size: 1.1rem; }
 
     .swiper {
-      width: 100%;
-      max-width: 500px;
       margin: 2rem auto;
       position: relative;
     }
@@ -132,13 +137,13 @@
     <a href="#">Video</a>
   </div>
 
-  <div id="main-display">
+  <div id="main-display" class="content-container">
     <img id="main-cover" src="/orachang/images/posts/placeholder.jpg" alt="メイン画像">
     <div id="main-slug"></div>
     <div id="main-title"></div>
   </div>
 
-  <div class="swiper">
+  <div class="swiper content-container">
     <div class="swiper-button-prev" id="prev-button">&#10094;</div>
     <div class="swiper-wrapper" id="slider-wrapper"></div>
     <div class="swiper-button-next" id="next-button">&#10095;</div>
@@ -147,7 +152,6 @@
   <div class="swiper-pagination" id="pagination"></div>
 
   <script>
-    const root = "/orachang/";
     const articles = [{"title":"海の思い出","slug":"entry-2","cover":"/orachang/images/posts/umi.jpg"},{"title":"山の旅","slug":"entry-1","cover":"/orachang/images/posts/yama.jpg"}];
   </script>
   <script src="/orachang/js/swiper.js"></script>

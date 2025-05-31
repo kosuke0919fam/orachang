@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (delta < -50) next();
   });
 
-  // 初期表示（最新記事）
   if (articles.length > 0) {
     selectImage(0);
   }

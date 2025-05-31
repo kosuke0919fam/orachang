@@ -13,18 +13,6 @@
       text-align: center;
     }
 
-    h1 {
-      color: #00f;
-      margin-top: 1rem;
-    }
-
-    #mode-switch a {
-      margin: 0 1rem;
-      color: #00f;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     .content-container {
       max-width: 800px;
       width: 100%;
@@ -61,22 +49,27 @@
     .swiper {
       margin: 2rem auto;
       position: relative;
+      overflow: hidden;
     }
 
     .swiper-wrapper {
       display: flex;
-      overflow: hidden;
+      gap: 12px;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      padding: 0 36px;
+      -webkit-overflow-scrolling: touch;
+      padding: 12px 36px;
     }
 
     .swiper-slide {
-      min-width: 100px;
-      margin: 0 6px;
+      flex: 0 0 auto;
+      width: 120px;
       border-radius: 8px;
       overflow: hidden;
-      cursor: pointer;
+      scroll-snap-align: center;
       transition: transform 0.3s;
+      cursor: pointer;
     }
 
     .swiper-slide img {
@@ -84,59 +77,9 @@
       display: block;
       border-radius: 4px;
     }
-
-    .swiper-slide:hover {
-      transform: scale(1.05);
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      width: 30px;
-      height: 50px;
-      color: white;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .swiper-button-prev { left: 0; }
-    .swiper-button-next { right: 0; }
-
-    .swiper-pagination {
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-
-    .swiper-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin: 0 3px;
-      background: #999;
-      border-radius: 50%;
-    }
-
-    .swiper-dot.active {
-      background: #fff;
-    }
   </style>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <h1>SITE NAME</h1>
-
-  <div id="mode-switch">
-    <a href="#">Blog</a>
-    <a href="#">Video</a>
-  </div>
-
   <div id="main-display" class="content-container">
     <img id="main-cover" src="/orachang/images/posts/placeholder.jpg" alt="メイン画像">
     <div id="main-slug"></div>
@@ -144,12 +87,8 @@
   </div>
 
   <div class="swiper content-container">
-    <div class="swiper-button-prev" id="prev-button">&#10094;</div>
     <div class="swiper-wrapper" id="slider-wrapper"></div>
-    <div class="swiper-button-next" id="next-button">&#10095;</div>
   </div>
-
-  <div class="swiper-pagination" id="pagination"></div>
 
   <script>
     const articles = [{"title":"海の思い出","slug":"entry-2","cover":"/orachang/images/posts/umi.jpg"},{"title":"山の旅","slug":"entry-1","cover":"/orachang/images/posts/yama.jpg"}];

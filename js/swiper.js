@@ -3,76 +3,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainImg = document.getElementById('main-cover');
   const slug = document.getElementById('main-slug');
   const title = document.getElementById('main-title');
-  const pagination = document.getElementById('pagination');
 
-  let currentIndex = 0;
-  let slideWidth = 120; // スライド1枚分の横幅（100px + 余白）
+  const baseArticles = [...articles];
+  while (articles.length < 5) articles.push(...baseArticles);
+  const loopArticles = [...articles, ...articles, ...articles];
+  const centerIndex = Math.floor(loopArticles.length / 3);
 
   function selectImage(index) {
-    currentIndex = index;
-    const article = articles[currentIndex];
-    mainImg.src = article.cover;
-    slug.textContent = article.slug;
-    title.textContent = article.title;
-    renderSlides();
+    const item = loopArticles[index % articles.length];
+    mainImg.src = item.cover;
+    slug.textContent = item.slug;
+    title.textContent = item.title;
   }
 
   function renderSlides() {
     wrapper.innerHTML = '';
-    pagination.innerHTML = '';
-
-    const sliderItems = [];
-    const originalCount = articles.length;
-    const needed = Math.max(5, originalCount);
-
-    for (let i = 0; i < needed; i++) {
-      sliderItems.push(articles[i % originalCount]);
-    }
-
-    sliderItems.forEach((item, i) => {
+    loopArticles.forEach((item, i) => {
       const slide = document.createElement('div');
       slide.className = 'swiper-slide';
       slide.innerHTML = `<img src="${item.cover}" alt="${item.title}">`;
-      slide.addEventListener('click', () => selectImage(i % originalCount));
+      slide.addEventListener('click', () => selectImage(i % articles.length));
       wrapper.appendChild(slide);
-
-      if (i < originalCount) {
-        const dot = document.createElement('span');
-        dot.className = 'swiper-dot' + (i === currentIndex ? ' active' : '');
-        pagination.appendChild(dot);
-      }
     });
   }
 
-  function next() {
-    currentIndex = (currentIndex + 1) % articles.length;
-    wrapper.scrollBy({ left: slideWidth, behavior: 'smooth' });
-    selectImage(currentIndex);
-  }
-
-  function prev() {
-    currentIndex = (currentIndex - 1 + articles.length) % articles.length;
-    wrapper.scrollBy({ left: -slideWidth, behavior: 'smooth' });
-    selectImage(currentIndex);
-  }
-
-  document.getElementById('next-button').addEventListener('click', next);
-  document.getElementById('prev-button').addEventListener('click', prev);
-
-  // スワイプ操作で横スクロール
-  let startX = 0;
-  wrapper.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  wrapper.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    const delta = endX - startX;
-    if (delta > 50) {
-      prev();
-    } else if (delta < -50) {
-      next();
+  function centerTo(index) {
+    const slide = wrapper.children[index];
+    if (slide) {
+      const offset = slide.offsetLeft - wrapper.clientWidth / 2 + slide.clientWidth / 2;
+      wrapper.scrollTo({ left: offset, behavior: 'smooth' });
     }
-  });
-
-  if (articles.length > 0) {
-    selectImage(0);
   }
+
+  renderSlides();
+  setTimeout(() => {
+    centerTo(centerIndex);
+    selectImage(centerIndex);
+  }, 100);
+
+  wrapper.addEventListener('scroll', () => {
+    const center = wrapper.scrollLeft + wrapper.clientWidth / 2;
+    let closest = 0;
+    let closestDist = Infinity;
+    [...wrapper.children].forEach((slide, i) => {
+      const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+      const dist = Math.abs(center - slideCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = i;
+      }
+    });
+    selectImage(closest % articles.length);
+  });
 });

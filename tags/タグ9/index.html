@@ -18,15 +18,12 @@
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
     }
-    body{
+
+    body {
       background: url("/orachang/images/board.png") repeat;
-      background-size: auto; /* または contain / cover / 200px 等お好みで調整 */
-      color: #fff;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      margin: 0;
-      padding: 0;
-}
+      background-size: auto;
+    }
+
     header {
       text-align: center;
       padding: 1.5rem;
@@ -68,24 +65,47 @@
       object-fit: cover;
     }
 
-    .mySwiper2 {
+    .mySwiper2, .mySwiper4 {
       height: 80%;
     }
 
-    .mySwiper {
+    .mySwiper, .mySwiper3 {
       height: 20%;
       box-sizing: border-box;
       padding: 10px 0;
     }
 
-    .mySwiper .swiper-slide {
+    .mySwiper .swiper-slide,
+    .mySwiper3 .swiper-slide {
       width: 25%;
       height: 100%;
       opacity: 0.4;
     }
 
-    .mySwiper .swiper-slide-thumb-active {
+    .mySwiper .swiper-slide-thumb-active,
+    .mySwiper3 .swiper-slide-thumb-active {
       opacity: 1;
+    }
+
+    /* 複数スライダーのボタン競合防止 */
+    .swiper-button-next-2,
+    .swiper-button-prev-2 {
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      height: 44px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .swiper-button-next-2 {
+      right: 10px;
+    }
+
+    .swiper-button-prev-2 {
+      left: 10px;
     }
   </style>
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -94,10 +114,10 @@
 
   <header>都市伝説</header>
 
+  <!-- swiper 1 / 2 -->
   <section class="section">
     <h2>FEATURED STORY</h2>
 
-    <!-- メインスライダー -->
     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
       <div class="swiper-wrapper">
         
@@ -194,8 +214,180 @@
       <div class="swiper-button-prev"></div>
     </div>
 
-    <!-- サムネイルスライダー -->
     <div thumbsSlider class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/umi.jpg" alt="海の思い出">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/yama.jpg" alt="山の旅">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0009.jpg" alt="20250515以降の修正版（途中）">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0008.jpg" alt="ダミー記事 8">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0007.jpg" alt="ヒーロー記事の例">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0006.jpg" alt="ダミー記事 6">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0005.jpg" alt="ダミー記事 5">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0004.jpg" alt="ダミー記事 4">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0003.jpg" alt="第一節～第三節の総合評価（2025/5/8時点。書き換えたら削除してもよい）">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0002.jpg" alt="添削管理用ページ">
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <img src="/orachang/images/posts/thumb_0001.jpg" alt="添削前文章">
+            </div>
+          
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- swiper 3 / 4 -->
+  <section class="section">
+    <h2>FEATURED STORY 2</h2>
+
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper4">
+      <div class="swiper-wrapper">
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/entry-2/">
+                <img src="/orachang/images/posts/umi.jpg" alt="海の思い出">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/entry-1/">
+                <img src="/orachang/images/posts/yama.jpg" alt="山の旅">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0009/">
+                <img src="/orachang/images/posts/thumb_0009.jpg" alt="20250515以降の修正版（途中）">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0008/">
+                <img src="/orachang/images/posts/thumb_0008.jpg" alt="ダミー記事 8">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0007/">
+                <img src="/orachang/images/posts/thumb_0007.jpg" alt="ヒーロー記事の例">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0006/">
+                <img src="/orachang/images/posts/thumb_0006.jpg" alt="ダミー記事 6">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0005/">
+                <img src="/orachang/images/posts/thumb_0005.jpg" alt="ダミー記事 5">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0004/">
+                <img src="/orachang/images/posts/thumb_0004.jpg" alt="ダミー記事 4">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0003/">
+                <img src="/orachang/images/posts/thumb_0003.jpg" alt="第一節～第三節の総合評価（2025/5/8時点。書き換えたら削除してもよい）">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0002/">
+                <img src="/orachang/images/posts/thumb_0002.jpg" alt="添削管理用ページ">
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <a href="/orachang/dummy-post_0001/">
+                <img src="/orachang/images/posts/thumb_0001.jpg" alt="添削前文章">
+              </a>
+            </div>
+          
+        
+      </div>
+      <div class="swiper-button-next-2 swiper-button-next"></div>
+      <div class="swiper-button-prev-2 swiper-button-prev"></div>
+    </div>
+
+    <div thumbsSlider class="swiper mySwiper3">
       <div class="swiper-wrapper">
         
           
@@ -287,6 +479,36 @@
       },
       thumbs: {
         swiper: thumbSwiper,
+      },
+    });
+
+    const thumbSwiper3 = new Swiper(".mySwiper3", {
+      loop: true,
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+
+    const mainSwiper4 = new Swiper(".mySwiper4", {
+      loop: true,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next-2",
+        prevEl: ".swiper-button-prev-2",
+      },
+      thumbs: {
+        swiper: thumbSwiper3,
       },
     });
   </script>

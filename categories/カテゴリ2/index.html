@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <title>都市伝説</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/orachang/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+
+  <!-- Hero背景 -->
+  <header class="hero-outer">
+    <div class="site-tag">
+      <a href="/" class="site-title-label">
+        都市伝説
+      </a>
+    </div>
+  </header>
+
+  <!-- ヘッダー高さ分の余白を動的に設定 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.hero-outer');
+      if (header) {
+        const height = header.offsetHeight;
+        document.body.style.paddingTop = height + 'px';
+      }
+    });
+  </script>
+
   <link rel="stylesheet" href="/orachang/css/swiper-bundle.min.css">
 
   <style>
@@ -65,25 +88,25 @@
       object-fit: cover;
     }
 
-    .mySwiper2, .mySwiper4 {
+    .smallSwiper, .largeSwiper4 {
       height: 80%;
     }
 
-    .mySwiper, .mySwiper3 {
+    .largeSwiper, .largeSwiper3 {
       height: 20%;
       box-sizing: border-box;
       padding: 10px 0;
     }
 
-    .mySwiper .swiper-slide,
-    .mySwiper3 .swiper-slide {
+    .largeSwiper .swiper-slide,
+    .largeSwiper3 .swiper-slide {
       width: 25%;
       height: 100%;
       opacity: 0.4;
     }
 
-    .mySwiper .swiper-slide-thumb-active,
-    .mySwiper3 .swiper-slide-thumb-active {
+    .largeSwiper .swiper-slide-thumb-active,
+    .largeSwiper3 .swiper-slide-thumb-active {
       opacity: 1;
     }
 
@@ -108,17 +131,14 @@
       left: 10px;
     }
   </style>
-<meta name="generator" content="Hexo 7.3.0"></head>
+</head>
 
 <body>
-
-  <header>都市伝説</header>
-
   <!-- swiper 1 / 2 -->
   <section class="section">
     <h2>FEATURED STORY</h2>
 
-    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper smallSwiper">
       <div class="swiper-wrapper">
         
           
@@ -222,7 +242,7 @@
       <div class="swiper-button-prev"></div>
     </div>
 
-    <div thumbsSlider class="swiper mySwiper">
+    <div thumbsSlider class="swiper largeSwiper">
       <div class="swiper-wrapper">
         
           
@@ -300,124 +320,10 @@
       </div>
     </div>
   </section>
-<!-- swiper 4 only -->
-<section class="section">
-  <h2>FEATURED STORY 2</h2>
-
-  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper4">
-    <div class="swiper-wrapper">
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/real/">
-              <img src="/orachang/images/posts/thumb_0010.jpg" alt="水族館の真相(仮)">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/entry-2/">
-              <img src="/orachang/images/posts/umi.jpg" alt="海の思い出">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/entry-1/">
-              <img src="/orachang/images/posts/yama.jpg" alt="山の旅">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0009/">
-              <img src="/orachang/images/posts/thumb_0009.jpg" alt="20250515以降の修正版（途中）">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0008/">
-              <img src="/orachang/images/posts/thumb_0008.jpg" alt="ダミー記事 8">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0007/">
-              <img src="/orachang/images/posts/thumb_0007.jpg" alt="ヒーロー記事の例">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0006/">
-              <img src="/orachang/images/posts/thumb_0006.jpg" alt="ダミー記事 6">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0005/">
-              <img src="/orachang/images/posts/thumb_0005.jpg" alt="ダミー記事 5">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0004/">
-              <img src="/orachang/images/posts/thumb_0004.jpg" alt="ダミー記事 4">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0003/">
-              <img src="/orachang/images/posts/thumb_0003.jpg" alt="第一節～第三節の総合評価（2025/5/8時点。書き換えたら削除してもよい）">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0002/">
-              <img src="/orachang/images/posts/thumb_0002.jpg" alt="添削管理用ページ">
-            </a>
-          </div>
-        
-      
-        
-          <div class="swiper-slide">
-            <a href="/orachang/dummy-post_0001/">
-              <img src="/orachang/images/posts/thumb_0001.jpg" alt="添削前文章">
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <!-- ナビゲーションボタン -->
-    <div class="swiper-button-next swiper-button-next-2"></div>
-    <div class="swiper-button-prev swiper-button-prev-2"></div>
-
-    <!-- ページネーション（必要であれば） -->
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
 
   <script src="/orachang/js/swiper-bundle.min.js"></script>
   <script>
-    const thumbSwiper = new Swiper(".mySwiper", {
+    const thumbSwiper = new Swiper(".largeSwiper", {
       loop: true,
       spaceBetween: 10,
       slidesPerView: 4,
@@ -425,7 +331,7 @@
       watchSlidesProgress: true,
     });
 
-    const mainSwiper = new Swiper(".mySwiper2", {
+    const mainSwiper = new Swiper(".smallSwiper", {
       loop: true,
       spaceBetween: 10,
       navigation: {
@@ -436,20 +342,6 @@
         swiper: thumbSwiper,
       },
     });
-
-const mainSwiper4 = new Swiper(".mySwiper4", {
-  loop: true,
-  spaceBetween: 10,
-  navigation: {
-    nextEl: ".swiper-button-next-2",
-    prevEl: ".swiper-button-prev-2",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
   </script>
 
 </body>

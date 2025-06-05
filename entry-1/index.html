@@ -17,6 +17,17 @@
     </div>
   </header>
 
+  <!-- ヘッダー高さ分の余白を動的に設定 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.hero-outer');
+      if (header) {
+        const height = header.offsetHeight;
+        document.body.style.paddingTop = height + 'px';
+      }
+    });
+  </script>
+
 
 <div class="main-wrapper">
 <main class="container">

@@ -8,6 +8,9 @@ html {
   background-size: cover;                  /* 幅と高さにフィット（レスポンシブ対応） */
   background-attachment: scroll;           /* スクロール時も自然に追従 */
 }
+body {
+  padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+}
 
 
 /* ========== ヘッダー ========== */
@@ -16,6 +19,19 @@ html {
   text-align: center;
   position: relative;  
   color: #fdfaf4;
+.site-title-label {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-family: 'Georgia', serif;
+  color: rgba(0, 0, 0, 0.3); /* 擬似的な焼き込み色 */
+  text-shadow:
+    1px 1px 0 rgba(255, 255, 255, 0.1),
+   -1px -1px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  text-decoration: none;
+}
 }
 
 .site-title-label {
@@ -89,13 +105,16 @@ main.container {
 /* ========== ヒーローセクション ========== */
 /* ========== トップページ・ヒーロー紙カード ========== */
 .hero-outer {
-  background-size: cover;
-  background-position: center;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: url("/images/board.png") repeat;
+  background-size: 300px auto;
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hero-frame {

@@ -11,7 +11,8 @@
 }
 
 .swiper-slide {
-  display: flex;
+  display: block;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }

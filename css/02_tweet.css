@@ -1,0 +1,43 @@
+.tweet {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border: 0.0625rem solid #ccc;
+  border-radius: 1rem;
+  color: #0f1419;
+  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.05);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.tweet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.tweet-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+.tweet-user {
+  display: flex;
+  flex-direction: column;
+}
+.tweet-name {
+  font-weight: bold;
+}
+.tweet-handle {
+  font-size: 0.9rem;
+  color: #536471;
+}
+.tweet-body {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.hashtags {
+  color: #1d9bf0;
+}
+.tweet-footer {
+  font-size: 0.85rem;
+  color: #536471;
+}

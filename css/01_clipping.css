@@ -1,0 +1,63 @@
+.clipping {
+  position: relative;
+  background-color: #fdfaf4;
+  border: 0.125rem solid #ccc;
+  padding: 2.5rem 0.5rem 0.5rem;
+  margin: 5rem auto;
+  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
+  font-family: "MS PGothic", "Osaka", sans-serif;
+}
+.fivech-heading {
+  position: absolute;
+  top: -1.2rem;
+  left: 1rem;
+  padding: 0.4rem 1rem;
+  background-color: #d8c7b0;
+  color: #3c2f2c;
+  border-left: 0.375rem solid #6c3b4b;
+  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.2);
+  font-family: 'YuMincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  border-radius: 0.25rem;
+  z-index: 2;
+  margin: 0;
+}
+.fivech-title {
+  font-weight: bold;
+  color: #00c;
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+  margin: 1rem 0;
+  background-color: #f9f9f9;
+}
+.res {
+  position: relative;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  border: 0.0625rem solid #ccc;
+  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.15);
+}
+.res::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0.625rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #bb856a;
+  border-radius: 50%;
+  box-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.3);
+}
+.res-header {
+  font-weight: bold;
+  color: #444;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.res-body {
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+  line-height: 1.6;
+}

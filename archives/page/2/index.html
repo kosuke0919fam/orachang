@@ -37,7 +37,7 @@
   .aspect-ratio-box {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 比率 */
+    padding-top: 56.25%;
     overflow: hidden;
   }
 
@@ -46,9 +46,27 @@
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* もしくは 'contain' に切り替え可能 */
+    object-fit: cover;
     display: block;
   }
+
+  body {
+    background-color: #643915; /* 抽出された焦げ茶色 */
+    background-repeat: repeat;
+    color: #f0e6d2; /* 文字色もやや明るめに調整（任意） */
+  }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
+  mix-blend-mode: multiply;
+}
 </style>
 
 <section class="section">
@@ -313,5 +331,8 @@
     },
   });
 </script>
+
+<!-- 🟢 ノイズ生成 -->
+<script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+console.log("🔥 random-noise.js 実行確認");
+
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.pageType || "unknown";
   const SIZE = 128;
@@ -13,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     generateGrayNoise(ctx, SIZE);
   }
 
-  const url = canvas.toDataURL();
+const url = canvas.toDataURL();
+console.log("📦 canvas URL:", url.slice(0, 100));
   Object.assign(document.body.style, {
     backgroundImage: `url(${url})`,
     backgroundRepeat: "repeat",
@@ -47,3 +50,4 @@ function generateAgedPaperNoise(ctx, size) {
     }
   }
 }
+

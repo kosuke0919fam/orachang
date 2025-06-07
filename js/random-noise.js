@@ -1,53 +1,25 @@
-console.log("🔥 random-noise.js 実行確認");
-
-document.addEventListener("DOMContentLoaded", () => {
-  const pageType = document.body.dataset.pageType || "unknown";
+requestAnimationFrame(() => {
   const SIZE = 128;
-
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = SIZE;
   const ctx = canvas.getContext("2d");
 
-  // index: グレー系ノイズ / post: 茶系ムラノイズ
-  if (pageType === "post") {
-    generateAgedPaperNoise(ctx, SIZE);
-  } else {
-    generateGrayNoise(ctx, SIZE);
-  }
+  // ⚪ 軽量グレー系ノイズ生成
+  const OPACITY = 0.25;
+  const imageData = ctx.createImageData(SIZE, SIZE);
+  const data = imageData.data;
 
-const url = canvas.toDataURL();
-console.log("📦 canvas URL:", url.slice(0, 100));
-  Object.assign(document.body.style, {
-    backgroundImage: `url(${url})`,
-    backgroundRepeat: "repeat",
-    backgroundSize: `${SIZE}px ${SIZE}px`,
-  });
+  for (let i = 0; i < data.length; i += 4) {
+    const val = Math.floor(Math.random() * 100);
+    data[i] = val;     // R
+    data[i + 1] = val; // G
+    data[i + 2] = val; // B
+    data[i + 3] = OPACITY * 255; // A
+  }
+  ctx.putImageData(imageData, 0, 0);
+
+  const url = canvas.toDataURL("image/webp");
+  document.body.style.setProperty("background-image", `url(${url})`, "important");
+  document.body.style.backgroundRepeat = "repeat";
+  document.body.style.backgroundSize = `${SIZE}px ${SIZE}px`;
 });
-
-// グレー系ノイズ（index向け）
-function generateGrayNoise(ctx, size) {
-  const OPACITY = 0.2;
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      const val = Math.floor(Math.random() * 100);
-      ctx.fillStyle = `rgba(${val}, ${val}, ${val}, ${OPACITY})`;
-      ctx.fillRect(x, y, 1, 1);
-    }
-  }
-}
-
-// 古紙風ノイズ（post向け）
-function generateAgedPaperNoise(ctx, size) {
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      const noise = Math.floor(Math.random() * 80);
-      const alpha = 0.1 + Math.random() * 0.15; // 透明度に揺らぎ
-      const r = 110 + noise * 0.6; // 焦げ茶〜黄土色系
-      const g = 85 + noise * 0.4;
-      const b = 60 + noise * 0.2;
-      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-      ctx.fillRect(x, y, 1, 1);
-    }
-  }
-}
-

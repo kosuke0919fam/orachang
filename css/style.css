@@ -6,6 +6,7 @@ html {
 
 body {
   line-height: 1.7;
+  background-color: #3a2515; /* こげ茶色 */
   margin: 0;
   padding: 0;
 }
@@ -23,11 +24,12 @@ footer,
 }
 
 .container {
+  background-color: #fdfaf3; /* ベージュ系 */
+  padding: 0 16px;
   max-width: 720px;
-  width: 100%;
   margin: 0 auto;
-  padding: 0 10px;
   box-sizing: border-box;
+  border-radius: 6px;
   outline: 1px solid red; /* デバッグ用 */
 }
 
@@ -79,29 +81,34 @@ footer,
   width: fit-content;
   max-width: 100%;
   margin-left: -24px; 
+  position: relative;
+  z-index: 2; /* ← body::before より上に */
 }
 
-.article-title {
-  font-family: 'Times New Roman', serif;
-  font-size: 1.5rem;
-  font-weight: bold;
+
+.article-header-box {
+  background-color: #fdf3d7;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 0.125rem solid #ccc;
+  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
+  font-family: 'Georgia', serif;
   color: #2a1f14;
-  border-bottom: 2px dotted #999;
-  padding-bottom: 6px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-align: center;
 }
 
-.article-title .label {
-  background-color: #ddd0b7;
-  color: #3c2b1d;
+.article-header-box .slug {
+  font-size: 0.8rem;
+  color: #6a5e4e;
+  display: block;
+  margin-bottom: 0.3rem;
   font-family: 'Courier New', monospace;
+  opacity: 0.8;
+}
+
+.article-header-box .title {
+  font-size: 1.4rem;
   font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 4px;
-  box-shadow: inset 0 0 2px #999;
 }
 
 .thumbnail-overlay {
@@ -110,7 +117,7 @@ footer,
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 6px 12px;
   border-radius: 8px;
   color: #f0e6d2;
@@ -122,12 +129,16 @@ footer,
 .thumb-slug {
   font-size: 0.7rem;
   opacity: 0.8;
-  line-height: 1.2;
+  font-family: 'Courier New', monospace;
 }
 
 .thumb-title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: bold;
-  line-height: 1.3;
   margin-top: 2px;
+}
+
+.main-wrapper {
+  width: 100%;
+  padding: 2rem 0;
 }

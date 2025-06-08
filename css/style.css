@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  line-height: 1.7;
   margin: 0;
   padding: 0;
 }
@@ -27,6 +28,7 @@ footer,
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
+  outline: 1px solid red; /* デバッグ用 */
 }
 
 .swiper-slide {
@@ -47,7 +49,7 @@ footer,
 .aspect-ratio-box {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;
   overflow: hidden;
 }
 
@@ -71,11 +73,12 @@ footer,
   padding: 10px;
   border: 1px solid #8c7b6b;
   border-radius: 6px 12px 12px 6px;
-  transform: rotate(-2deg);
+  transform: rotate(-0.75deg);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   width: fit-content;
   max-width: 100%;
+  margin-left: -24px; 
 }
 
 .article-title {

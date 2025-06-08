@@ -27,8 +27,8 @@ footer,
 .container {
   max-width: 720px;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 10px;
+  margin: 0 0.5rem auto;
+  padding: 0 0.5rem;
   box-sizing: border-box;
   outline: 1px solid red; /* デバッグ用 */
   z-index: 2; /* backgroundの::beforeより上に */

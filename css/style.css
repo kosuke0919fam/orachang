@@ -1,43 +1,49 @@
-html {
-  font-size: 17px;
+/* ==== ベーシックリセット ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  line-height: 1.7;
+html, body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #643915; /* 赤茶色 */
+  line-height: 1.7;
+  font-size: 17px;
+  background-color: #643915;
+}
+
+/* ==== レイアウト基本設定 ==== */
+header,
+footer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: transparent;
 }
 
 .main-wrapper {
   display: flex;
   justify-content: center;
-}
-header,
-footer {
-  position: relative;  /* z-indexはposition指定が必須 */
-  z-index: 2;
-}
-footer {
-  width: 100%;
-  background-color: transparent;
-  padding: 1rem 0;
+  position: relative; /* グラデ背景用 */
 }
 
+/* ==== コンテナ（中央寄せ、幅制限）==== */
 .container {
   max-width: 720px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  box-sizing: border-box;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   z-index: 2;
   background-color: #f5c88a;
 }
 
+/* ==== スライダー関係 ==== */
 .swiper-slide {
   display: block;
   overflow: hidden;
@@ -53,6 +59,7 @@ footer {
   display: block;
 }
 
+/* ==== 比率固定ボックス ==== */
 .aspect-ratio-box {
   position: relative;
   width: 100%;
@@ -70,6 +77,7 @@ footer {
   display: block;
 }
 
+/* ==== タイトルスタイル ==== */
 .site-title-label {
   display: inline-block;
   background-color: #fdf3d7;
@@ -90,6 +98,7 @@ footer {
   z-index: 2;
 }
 
+/* ==== 記事ヘッダー ==== */
 .article-header-box {
   background-color: #fdf3d7;
   padding: 1rem 1.5rem;
@@ -115,6 +124,7 @@ footer {
   font-weight: bold;
 }
 
+/* ==== サムネイルオーバーレイ ==== */
 .thumbnail-overlay {
   position: absolute;
   top: 10px;

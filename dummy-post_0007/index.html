@@ -11,7 +11,22 @@
     <style>
       body {
         background-color: #643915;
+        background-repeat: repeat;
+        color: #f0e6d2;
         line-height: 1.7;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 1;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 0.75) 100%);
+        mix-blend-mode: multiply;
       }
     </style>
   
@@ -31,7 +46,7 @@
 <div class="main-wrapper">
   <div class="container">
     <h2 class="article-header-box">
-  <span class="title">dummy-post_0007 ヒーロー記事の例</span>
+      <span class="title">dummy-post_0007 ヒーロー記事の例</span>
     </h2>
 
     

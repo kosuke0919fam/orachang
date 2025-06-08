@@ -14,6 +14,11 @@ html, body {
   line-height: 1.7;
   font-size: 17px;
   background-color: #643915;
+  color: #333; 
+}
+
+body {
+  padding:0 0.5em;
 }
 
 /* ==== レイアウト基本設定 ==== */

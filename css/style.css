@@ -8,7 +8,6 @@ body {
   line-height: 1.7;
   margin: 0;
   padding: 0;
-
   background-color: #643915; /* 赤茶色 */
 }
 
@@ -16,9 +15,12 @@ body {
   display: flex;
   justify-content: center;
 }
-
-footer,
-.hero-outer {
+header,
+footer {
+  position: relative;  /* z-indexはposition指定が必須 */
+  z-index: 2;
+}
+footer {
   width: 100%;
   background-color: transparent;
   padding: 1rem 0;
@@ -27,11 +29,12 @@ footer,
 .container {
   max-width: 720px;
   width: 100%;
-  margin: 0 0.5rem auto;
-  padding: 0 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-sizing: border-box;
-  outline: 1px solid red; /* デバッグ用 */
-  z-index: 2; /* backgroundの::beforeより上に */
+  z-index: 2;
   background-color: #f5c88a;
 }
 
@@ -82,18 +85,17 @@ footer,
   text-decoration: none;
   width: fit-content;
   max-width: 100%;
-  margin-left: -24px; 
+  margin-left: -24px;
   position: relative;
-  z-index: 2; /* ← body::before より上に */
+  z-index: 2;
 }
-
 
 .article-header-box {
   background-color: #fdf3d7;
   padding: 1rem 1.5rem;
   margin-bottom: 1.5rem;
   border: 0.125rem solid #ccc;
-  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
+  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
   font-family: 'Georgia', serif;
   color: #2a1f14;
   text-align: center;
@@ -112,7 +114,6 @@ footer,
   font-size: 1.4rem;
   font-weight: bold;
 }
-
 
 .thumbnail-overlay {
   position: absolute;

@@ -1,25 +1,39 @@
 requestAnimationFrame(() => {
   const SIZE = 128;
-  const canvas = document.createElement("canvas");
-  canvas.width = canvas.height = SIZE;
-  const ctx = canvas.getContext("2d");
-
-  // ⚪ 軽量グレー系ノイズ生成
   const OPACITY = 0.25;
-  const imageData = ctx.createImageData(SIZE, SIZE);
-  const data = imageData.data;
 
-  for (let i = 0; i < data.length; i += 4) {
-    const val = Math.floor(Math.random() * 100);
-    data[i] = val;     // R
-    data[i + 1] = val; // G
-    data[i + 2] = val; // B
-    data[i + 3] = OPACITY * 255; // A
+  // ノイズ画像を生成する関数
+  function generateNoiseUrl(size, opacity) {
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = size;
+    const ctx = canvas.getContext("2d");
+    const imageData = ctx.createImageData(size, size);
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+      const val = Math.floor(Math.random() * 100);
+      data[i] = data[i + 1] = data[i + 2] = val; // グレー値
+      data[i + 3] = opacity * 255; // アルファ
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+    return canvas.toDataURL("image/webp");
   }
-  ctx.putImageData(imageData, 0, 0);
 
-  const url = canvas.toDataURL("image/webp");
-  document.body.style.setProperty("background-image", `url(${url})`, "important");
-  document.body.style.backgroundRepeat = "repeat";
-  document.body.style.backgroundSize = `${SIZE}px ${SIZE}px`;
+  // 背景スタイルを適用する関数
+  function applyNoiseBackground(element, url, size) {
+    element.style.backgroundImage = `url(${url})`;
+    element.style.backgroundRepeat = "repeat";
+    element.style.backgroundSize = `${size}px ${size}px`;
+  }
+
+  const noiseUrl = generateNoiseUrl(SIZE, OPACITY);
+
+  // body に適用
+  applyNoiseBackground(document.body, noiseUrl, SIZE);
+
+  // すべての .container に適用
+  document.querySelectorAll('.container').forEach(container => {
+    applyNoiseBackground(container, noiseUrl, SIZE);
+  });
 });

@@ -6,9 +6,10 @@ html {
 
 body {
   line-height: 1.7;
-  background-color: #3a2515; /* こげ茶色 */
   margin: 0;
   padding: 0;
+
+  background-color: #643915; /* 赤茶色 */
 }
 
 .main-wrapper {
@@ -24,13 +25,14 @@ footer,
 }
 
 .container {
-  background-color: #fdfaf3; /* ベージュ系 */
-  padding: 0 16px;
   max-width: 720px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 10px;
   box-sizing: border-box;
-  border-radius: 6px;
   outline: 1px solid red; /* デバッグ用 */
+  z-index: 2; /* backgroundの::beforeより上に */
+  background-color: #f5c88a;
 }
 
 .swiper-slide {
@@ -111,13 +113,14 @@ footer,
   font-weight: bold;
 }
 
+
 .thumbnail-overlay {
   position: absolute;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
   padding: 6px 12px;
   border-radius: 8px;
   color: #f0e6d2;
@@ -129,16 +132,12 @@ footer,
 .thumb-slug {
   font-size: 0.7rem;
   opacity: 0.8;
-  font-family: 'Courier New', monospace;
+  line-height: 1.2;
 }
 
 .thumb-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
+  line-height: 1.3;
   margin-top: 2px;
-}
-
-.main-wrapper {
-  width: 100%;
-  padding: 2rem 0;
 }

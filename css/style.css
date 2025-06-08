@@ -1,16 +1,31 @@
+html {
+  font-size: 17px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .main-wrapper {
   display: flex;
   justify-content: center;
 }
-footer, .hero-outer {
+
+footer,
+.hero-outer {
   width: 100%;
   background-color: transparent;
   padding: 1rem 0;
 }
+
 .container {
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
@@ -32,16 +47,17 @@ footer, .hero-outer {
 .aspect-ratio-box {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 高さ = 幅 × (9 ÷ 16) */
+  padding-top: 56.25%; /* 16:9 */
   overflow: hidden;
 }
 
 .aspect-ratio-box img {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* or 'contain' にすると上下または左右に余白あり */
+  object-fit: cover;
   display: block;
 }
 
@@ -50,19 +66,21 @@ footer, .hero-outer {
   background-color: #fdf3d7;
   color: #3b2f1d;
   font-family: 'Georgia', serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 4px 10px;
+  padding: 10px;
   border: 1px solid #8c7b6b;
   border-radius: 6px 12px 12px 6px;
   transform: rotate(-2deg);
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   text-decoration: none;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .article-title {
   font-family: 'Times New Roman', serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #2a1f14;
   border-bottom: 2px dotted #999;

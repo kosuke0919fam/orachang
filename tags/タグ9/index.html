@@ -6,10 +6,31 @@
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+    <style>
+      body {
+        background-color: #643915;
+        background-repeat: repeat;
+        color: #f0e6d2;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 1;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 0.75) 100%);
+        mix-blend-mode: multiply;
+      }
+    </style>
+  
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="index">
-
-  <!-- Hero背景 -->
   <header class="hero-outer">
     <div class="container">
       <div class="site-tag">
@@ -20,65 +41,7 @@
     </div>
   </header>
 
-  <!-- ヘッダー高さ分の余白を動的に設定 -->
-  <script>
-//    window.addEventListener('DOMContentLoaded', () => {
-//      const header = document.querySelector('.hero-outer');
-//      if (header) {
-//        const height = header.offsetHeight;
-//        document.body.style.paddingTop = height + 'px';
-//      }
-//    });
-  </script>
-
 <link rel="stylesheet" href="/orachang/css/swiper-bundle.min.css">
-
-<style>
-  .aspect-ratio-box {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    overflow: hidden;
-  }
-
-  .aspect-ratio-box img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  body {
-    background-color: #643915;
-    background-repeat: repeat;
-    color: #f0e6d2;
-    margin: 0;
-    padding: 0;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 0.75) 100%);
-    mix-blend-mode: multiply;
-  }
-
-  header .container,
-  footer .container,
-  main .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-</style>
 
 <section class="section">
   <div class="main-wrapper">

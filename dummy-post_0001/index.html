@@ -5,50 +5,66 @@
   <title>都市伝説</title>
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="post">
 
   <!-- Hero背景 -->
   <header class="hero-outer">
-  <div class="container">
-    <div class="site-tag">
-      <a href="/orachang/" class="site-title-label">
-        都市伝説
-      </a>
+    <div class="container">
+      <div class="site-tag">
+        <a href="/orachang/" class="site-title-label">
+          都市伝説
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
   <!-- ヘッダー高さ分の余白を動的に設定 -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero-outer');
-      if (header) {
-        const height = header.offsetHeight;
-        document.body.style.paddingTop = height + 'px';
-      }
-    });
+//    window.addEventListener('DOMContentLoaded', () => {
+//      const header = document.querySelector('.hero-outer');
+//      if (header) {
+//        const height = header.offsetHeight;
+//        document.body.style.paddingTop = height + 'px';
+//      }
+//    });
   </script>
 
 <style>
-  html{
+  html {
     font-size: 17px;
-}
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: #f5c88a;
     line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+
+  header .container,
+  footer .container,
+  main.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 </style>
-</style>
+
 <div class="main-wrapper">
-<main class="container">
-  <h2 class="article-title"><span class="label"></span>添削前文章</h2>
-  
-  <article>
-    <h2 id="削除された画像の謎"><a href="#削除された画像の謎" class="headerlink" title="削除された画像の謎"></a>削除された画像の謎</h2><p>ナレーション：<br>この画像は、ある水族館がプロモーション目的でSNSに投稿したものだ。<br>一見して、何の変哲もない。<br>だが投稿から数日後、理由も告げられぬまま、静かに削除されていた。</p>
+  <main class="container">
+    <h2 class="article-title">
+      <span class="label"></span>添削前文章
+    </h2>
+
+    
+
+    <article>
+      <h2 id="削除された画像の謎"><a href="#削除された画像の謎" class="headerlink" title="削除された画像の謎"></a>削除された画像の謎</h2><p>ナレーション：<br>この画像は、ある水族館がプロモーション目的でSNSに投稿したものだ。<br>一見して、何の変哲もない。<br>だが投稿から数日後、理由も告げられぬまま、静かに削除されていた。</p>
 <p>実はこの画像――<br>一件の事件と、深く関わっていた。</p>
 <p>私は〇〇市の都市伝説を扱う動画を作っている。<br>次の題材を探していたとき、ある投稿が目に飛び込んできた。</p>
 <p>（ここにSNS画像を入れる）</p>
@@ -685,18 +701,18 @@
 <p>ナレーション<br>⓪の動機は判明した。<br>でも、②が口にした“冗談”は、どこまでが本気だったのだろう。</p>
 <p>忘れようとしても、あの言葉だけが、耳から離れない。</p>
 
-  </article>
-</main>
+    </article>
+  </main>
 </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 都市伝説</p>
     </div>
   </footer>
 
-<!-- 🟢 ノイズ生成 -->
-<script src="/orachang/js/random-noise.js"></script>
+  <!-- 🟢 ノイズ生成 -->
+  <script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>
 

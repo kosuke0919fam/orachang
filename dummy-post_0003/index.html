@@ -5,50 +5,66 @@
   <title>都市伝説</title>
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="post">
 
   <!-- Hero背景 -->
   <header class="hero-outer">
-  <div class="container">
-    <div class="site-tag">
-      <a href="/orachang/" class="site-title-label">
-        都市伝説
-      </a>
+    <div class="container">
+      <div class="site-tag">
+        <a href="/orachang/" class="site-title-label">
+          都市伝説
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
   <!-- ヘッダー高さ分の余白を動的に設定 -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero-outer');
-      if (header) {
-        const height = header.offsetHeight;
-        document.body.style.paddingTop = height + 'px';
-      }
-    });
+//    window.addEventListener('DOMContentLoaded', () => {
+//      const header = document.querySelector('.hero-outer');
+//      if (header) {
+//        const height = header.offsetHeight;
+//        document.body.style.paddingTop = height + 'px';
+//      }
+//    });
   </script>
 
 <style>
-  html{
+  html {
     font-size: 17px;
-}
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: #f5c88a;
     line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+
+  header .container,
+  footer .container,
+  main.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 </style>
-</style>
+
 <div class="main-wrapper">
-<main class="container">
-  <h2 class="article-title"><span class="label"></span>第一節～第三節の総合評価（2025/5/8時点。書き換えたら削除してもよい）</h2>
-  
-  <article>
-    <p>総合スコア：95点</p>
+  <main class="container">
+    <h2 class="article-title">
+      <span class="label"></span>第一節～第三節の総合評価（2025/5/8時点。書き換えたら削除してもよい）
+    </h2>
+
+    
+
+    <article>
+      <p>総合スコア：95点</p>
 <p>完成度は極めて高いです。物語の導入から証言、情報の掘り下げ、次なる展開への布石まで、丁寧かつ緻密に構成されています。ただ、以下のような細部の揺らぎや、表現の洗練不足を解消すれば、98点以上は十分に狙えます。<br>第一節：導入・投稿・②の登場</p>
 <p>節スコア：96点<br>✅ 良い点</p>
 <pre><code>ミステリアスかつシンプルな導入。描写の「余白」が読者の想像力を刺激する。
@@ -87,18 +103,18 @@
 「私の違和感は、あのときから続いていた。」など、①の内面をにじませるナレーションが入ると、全体の緊張が持続します。
 </code></pre>
 
-  </article>
-</main>
+    </article>
+  </main>
 </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 都市伝説</p>
     </div>
   </footer>
 
-<!-- 🟢 ノイズ生成 -->
-<script src="/orachang/js/random-noise.js"></script>
+  <!-- 🟢 ノイズ生成 -->
+  <script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>
 

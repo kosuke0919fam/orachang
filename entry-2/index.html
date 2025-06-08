@@ -5,63 +5,79 @@
   <title>都市伝説</title>
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="post">
 
   <!-- Hero背景 -->
   <header class="hero-outer">
-  <div class="container">
-    <div class="site-tag">
-      <a href="/orachang/" class="site-title-label">
-        都市伝説
-      </a>
+    <div class="container">
+      <div class="site-tag">
+        <a href="/orachang/" class="site-title-label">
+          都市伝説
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
   <!-- ヘッダー高さ分の余白を動的に設定 -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero-outer');
-      if (header) {
-        const height = header.offsetHeight;
-        document.body.style.paddingTop = height + 'px';
-      }
-    });
+//    window.addEventListener('DOMContentLoaded', () => {
+//      const header = document.querySelector('.hero-outer');
+//      if (header) {
+//        const height = header.offsetHeight;
+//        document.body.style.paddingTop = height + 'px';
+//      }
+//    });
   </script>
 
 <style>
-  html{
+  html {
     font-size: 17px;
-}
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: #f5c88a;
     line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+
+  header .container,
+  footer .container,
+  main.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 </style>
-</style>
-<div class="main-wrapper">
-<main class="container">
-  <h2 class="article-title"><span class="label"></span>海の思い出</h2>
-  
-  <article>
-    <p>ここは海の思い出の記事です。</p>
 
-  </article>
-</main>
+<div class="main-wrapper">
+  <main class="container">
+    <h2 class="article-title">
+      <span class="label"></span>海の思い出
+    </h2>
+
+    
+
+    <article>
+      <p>ここは海の思い出の記事です。</p>
+
+    </article>
+  </main>
 </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 都市伝説</p>
     </div>
   </footer>
 
-<!-- 🟢 ノイズ生成 -->
-<script src="/orachang/js/random-noise.js"></script>
+  <!-- 🟢 ノイズ生成 -->
+  <script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>
 

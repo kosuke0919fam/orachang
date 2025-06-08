@@ -5,32 +5,30 @@
   <title>都市伝説</title>
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="index">
 
   <!-- Hero背景 -->
   <header class="hero-outer">
-  <div class="container">
-    <div class="site-tag">
-      <a href="/orachang/" class="site-title-label">
-        都市伝説
-      </a>
+    <div class="container">
+      <div class="site-tag">
+        <a href="/orachang/" class="site-title-label">
+          都市伝説
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
   <!-- ヘッダー高さ分の余白を動的に設定 -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero-outer');
-      if (header) {
-        const height = header.offsetHeight;
-        document.body.style.paddingTop = height + 'px';
-      }
-    });
+//    window.addEventListener('DOMContentLoaded', () => {
+//      const header = document.querySelector('.hero-outer');
+//      if (header) {
+//        const height = header.offsetHeight;
+//        document.body.style.paddingTop = height + 'px';
+//      }
+//    });
   </script>
 
 <link rel="stylesheet" href="/orachang/css/swiper-bundle.min.css">
@@ -53,22 +51,33 @@
   }
 
   body {
-    background-color: #643915; /* 抽出された焦げ茶色 */
+    background-color: #643915;
     background-repeat: repeat;
-    color: #f0e6d2; /* 文字色もやや明るめに調整（任意） */
+    color: #f0e6d2;
+    margin: 0;
+    padding: 0;
   }
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1;
 
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 0.75) 100%);
-  mix-blend-mode: multiply;
-}
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 0.75) 100%);
+    mix-blend-mode: multiply;
+  }
+
+  header .container,
+  footer .container,
+  main .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
 </style>
 
 <section class="section">
@@ -334,14 +343,14 @@ body::before {
   });
 </script>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 都市伝説</p>
     </div>
   </footer>
 
-<!-- 🟢 ノイズ生成 -->
-<script src="/orachang/js/random-noise.js"></script>
+  <!-- 🟢 ノイズ生成 -->
+  <script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>
 

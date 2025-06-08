@@ -5,50 +5,66 @@
   <title>都市伝説</title>
   <link rel="stylesheet" href="/orachang/css/00_index.css">
   <link rel="stylesheet" href="/orachang/css/style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body data-page-type="post">
 
   <!-- Hero背景 -->
   <header class="hero-outer">
-  <div class="container">
-    <div class="site-tag">
-      <a href="/orachang/" class="site-title-label">
-        都市伝説
-      </a>
+    <div class="container">
+      <div class="site-tag">
+        <a href="/orachang/" class="site-title-label">
+          都市伝説
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
   <!-- ヘッダー高さ分の余白を動的に設定 -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero-outer');
-      if (header) {
-        const height = header.offsetHeight;
-        document.body.style.paddingTop = height + 'px';
-      }
-    });
+//    window.addEventListener('DOMContentLoaded', () => {
+//      const header = document.querySelector('.hero-outer');
+//      if (header) {
+//        const height = header.offsetHeight;
+//        document.body.style.paddingTop = height + 'px';
+//      }
+//    });
   </script>
 
 <style>
-  html{
+  html {
     font-size: 17px;
-}
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: #f5c88a;
     line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+
+  header .container,
+  footer .container,
+  main.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 </style>
-</style>
+
 <div class="main-wrapper">
-<main class="container">
-  <h2 class="article-title"><span class="label"></span>20250515以降の修正版（途中）</h2>
-  
-  <article>
-    <h3 id="第一節"><a href="#第一節" class="headerlink" title="第一節"></a>第一節</h3><p>水族館が投稿した一枚の写真。<br>ショーステージの様子──波打つ照明と、水槽越しに揺らぐ観客席。<br>光は青く静まり、演出用の泡が画面の奥に立ちのぼっている。</p>
+  <main class="container">
+    <h2 class="article-title">
+      <span class="label"></span>20250515以降の修正版（途中）
+    </h2>
+
+    
+
+    <article>
+      <h3 id="第一節"><a href="#第一節" class="headerlink" title="第一節"></a>第一節</h3><p>水族館が投稿した一枚の写真。<br>ショーステージの様子──波打つ照明と、水槽越しに揺らぐ観客席。<br>光は青く静まり、演出用の泡が画面の奥に立ちのぼっている。</p>
 <p>──いかにも、何の変哲もない風景だった。</p>
 <p>数日後、その画像は突如削除された。説明も、釈明もなし。</p>
 <p>手違いか、内部事情か、それとも──写ってはならないものが写ったのか。</p>
@@ -65,18 +81,18 @@
 <p>水族館の内部で、人が消えたのか？<br>それとも、外に出たあとで何かが──</p>
 <p>──私は、②に連絡を取った。<br>返事は、驚くほど早く返ってきた。</p>
 
-  </article>
-</main>
+    </article>
+  </main>
 </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 都市伝説</p>
     </div>
   </footer>
 
-<!-- 🟢 ノイズ生成 -->
-<script src="/orachang/js/random-noise.js"></script>
+  <!-- 🟢 ノイズ生成 -->
+  <script src="/orachang/js/random-noise.js"></script>
 </body>
 </html>
 

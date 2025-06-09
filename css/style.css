@@ -9,109 +9,101 @@
 
 html, body {
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  line-height: 1.7;
   font-size: 17px;
-  background-color: #643915;
+  line-height: 1.7;
   color: #333;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.85) 80%
+    );
+  background-color: #643915; /* 赤茶背景 */
 }
 
 body {
-  padding: 0 0.5em;
-  background-repeat: repeat;
-  color: #f0e6d2;
+  padding: 0;
+  position: relative;
 }
 
-/* ==== 背景グラデーション ==== */
+/* ==== 背景レイヤー構成 ==== */
+
+/* 🔴 外側（赤茶 + グラデーション + ノイズ） */
 body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.85) 80%);
-  mix-blend-mode: multiply;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.85) 80%
+    );
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }
 
-/* ==== レイアウト基本設定 ==== */
-header,
-footer {
+/* 🟡 中央帯（ベージュ + ノイズ） */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
+  height: 100%;
+  background-color: #f5c88a;
+  pointer-events: none;
+  z-index: 1;
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ==== レイアウト構造 ==== */
+header, footer {
   position: relative;
   z-index: 2;
-  width: 100%;
   background-color: transparent;
+  padding: 1.5rem 0;
 }
 
 .main-wrapper {
   display: flex;
   justify-content: center;
-  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .container {
   max-width: 720px;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: transparent;
   z-index: 2;
-  background-color: #f5c88a;
-}
-
-/* ==== スライダー関係 ==== */
-.smallSwiper {
-  visibility: hidden;
-}
-
-.swiper-slide {
-  display: block;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-}
-
-.swiper-slide img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-}
-
-/* ==== 比率固定ボックス ==== */
-.aspect-ratio-box {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  overflow: hidden;
 }
 
-.aspect-ratio-box img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ==== タイトルスタイル ==== */
+/* ==== タイトルスタイル（上下二重線） ==== */
 .site-tag {
-  position: relative;
-  width: 75%;
-  margin: 2rem auto;
   text-align: center;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .site-title-label {
   display: inline-block;
   font-size: 2rem;
-  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: #210e00;
+  padding: 0.3em 0.7em;
   position: relative;
   z-index: 2;
 }
@@ -154,63 +146,56 @@ footer {
   bottom: -6px;
 }
 
-/* ==== 汎用要素 ==== */
+/* ==== 見出し・記事内構造（必要であれば調整） ==== */
 h3 {
-  margin: 30px;
+  margin: 1.5rem 0;
+  font-size: 1.25rem;
   color: #333;
 }
 
-/* ==== 記事ヘッダー ==== */
-.article-header-box {
-  background-color: #fdf3d7;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1.5rem;
-  border: 0.125rem solid #ccc;
-  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
-  font-family: 'Georgia', serif;
-  color: #2a1f14;
+/* ==== フッター調整（簡易） ==== */
+footer {
   text-align: center;
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 2rem;
 }
 
-.article-header-box .slug {
-  font-size: 0.8rem;
-  color: #6a5e4e;
+/* スライダー本体をcontainer幅に合わせる */
+.swiper.largeSwiper,
+.swiper.smallSwiper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* スライド内の要素中央寄せ */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 画像はスライドにフィット */
+.swiper-slide img {
+  width: 100%;
+  height: auto;
   display: block;
-  margin-bottom: 0.3rem;
-  font-family: 'Courier New', monospace;
-  opacity: 0.8;
+  object-fit: cover;
 }
 
-.article-header-box .title {
-  font-size: 1.4rem;
-  font-weight: bold;
+/* アスペクト比維持用ボックス（既存維持） */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden;
 }
 
-/* ==== サムネイルオーバーレイ ==== */
-.thumbnail-overlay {
+.aspect-ratio-box img {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.45);
-  padding: 6px 12px;
-  border-radius: 8px;
-  color: #f0e6d2;
-  font-family: 'Georgia', serif;
-  z-index: 2;
-  backdrop-filter: blur(2px);
-}
-
-.thumb-slug {
-  font-size: 0.7rem;
-  opacity: 0.8;
-  line-height: 1.2;
-}
-
-.thumb-title {
-  font-size: 0.95rem;
-  font-weight: bold;
-  line-height: 1.3;
-  margin-top: 2px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -11,9 +11,14 @@ requestAnimationFrame(() => {
     const data = imageData.data;
 
     for (let i = 0; i < data.length; i += 4) {
-      const val = Math.floor(Math.random() * 100); // グレー値
-      data[i] = data[i + 1] = data[i + 2] = val;
-      data[i + 3] = opacity * 255; // アルファ
+    const r = Math.floor(Math.random() * 100 + 100);  // R: 100〜199
+    const g = Math.floor(Math.random() * 80 + 80);    // G: 80〜159
+    const b = Math.floor(Math.random() * 50 + 30);    // B: 30〜79
+
+    data[i]     = r;     // Red
+    data[i + 1] = g;     // Green
+    data[i + 2] = b;     // Blue
+    data[i + 3] = 100;    // Alpha (透明度)
     }
 
     ctx.putImageData(imageData, 0, 0);

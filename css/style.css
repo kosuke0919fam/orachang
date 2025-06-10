@@ -141,6 +141,13 @@ header, footer {
 
 .site-title-label::after {
   bottom: -6px;
+}.site-title-label {
+  position: relative;
+  z-index: 2;
+}
+.site-title-label::before,
+.site-title-label::after {
+  z-index: 3;
 }
 
 /* ==== 見出し・記事内構造 ==== */
@@ -219,7 +226,22 @@ footer {
   margin-top: 1rem;
 }
 
+/* 小さいサムネイルにもポラロイド風 */
+.polaroid-thumb.square {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/* サムネイルの正方形化（16:9 → 1:1） */
+.aspect-ratio-box.square {
+  padding-top: 100%; /* 正方形 */
+}
 /* ラベル共通 */
 .label-post-title {
   position: absolute;

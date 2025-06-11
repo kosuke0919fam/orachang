@@ -12,12 +12,13 @@ html, body {
   font-size: 17px;
   line-height: 1.7;
   color: #333;
-  background-color: #643915; /* 赤茶背景 */
+  background-color: #e6c48d;
 }
 
 body {
   padding: 0;
   position: relative;
+  background-color: #e6c48d; /* 全体背景色 */
 }
 a {
   text-decoration: none;
@@ -44,20 +45,6 @@ body::before {
   background-size: 128px 128px;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 720px;
-  height: 100%;
-  background-color: #f5c88a;
-  pointer-events: none;
-  z-index: 1;
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
 
 /* ==== レイアウト構造 ==== */
 header, footer {
@@ -82,8 +69,8 @@ header, footer {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   background-color: transparent;
-  z-index: 2;
   position: relative;
+  z-index: 2;
 }
 
 /* ==== タイトルスタイル（上下二重線） ==== */
@@ -149,6 +136,17 @@ header, footer {
 .site-title-label::after {
   z-index: 3;
 }
+/* 全体囲み線 */
+.site-frame {
+  max-width: 720px;         /* 横幅を720pxまでに制限 */
+  width: 100%;              /* 画面幅が狭いときは縮む */
+  margin: 2rem auto;        /* 中央寄せ */
+  padding: 1rem;
+  background-color: #e6c48d;
+  border: double 4px #5c3a1a;
+  position: relative;
+  z-index: 2;
+}
 
 /* ==== 見出し・記事内構造 ==== */
 h3 {
@@ -195,11 +193,8 @@ footer {
 
 /* ポラロイド風サムネイル */
 .polaroid-thumb {
-  background: white;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  background: #f5ebd3; /* 白から、淡いクラフト紙ベージュへ */
+  padding: 0.5rem 0.5rem 2rem 0.5rem; /* 上・左右：0.5、下：2 */
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   border-radius: 4px;
   position: relative;
@@ -229,7 +224,7 @@ footer {
 /* 小さいサムネイルにもポラロイド風 */
 .polaroid-thumb.square {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem 2rem 0.5rem; /* 上・左右：0.5、下：2 */
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   border-radius: 4px;
   background: white;

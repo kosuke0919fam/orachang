@@ -142,7 +142,7 @@ header, footer {
   width: 100%;              /* 画面幅が狭いときは縮む */
   margin: 2rem auto;        /* 中央寄せ */
   padding: 1rem;
-  background-color: #e6c48d;
+  /*background-color: #e6c48d;*/
   border: double 4px #5c3a1a;
   position: relative;
   z-index: 2;

@@ -7,6 +7,7 @@
   padding: 0;
 }
 
+
 html, body {
   min-height: 100vh;
   font-size: 17px;
@@ -18,7 +19,6 @@ html, body {
 body {
   padding: 0;
   position: relative;
-  background-color: #e6c48d; /* 全体背景色 */
 }
 a {
   text-decoration: none;
@@ -141,9 +141,8 @@ header, footer {
   max-width: 720px;         /* 横幅を720pxまでに制限 */
   width: 100%;              /* 画面幅が狭いときは縮む */
   margin: 2rem auto;        /* 中央寄せ */
-  padding: 1rem;
   /*background-color: #e6c48d;*/
-  border: double 4px #5c3a1a;
+  border: double 5px #5c3a1a;
   position: relative;
   z-index: 2;
 }
@@ -190,7 +189,36 @@ footer {
   margin: 0 auto;
   display: block;
 }
+.swiper.smallSwiper {
+  max-width: 720px;
+  width: 90%;
+  margin-top: 2.0rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.75);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+}
 
+.swiper-pagination.small-pagination {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #333;
+  opacity: 0.3;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #210e00;
+  opacity: 1;
+}
 /* ポラロイド風サムネイル */
 .polaroid-thumb {
   background: #f5ebd3; /* 白から、淡いクラフト紙ベージュへ */

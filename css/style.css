@@ -222,7 +222,7 @@ footer {
 /* ポラロイド風サムネイル */
 .polaroid-thumb {
   background: #f5ebd3; /* 白から、淡いクラフト紙ベージュへ */
-  padding: 0.5rem 0.5rem 2rem 0.5rem; /* 上・左右：0.5、下：2 */
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem; /* 上・左右：0.5、下：2 */
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   border-radius: 4px;
   position: relative;

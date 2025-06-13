@@ -6,8 +6,26 @@
   margin: 0;
   padding: 0;
 }
+@font-face {
+  font-family: 'BIZUDMincho';
+  src: url('/orachang/fonts/BIZUDMincho-Regular.woff2') format('woff2'),
+       url('/orachang/fonts/BIZUDMincho-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-
+@font-face {
+  font-family: 'BIZUDMincho';
+  src: url('/orachang/fonts/BIZUDMincho-Bold.woff2') format('woff2'),
+       url('/orachang/fonts/BIZUDMincho-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'BIZUDMincho', serif;
+}
 html, body {
   min-height: 100vh;
   font-size: 17px;
@@ -26,17 +44,19 @@ html::after {
   z-index: 0;
 background: 
 linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.1) 0%,
+  rgba(0, 0, 0, 0.3) 0%,
   rgba(0, 0, 0, 0.0) calc(33%),
   rgba(0, 0, 0, 0.0) calc(66%),
-  rgba(0, 0, 0, 0.1) 100%
+  rgba(0, 0, 0, 0.3) 100%
 ),
 linear-gradient(to right,
-  rgba(0, 0, 0, 0.1) 0%,
+  rgba(0, 0, 0, 0.3) 0%,
   rgba(0, 0, 0, 0.0) calc(33%),
   rgba(0, 0, 0, 0.0) calc(66%),
-  rgba(0, 0, 0, 0.1) 100%
-);
+  rgba(0, 0, 0, 0.3) 100%
+),
+
+    url("/orachang/images/noise.webp"); /* ← これに置き換える */
 }
 
 

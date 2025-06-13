@@ -1,11 +1,40 @@
 .clipping {
   position: relative;
-  background-color: #fdfaf4;
-  border: 0.125rem solid #ccc;
+  background-color: #fdf7e3;
+  z-index: 1;
   padding: 2.5rem 0.5rem 0.5rem;
   margin: 5rem auto;
-  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
   font-family: "MS PGothic", "Osaka", sans-serif;
+  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
+}
+.clipping::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(204,184,150,0.25) 0rem, rgba(255,255,255,0.75) 10rem, rgba(255,255,255,0.75) calc(100% - 10rem), rgba(204,184,150,0.25) 100%), linear-gradient(to right, rgba(204,184,150,0.25) 0rem, rgba(255,255,255,0.75) 10rem, rgba(255,255,255,0.75) calc(100% - 10rem), rgba(204,184,150,0.25) 100%);
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+.clipping::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/orachang/images/noise.webp");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
 }
 .fivech-heading {
   position: absolute;
@@ -29,26 +58,12 @@
   font-size: 1.25rem;
   padding: 0.75rem 0;
   margin: 1rem 0;
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 .res {
   position: relative;
-  margin-bottom: 1.5rem;
-  background-color: #fff;
   padding: 1rem;
-  border: 0.0625rem solid #ccc;
-  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.15);
-}
-.res::before {
-  content: '';
-  position: absolute;
-  top: -0.5rem;
-  left: 0.625rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  background-color: #bb856a;
-  border-radius: 50%;
-  box-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.3);
+  border-bottom: 0.0625rem solid #5c3a1a;
 }
 .res-header {
   font-weight: bold;

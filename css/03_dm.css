@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #fdf7e3;
   padding: 0.5rem 1rem;
   border-bottom: 0.0625rem solid #ccc;
   border-top-left-radius: 0.5rem;
@@ -22,7 +22,10 @@
 .bubble {
   position: relative;
   font-size: 0.95rem;
-  padding: 0 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
   border-radius: 1rem;
   line-height: 1.5;
   background-color: transparent;
@@ -37,13 +40,13 @@
 }
 .dm-message.left .bubble {
   background-color: #d8d2c7;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .dm-message.left .bubble::after {
   content: "";
   position: absolute;
-  bottom: 1rem;
-  left: -0.625rem;
+  bottom: 0.75rem;
+  left: -0.5rem;
   width: 0;
   height: 0;
   border-style: solid;
@@ -57,13 +60,13 @@
 }
 .dm-message.right .bubble {
   background-color: #337ab7;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 .dm-message.right .bubble::after {
   content: "";
   position: absolute;
-  bottom: 1rem;
-  right: -0.625rem;
+  bottom: 0.75rem;
+  right: -0.5rem;
   width: 0;
   height: 0;
   border-style: solid;

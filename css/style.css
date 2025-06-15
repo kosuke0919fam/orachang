@@ -296,6 +296,23 @@ footer {
   background: #210e00;
   opacity: 1;
 }
+
+.smallSwiper-wrapper {
+  position: relative;
+  margin-bottom: 2rem; /* ✅ フッターとの間に余白を確保 */
+}
+
+.smallSwiper {
+  width: 100%;
+}
+
+.swiper-pagination.small-pagination {
+  position: relative;  /* ✅ 意図しない絶対配置を避ける */
+  text-align: center;
+  margin-top: 0.5rem;
+  z-index: 1;
+}
+
 /* ポラロイド風サムネイル */
 .polaroid-thumb {
   background: #f5ebd3; /* 白から、淡いクラフト紙ベージュへ */

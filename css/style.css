@@ -9,34 +9,23 @@
   padding: 0;
 }
 
-@font-face {
-  font-family: 'BIZUDMincho';
-  src: url('/orachang/fonts/BIZUDMincho-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BIZUDMincho';
-  src: url('/orachang/fonts/BIZUDMincho-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+
+html {
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
 }
 
-html, body {
-  font-family: 'BIZUDMincho', serif;
+body {
+  font-family: Meiryo, "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
   font-size: 17px;
   line-height: 1.7;
   color: #333;
   background-color: #e6c48d;
   min-height: 100vh;
-}
-body {
   position: relative;
   padding: 0;
   margin: 0;
 }
+
 a {
   text-decoration: none;
 }
@@ -115,6 +104,7 @@ header, footer {
 }
 .site-title-label {
   display: inline-block;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 2rem;
   font-weight: bold;
   color: #210e00;
@@ -182,7 +172,7 @@ margin: 0 auto;
   padding: 0.5rem 0 1rem;
   background-color: #fdf7e3;
   color: #2e2e2e;
-  font-family: 'BIZUDMincho', serif;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 0.25rem;

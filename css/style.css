@@ -1,4 +1,6 @@
-/* ==== ベーシックリセット ==== */
+/* ================================
+   リセット・フォント定義
+================================ */
 *,
 *::before,
 *::after {
@@ -6,6 +8,7 @@
   margin: 0;
   padding: 0;
 }
+
 @font-face {
   font-family: 'BIZUDMincho';
   src: url('/orachang/fonts/BIZUDMincho-Regular.woff2') format('woff2');
@@ -13,7 +16,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'BIZUDMincho';
   src: url('/orachang/fonts/BIZUDMincho-Bold.woff2') format('woff2');
@@ -22,21 +24,29 @@
   font-display: swap;
 }
 
-body {
-  font-family: 'BIZUDMincho', serif;
-  color: #333;
-  background-color: #e6c48d;
-  position: relative;
-  min-height: 100vh;
-  margin: 0;
-}
 html, body {
-  min-height: 100vh;
+  font-family: 'BIZUDMincho', serif;
   font-size: 17px;
   line-height: 1.7;
   color: #333;
   background-color: #e6c48d;
+  min-height: 100vh;
 }
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+}
+
+/* ================================
+   背景レイヤー構成（ノイズ＋グリッド）
+================================ */
 html::after {
   content: "";
   position: fixed;
@@ -46,40 +56,19 @@ html::after {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-background: 
-linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.3) 0%,
-  rgba(0, 0, 0, 0.0) calc(33%),
-  rgba(0, 0, 0, 0.0) calc(66%),
-  rgba(0, 0, 0, 0.3) 100%
-),
-linear-gradient(to right,
-  rgba(0, 0, 0, 0.3) 0%,
-  rgba(0, 0, 0, 0.0) calc(33%),
-  rgba(0, 0, 0, 0.0) calc(66%),
-  rgba(0, 0, 0, 0.3) 100%
-),
-
-    url("/orachang/images/noise.webp"); /* ← これに置き換える */
+  background: 
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.0) 33%,
+      rgba(0, 0, 0, 0.0) 66%,
+      rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(to right,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.0) 33%,
+      rgba(0, 0, 0, 0.0) 66%,
+      rgba(0, 0, 0, 0.3) 100%),
+    url("/orachang/images/noise.webp");
 }
-
-
-body {
-  padding: 0;
-  position: relative;
-}
-a {
-  text-decoration: none;
-}
-
-a:hover,
-a:focus,
-a:active {
-  text-decoration: none;
-}
-
-
-/* ==== 背景レイヤー構成 ==== */
 body::before {
   content: "";
   position: fixed;
@@ -89,43 +78,41 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  background-repeat: repeat;
   background-size: 128px 128px;
+  background-repeat: repeat;
 }
 
-
-/* ==== レイアウト構造 ==== */
+/* ================================
+   レイアウト構造
+================================ */
 header, footer {
   position: relative;
   z-index: 2;
   background-color: transparent;
   padding: 1.5rem 0;
 }
-
 .main-wrapper {
   display: flex;
   justify-content: center;
 }
-
 .container {
   max-width: 720px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  margin: 0 auto;
+  padding: 0 0.5rem;
   background-color: transparent;
   position: relative;
   z-index: 2;
 }
 
-/* ==== タイトルスタイル（上下二重線） ==== */
+/* ================================
+   サイトタイトル（上下二重線）
+================================ */
 .site-tag {
   text-align: center;
   margin-bottom: 1.5rem;
   position: relative;
 }
-
 .site-title-label {
   display: inline-block;
   font-size: 2rem;
@@ -135,29 +122,6 @@ header, footer {
   position: relative;
   z-index: 2;
 }
-
-/* 外側太線（長さを内側と合わせる） */
-.site-tag::before,
-.site-tag::after {
-  content: "";
-  position: absolute;
-  height: 3px;
-  background-color: #5c3a1a;
-  width: 100%;
-  max-width: max-content;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.site-tag::before {
-  top: 0;
-}
-
-.site-tag::after {
-  bottom: 0;
-}
-
-/* 内側細線 */
 .site-title-label::before,
 .site-title-label::after {
   content: "";
@@ -166,33 +130,22 @@ header, footer {
   width: 100%;
   height: 1px;
   background-color: #5c3a1a;
-}
-
-.site-title-label::before {
-  top: -6px;
-}
-
-.site-title-label::after {
-  bottom: -6px;
-}.site-title-label {
-  position: relative;
-  z-index: 2;
-}
-.site-title-label::before,
-.site-title-label::after {
   z-index: 3;
 }
-/* 全体囲み線 */
+.site-title-label::before { top: -6px; }
+.site-title-label::after { bottom: -6px; }
+
+/* ================================
+   枠付きセクション（サイト全体囲み）
+================================ */
 .site-frame {
   max-width: 720px;
   width: 100%;
   margin: 2rem auto;
-  background-color: #fdf7e3; /* ← 明るいベージュに変更 */
+  background-color: #fdf7e3;
   border: double 5px #5c3a1a;
   position: relative;
   z-index: 2;
-
-  /* 明るく自然なグラデーション + やわらかい枠感 */
   background:
     linear-gradient(to bottom,
       rgba(255, 255, 255, 0.6) 0rem,
@@ -205,14 +158,11 @@ header, footer {
       rgba(253, 247, 227, 1) calc(100% - 5rem),
       rgba(255, 255, 255, 0.6) 100%);
 }
-
 .site-frame::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 1;
   pointer-events: none;
   background-image: url("/orachang/images/noise.webp");
@@ -220,234 +170,17 @@ header, footer {
   background-repeat: repeat;
   mix-blend-mode: multiply;
   opacity: 0.75;
-
-
 }
 
-/* ==== 見出し・記事内構造 ==== */
-h3 {
-  margin: 1.5rem 0;
-  font-size: 1.25rem;
-  color: #333;
-}
-
-/* ==== フッター調整 ==== */
-footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #444;
-  margin-top: 2rem;
-}
-
-/* スライダー本体 */
-.swiper.largeSwiper,
-.swiper.smallSwiper {
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* スライド中央寄せ */
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* スライド画像 */
-.swiper-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.swiper-slide > a {
-  width: 90%;
-  margin: 0 auto;
-  display: block;
-}
-.swiper.smallSwiper {
-  max-width: 720px;
-  width: 90%;
-  margin-top: 2.0rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(0, 0, 0, 0.75);
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
-  box-sizing: border-box;
-}
-
-.swiper-pagination.small-pagination {
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
-.swiper-pagination-bullet {
-  background: #333;
-  opacity: 0.3;
-  width: 8px;
-  height: 8px;
-  margin: 0 4px;
-}
-
-.swiper-pagination-bullet-active {
-  background: #210e00;
-  opacity: 1;
-}
-
-.smallSwiper-wrapper {
-  position: relative;
-}
-
-.swiper.smallSwiper {
-  width: 100%;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(0, 0, 0, 0.75);
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
-  box-sizing: border-box;
-  background-color: transparent;
-  position: relative; /* ✅ 子要素を相対的に位置指定 */
-  z-index: 2;
-}
-
-.swiper-pagination.small-pagination {
-  position: relative;
-  text-align: center;
-}
-
-
-/* ポラロイド風サムネイル */
-.polaroid-thumb {
-  background: #f5ebd3; /* 白から、淡いクラフト紙ベージュへ */
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem; /* 上・左右：0.5、下：2 */
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  border-radius: 4px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.polaroid-thumb::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("/orachang/images/noise.webp");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-  mix-blend-mode: multiply;
-  opacity: 0.5; /* ← 好みに応じて調整 */
-  border-radius: 0.25rem; /* 元の角丸に合わせて */
-}
-
-.polaroid-label-top,
-.polaroid-label-bottom {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  color: #210e00;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-}
-
-.polaroid-label-top {
-  margin-bottom: 1rem;
-}
-
-.polaroid-label-bottom {
-  margin-top: 1rem;
-}
-
-/* 小さいサムネイルにもポラロイド風 */
-.polaroid-thumb.square {
-  width: 100%;
-  padding: 0.5rem 0.5rem 2rem 0.5rem; /* 上・左右：0.5、下：2 */
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 4px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* サムネイルの正方形化（16:9 → 1:1） */
-.aspect-ratio-box.square {
-  padding-top: 100%; /* 正方形 */
-}
-/* ラベル共通 */
-.label-post-title {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.85);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  z-index: 5;
-  line-height: 1.4;
-  font-weight: bold;
-  color: #210e00;
-}
-
-/* アスペクト比維持 */
-.aspect-ratio-box {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  overflow: hidden;
-}
-
-.aspect-ratio-box img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 記事タイトル（記事ページ） */
-.article-header-box {
-  margin: 2rem 0;
-  text-align: center;
-  position: relative;
-}
-
-.article-header-box .title {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.4;
-  max-width: 400px;
-}
-
-h2 {
-  position: relative;
-  font-family: 'BIZUDMincho', serif;
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-  margin: 1rem auto;
-  color: #3c2f2c;
-  padding: 1.2rem 1rem 0.5rem;
-}
-
+/* ================================
+   記事タイトルラベル（共通）
+================================ */
 .post-title-label {
-  display: inline-block;
-  padding: 0.5rem 0;
-  background-color: #fdf7e3; /* やや黄みのある紙色 */
+display: block;
+width: 90%;
+margin: 0 auto;
+  padding: 0.5rem 0 1rem;
+  background-color: #fdf7e3;
   color: #2e2e2e;
   font-family: 'BIZUDMincho', serif;
   font-size: 1.5rem;
@@ -463,33 +196,163 @@ h2 {
   background-image: url("/orachang/images/noise.webp");
   background-size: 128px 128px;
   background-repeat: repeat;
-  opacity: 0.96; /* 半透明感 */
-  width: 100%
+  opacity: 0.96;
+  line-height: 1.2;
+  position: relative;
+  z-index: 3;
 }
-
-h2::before,
-h2::after {
+.post-title-label::before,
+.post-title-label::after {
   content: "";
   position: absolute;
-  top: 1rem;
+  top: 0rem;
   width: 3.5rem;
   height: 1.2rem;
-  background: #b79c7d; /* テープ色 */
+  background: #b79c7d;
   opacity: 0.8;
-  z-index: 1;
-  transform: rotate(-3deg);
+  z-index: 4;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-
-/* 左上のテープ */
-h2::before {
-  left: 0.4rem;
+.post-title-label::before {
+  left: -0.4rem;
   transform: rotate(-13deg);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
 }
-
-/* 右上のテープ */
-h2::after {
-  right: 0.4rem;
+.post-title-label::after {
+  right: -0.3rem;
   transform: rotate(23deg);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
+}
+.post-slug-label {
+  font-size: 1rem;
+  opacity: 0.6;
+  line-height: 1.1;
+}
+.post-title-text {
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
 
+/* ================================
+   投稿サムネイル
+================================ */
+.post-img-wrapper {
+  width: 90%;
+  margin: 2rem auto;
+}
+.post-thumbnail {
+  width: 100%;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+}
+
+/* ================================
+   ポラロイド風サムネイル（トップ用）
+================================ */
+.polaroid-thumb {
+  background: #f5ebd3;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.polaroid-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/orachang/images/noise.webp");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  border-radius: 0.25rem;
+}
+.polaroid-label-top,
+.polaroid-label-bottom {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #210e00;
+  line-height: 1.4;
+}
+.polaroid-label-top {
+  margin-bottom: 1rem;
+}
+.polaroid-label-bottom {
+  margin-top: 1rem;
+}
+.polaroid-thumb-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================
+   アスペクト比維持ボックス
+================================ */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+}
+.aspect-ratio-box img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aspect-ratio-box.square {
+  padding-top: 100%;
+}
+
+/* ================================
+   Swiper スライダー
+================================ */
+.swiper.largeSwiper,
+.swiper.smallSwiper {
+  width: 90%;
+  margin: 0 auto;
+}
+.swiper.smallSwiper {
+  max-width: 720px;
+  width: 90%;
+  border-top: 1px dashed rgba(0, 0, 0, 0.75);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  position: relative;
+  background-color: transparent;
+  z-index: 2;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide .post-title-label {
+  overflow: visible !important;
+}
+.swiper-pagination.small-pagination {
+  margin-top: 1.0rem;
+  position: relative;
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  background: #333;
+  opacity: 0.3;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+}
+.swiper-pagination-bullet-active {
+  background: #210e00;
+  opacity: 1;
+}

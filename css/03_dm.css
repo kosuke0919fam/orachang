@@ -21,13 +21,10 @@
 }
 .bubble {
   position: relative;
-  font-size: 0.95rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 0.5rem;
+  font-size: 1rem;
+  padding: 1rem;
   border-radius: 1rem;
-  line-height: 1.5;
+  line-height: 1.2;
   background-color: transparent;
   border: none;
   font-family: 'Courier New', Courier, monospace;
@@ -35,7 +32,7 @@
 }
 .dm-message.left {
   align-items: flex-start;
-  margin-right: auto;
+  margin-right: 0.5rem;
   color: #222;
 }
 .dm-message.left .bubble {

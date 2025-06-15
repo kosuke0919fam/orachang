@@ -302,16 +302,27 @@ footer {
   margin-bottom: 2rem; /* ✅ フッターとの間に余白を確保 */
 }
 
-.smallSwiper {
+.swiper.smallSwiper {
   width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.75);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  background-color: transparent;
+  position: relative; /* ✅ 子要素を相対的に位置指定 */
+  z-index: 2;
 }
 
 .swiper-pagination.small-pagination {
-  position: relative;  /* ✅ 意図しない絶対配置を避ける */
+  position: absolute;  /* ✅ スライダー内に固定表示 */
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
   text-align: center;
-  margin-top: 0.5rem;
-  z-index: 1;
 }
+
 
 /* ポラロイド風サムネイル */
 .polaroid-thumb {

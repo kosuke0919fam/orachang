@@ -45,18 +45,18 @@ html::after {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  background: 
-    linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.0) 33%,
-      rgba(0, 0, 0, 0.0) 66%,
-      rgba(0, 0, 0, 0.3) 100%),
-    linear-gradient(to right,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.0) 33%,
-      rgba(0, 0, 0, 0.0) 66%,
-      rgba(0, 0, 0, 0.3) 100%),
-    url("/orachang/images/noise.webp");
+background: 
+  linear-gradient(to bottom,
+    rgba(253, 247, 227, 0.25) 0%,
+    rgba(253, 247, 227, 0.5) 33%,
+    rgba(253, 247, 227, 0.5) 66%,
+    rgba(253, 247, 227, 0.25) 100%),
+  linear-gradient(to right,
+    rgba(253, 247, 227, 0.25) 0%,
+    rgba(253, 247, 227, 0.5) 33%,
+    rgba(253, 247, 227, 0.5) 66%,
+    rgba(253, 247, 227, 0.25) 100%),
+  url("/orachang/images/noise.webp");
 }
 body::before {
   content: "";
@@ -196,8 +196,8 @@ margin: 0 auto;
   content: "";
   position: absolute;
   top: 0rem;
-  width: 3.5rem;
-  height: 1.2rem;
+  width: 4.0rem;
+  height: 1.6rem;
   background: #b79c7d;
   opacity: 0.8;
   z-index: 4;

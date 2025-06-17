@@ -22,13 +22,12 @@
   z-index: 1;
   flex: 0 0 3.2rem;
   text-align: left;
-  font-weight: bold;
 }
 .speaker-1 {
-  color: #337ab7;
+  color: #276396;
 }
 .speaker-1 .label {
-  color: #337ab7;
+  color: #276396;
 }
 .speaker-2 {
   color: #333;

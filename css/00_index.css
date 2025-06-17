@@ -4,7 +4,6 @@
   z-index: 1;
   padding: 1rem 0.5rem;
   margin: 5rem auto;
-  font-family: "MS PGothic", "Osaka", sans-serif;
   box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
 }
 .clipping::before {
@@ -42,8 +41,6 @@
   left: -0.25rem;
   padding: 0.5rem 1.25rem;
   background-color: #f5f0e6;
-  color: #3c2f2c;
-  font-family: 'BIZUDMincho', 'serif';
   font-size: 1.1rem;
   font-weight: bold;
   border-left: 0.75rem solid #6c3b4b;
@@ -68,7 +65,7 @@
 }
 .fivech-title {
   font-weight: bold;
-  color: #337ab7;
+  color: #276396;
   font-size: 1.25rem;
   padding: 0.75rem 0;
   margin-top: 1rem;
@@ -135,7 +132,7 @@
   line-height: 1.5;
 }
 .hashtags {
-  color: #337ab7;
+  color: #276396;
 }
 .tweet-footer {
   font-size: 0.75rem;
@@ -170,7 +167,6 @@
   line-height: 1.2;
   background-color: transparent;
   border: none;
-  font-family: 'Courier New', Courier, monospace;
   box-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0,0,0,0.1);
 }
 .dm-message.left {
@@ -199,7 +195,7 @@
   color: #fff;
 }
 .dm-message.right .bubble {
-  background-color: #337ab7;
+  background-color: #276396;
   margin-right: 0.5rem;
 }
 .dm-message.right .bubble::after {
@@ -237,13 +233,12 @@
   z-index: 1;
   flex: 0 0 3.2rem;
   text-align: left;
-  font-weight: bold;
 }
 .speaker-1 {
-  color: #337ab7;
+  color: #276396;
 }
 .speaker-1 .label {
-  color: #337ab7;
+  color: #276396;
 }
 .speaker-2 {
   color: #333;
@@ -258,7 +253,8 @@
   padding: 1rem 0.5rem;
   background-color: #fdf7e3;
   color: #2e2e2e;
-  font-family: 'BIZUDMincho', serif;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
+  font-weight: bold;
   border-radius: 0.25rem;
   border: 1px solid rgba(0,0,0,0.12);
   box-shadow: inset 0 0 0.05rem rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.2), 0 0.25rem 0.5rem rgba(0,0,0,0.05);

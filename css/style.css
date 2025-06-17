@@ -15,7 +15,9 @@ html {
 }
 
 body {
-  font-family: Meiryo, "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  /*font-family: Meiryo, "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;*/
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.7;
   color: #333;

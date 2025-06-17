@@ -1,6 +1,6 @@
 .clipping {
   position: relative;
-  background-color: #fdf7e3;
+  background-color: #fff;
   z-index: 1;
   padding: 1rem 0.5rem;
   margin: 5rem auto;
@@ -97,7 +97,7 @@
 .tweet {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #fdf7e3;
+  background-color: #fff;
   border: 0.0625rem solid #ccc;
   border-radius: 1rem;
   color: #0f1419;
@@ -146,7 +146,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fdf7e3;
+  background-color: #fff;
   padding: 0.5rem 1rem;
   border-bottom: 0.0625rem solid #ccc;
   border-top-left-radius: 0.5rem;
@@ -248,7 +248,7 @@
   width: 95%;
   margin: 5rem auto;
   padding: 1rem;
-  background-color: #fdf7e3;
+  background-color: #fff;
   color: #2e2e2e;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;

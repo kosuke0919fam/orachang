@@ -85,7 +85,7 @@ header, footer {
   position: relative;
   z-index: 2;
   background-color: transparent;
-  padding: 1.5rem 0;
+  padding: 3.0rem 0;
 }
 .main-wrapper {
   display: flex;
@@ -173,7 +173,7 @@ display: block;
 width: 90%;
 margin: 0 auto;
   padding: 0.5rem 0 1rem;
-  background-color: #fdf7e3;
+  background-color: #fff;
   color: #2e2e2e;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1.5rem;

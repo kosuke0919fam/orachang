@@ -1,14 +1,10 @@
 .dialogue-block {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: rgba(255,255,255,0.05);
-  border-left: 0.25rem solid #999;
-  font-size: 0.95rem;
+  margin: 2.5rem 0;
 }
 .line {
   display: flex;
   align-items: stretch;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 .divider {
@@ -19,6 +15,7 @@
 }
 .label {
   position: relative;
+  margin: 0 0.25rem;
   z-index: 1;
   flex: 0 0 3.2rem;
   text-align: left;

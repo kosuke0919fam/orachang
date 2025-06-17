@@ -41,9 +41,9 @@
   left: -0.25rem;
   padding: 0.5rem 1.25rem;
   background-color: #f5f0e6;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1.1rem;
   font-weight: bold;
-  border-left: 0.75rem solid #6c3b4b;
   border-radius: 0.25rem;
   box-shadow: 0 0.15rem 0.25rem rgba(0,0,0,0.25);
   z-index: 2;
@@ -210,16 +210,12 @@
   border-color: transparent transparent transparent #337ab7;
 }
 .dialogue-block {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: rgba(255,255,255,0.05);
-  border-left: 0.25rem solid #999;
-  font-size: 0.95rem;
+  margin: 2.5rem 0;
 }
 .line {
   display: flex;
   align-items: stretch;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 .divider {
@@ -230,6 +226,7 @@
 }
 .label {
   position: relative;
+  margin: 0 0.25rem;
   z-index: 1;
   flex: 0 0 3.2rem;
   text-align: left;

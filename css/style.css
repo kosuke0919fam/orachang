@@ -345,28 +345,41 @@ margin: 0 auto;
   background: #210e00;
   opacity: 1;
 }
-.memo-yellow {
-  background-color: #fff89c; /* よりポストイットっぽい淡い黄色 */
-  border-left: none;
-  padding: 1rem 1.2rem;
-  margin: 1.5rem 0;
-  font-family: 'YuGothic', 'Hiragino Kaku Gothic ProN', sans-serif;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+
+.memo-yellow-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 1.5em 0;
 }
 
+.memo-yellow {
+  background-color: #fff8b3; /* やさしい黄色 */
+  padding: 1em;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  flex: 1 1 calc(50% - 1em); /* 2列分割（gapを差し引いた幅） */
+  box-sizing: border-box;
+}
+
+/* スマホなど狭い画面では1列に */
+@media (max-width: 720px) {
+  .memo-yellow {
+    flex: 1 1 100%;
+  }
+}
+
+
 .memo-notepad {
-  position: relative;
-  background-color: #fff;
-  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px);
+  background-color: #fff; /* 紙の色 */
+  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 横罫線 */
   background-size: 100% 1.5em;
   line-height: 1.5em;
-  padding: 1.5em 1em; /* 上下を1行分ずつ確保 */
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 1em;
+  border: 1px solid #ccc; /* 外枠 */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* 紙の浮き感 */
   margin: 1.5rem 0;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
-  font-weight:bold;
-  box-sizing: border-box;
 }
 
 .quote-block {

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>都市異常観測記録集</title>
+
+<link rel="preload" as="font" type="font/woff2" href="/orachang/fonts/BIZUDMincho-Regular.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/orachang/fonts/BIZUDMincho-Bold.woff2" crossorigin>
+<link rel="preload" as="image" href="/orachang/images/noise.webp" />
+
+  <link rel="stylesheet" href="/orachang/css/00_index.css">
+  <link rel="stylesheet" href="/orachang/css/style.css">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body data-page-type="index">
+  <div class="site-frame">
+    <header>
+      <div class="container">
+        <div class="site-tag">
+  <h1>
+          <a href="/orachang/" class="site-title-label">
+            都市異常観測記録集
+          </a>
+  </h1>
+        </div>
+      </div>
+    </header>
+
+<link rel="stylesheet" href="/orachang/css/swiper-bundle.min.css">
+
+<div class="main-wrapper">
+  <div class="container">
+    
+
+    <!-- ✅ メインタイトルをスライダーの外に表示 -->
+    <h2 id="main-title" class="post-title-label"></h2>
+
+    <!-- メインスライダー -->
+    <div class="swiper largeSwiper">
+      <div class="swiper-wrapper">
+        
+          
+            <div class="swiper-slide" data-title="水族館の真相(仮)" data-slug="FILE.0001">
+              <a href="/orachang/0001/">
+                <div class="polaroid-thumb-wrapper">
+                  <div class="polaroid-thumb">
+                    <div class="aspect-ratio-box">
+                      <img src="/orachang/images/posts/thumb_0010.jpg" loading="eager" alt="水族館の真相(仮)" loading="lazy">
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+            <div class="swiper-slide" data-title="水族館の真相(仮)" data-slug="FILE.old">
+              <a href="/orachang/old/">
+                <div class="polaroid-thumb-wrapper">
+                  <div class="polaroid-thumb">
+                    <div class="aspect-ratio-box">
+                      <img src="/orachang/images/posts/thumb_0010.jpg" loading="eager" alt="水族館の真相(仮)" loading="lazy">
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+
+    <!-- サムネイルスライダー -->
+    <div class="swiper smallSwiper" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;" thumbsSlider>
+      <div class="swiper-wrapper">
+        
+          
+            <div class="swiper-slide">
+              <div class="polaroid-thumb">
+                <div class="aspect-ratio-box square">
+                  <img src="/orachang/images/posts/thumb_0010.jpg" loading="eager" alt="Thumbnail: 水族館の真相(仮)" loading="lazy">
+                </div>
+              </div>
+            </div>
+          
+        
+          
+            <div class="swiper-slide">
+              <div class="polaroid-thumb">
+                <div class="aspect-ratio-box square">
+                  <img src="/orachang/images/posts/thumb_0010.jpg" loading="eager" alt="Thumbnail: 水族館の真相(仮)" loading="lazy">
+                </div>
+              </div>
+            </div>
+          
+        
+      </div>
+      <div class="swiper-pagination small-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<script defer src="/orachang/js/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const thumbSwiper = new Swiper(".smallSwiper", {
+      loop: true,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination.small-pagination",
+        clickable: true,
+      },
+      navigation: true,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+      on: {
+        init: () => {
+          document.querySelector('.smallSwiper').style.visibility = 'visible';
+        }
+      }
+    });
+
+    const mainSwiper = new Swiper(".largeSwiper", {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      spaceBetween: 10,
+      thumbs: {
+        swiper: thumbSwiper
+      },
+      on: {
+        init: function () {
+          updateTitle(this);
+        },
+        slideChange: function () {
+          updateTitle(this);
+        }
+      }
+    });
+
+    function updateTitle(swiper) {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      const title = activeSlide.getAttribute('data-title') || '';
+      const slug = activeSlide.getAttribute('data-slug') || '';
+      const titleElem = document.getElementById('main-title');
+      if (titleElem) {
+        titleElem.innerHTML = `
+          <span class="post-slug-label">${slug}</span><br>
+          <span class="post-title-text">${title}</span>
+        `;
+      }
+    }
+  });
+</script>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 都市異常観測記録集</p>
+      </div>
+    </footer>
+  </div> <!-- /.site-frame -->
+
+<!--   <script src="/orachang/js/random-noise.js"></script> -->
+</body>
+</html>
+

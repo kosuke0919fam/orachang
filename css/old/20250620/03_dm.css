@@ -1,0 +1,71 @@
+.dm-frame {
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.dm-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-bottom: 0.0625rem solid #ccc;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.dm-message {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  max-width: 90%;
+  position: relative;
+}
+.bubble {
+  position: relative;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  line-height: 1.2;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0,0,0,0.1);
+}
+.dm-message.left {
+  align-items: flex-start;
+  margin-right: 0.5rem;
+  color: #222;
+}
+.dm-message.left .bubble {
+  background-color: #d8d2c7;
+  margin-left: 0.5rem;
+}
+.dm-message.left .bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0.75rem;
+  left: -0.5rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.5rem 0.625rem 0.5rem 0;
+  border-color: transparent #d8d2c7 transparent transparent;
+}
+.dm-message.right {
+  align-items: flex-end;
+  margin-left: auto;
+  color: #fff;
+}
+.dm-message.right .bubble {
+  background-color: #276396;
+  margin-right: 0.5rem;
+}
+.dm-message.right .bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0.75rem;
+  right: -0.5rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.5rem 0 0.5rem 0.625rem;
+  border-color: transparent transparent transparent #337ab7;
+}

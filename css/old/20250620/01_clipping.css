@@ -1,4 +1,4 @@
-.clipping {
+.content-section {
   position: relative;
   background-color: #fff;
   z-index: 1;
@@ -6,7 +6,7 @@
   margin: 5rem auto;
   box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0,0,0,0.2);
 }
-.clipping::before {
+.content-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -20,7 +20,7 @@
   mix-blend-mode: multiply;
   opacity: 0.75;
 }
-.clipping::after {
+.content-section::after {
   content: "";
   position: absolute;
   top: 0;
@@ -35,7 +35,7 @@
   opacity: 0.75;
   mix-blend-mode: multiply;
 }
-.fivech-heading {
+.section-heading {
   position: absolute;
   top: -1.5rem;
   left: -0.25rem;
@@ -49,7 +49,7 @@
   z-index: 2;
   text-shadow: 0.02rem 0.02rem rgba(0,0,0,0.05);
 }
-.fivech-heading::after {
+.section-heading::after {
   content: "";
   position: absolute;
   top: 0;
@@ -63,7 +63,7 @@
   mix-blend-mode: multiply;
   z-index: 0;
 }
-.fivech-title {
+.section-title {
   font-weight: bold;
   color: #276396;
   font-size: 1.25rem;

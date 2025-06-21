@@ -472,7 +472,7 @@ footer {
   background-size: 128px 128px;
   background-repeat: repeat;
   mix-blend-mode: multiply;
-  opacity: 1;
+  opacity: 0.75;
   z-index: 0;
 }
 
@@ -495,14 +495,14 @@ footer {
   z-index: 1;
   margin: 1.5rem 0 auto;
   padding: 1.5rem 1rem;
-  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   line-height: 1.5em;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
-  background-image: linear-gradient(180deg, #eee 0.005rem, transparent 1px);
+  background-image: linear-gradient(180deg, #eee 0.05rem, transparent 1px);
   background-size: 100% 1.5em,128px 128px;
   background-repeat: repeat;
   background-blend-mode: multiply;
+  box-shadow: 0 0 0 0.05rem rgba(0, 0, 0, 0.1);
 
 }
 

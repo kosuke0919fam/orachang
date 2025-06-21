@@ -1,6 +1,6 @@
-/* ================================
-   リセット・フォント定義
-================================ */
+/* ===================================
+   Reset / Typography
+=================================== */
 *,
 *::before,
 *::after {
@@ -9,14 +9,11 @@
   padding: 0;
 }
 
-
 html {
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
 }
 
 body {
-  /*font-family: Meiryo, "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;*/
-
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.7;
@@ -24,20 +21,18 @@ body {
   background-color: #fdf5dc;
   min-height: 100vh;
   position: relative;
-  padding: 0;
-  margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
-a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
 }
 
-/* ================================
-   背景レイヤー構成（ノイズ＋グリッド）
-================================ */
+/* ===================================
+   Global Background Effects
+=================================== */
 html::after {
   content: "";
   position: fixed;
@@ -45,7 +40,6 @@ html::after {
   width: 100%; height: 100%;
   pointer-events: none;
   z-index: 0;
-
   background:
     linear-gradient(to bottom,
       rgba(245, 232, 180, 0.9) 0%,
@@ -57,7 +51,7 @@ html::after {
       rgba(253, 247, 227, 0.5) 33%,
       rgba(253, 247, 227, 0.5) 66%,
       rgba(245, 232, 180, 0.9) 100%);
-  background-size: 100% 100%, 100% 100%, 128px 128px;
+  background-size: 100% 100%;
   mix-blend-mode: multiply;
   opacity: 0.25;
 }
@@ -65,50 +59,48 @@ html::after {
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   z-index: 0;
-  background-image: url("/orachang/images/noise.png");
+  background: url("/orachang/images/noise.png") repeat;
   background-size: 128px 128px;
-  background-repeat: repeat;
   mix-blend-mode: multiply;
-  opacity: 1; 
+  opacity: 1;
 }
 
-/* ================================
-   レイアウト構造
-================================ */
-header, footer {
+/* ===================================
+   Layout Structure
+=================================== */
+header,
+footer {
   position: relative;
   z-index: 2;
-  background-color: transparent;
-  padding: 3.0rem 0;
+  padding: 3rem 0;
 }
+
 .main-wrapper {
   display: flex;
   justify-content: center;
 }
+
 .container {
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
   padding: 0 0.5rem;
-  background-color: transparent;
   position: relative;
   z-index: 2;
 }
-
-/* ================================
-   サイトタイトル（上下二重線）
-================================ */
+/* ===================================
+   Site Title Block
+=================================== */
 .site-tag {
   text-align: center;
   margin-bottom: 1.5rem;
   position: relative;
 }
+
 .site-title-label {
   display: inline-block;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
@@ -119,6 +111,7 @@ header, footer {
   position: relative;
   z-index: 2;
 }
+
 .site-title-label::before,
 .site-title-label::after {
   content: "";
@@ -129,22 +122,27 @@ header, footer {
   background-color: #5c3a1a;
   z-index: 3;
 }
-.site-title-label::before { top: -6px; }
-.site-title-label::after { bottom: -6px; }
 
-/* ================================
-   枠付きセクション（サイト全体囲み）
-================================ */
+.site-title-label::before {
+  top: -6px;
+}
+.site-title-label::after {
+  bottom: -6px;
+}
+
+/* ===================================
+   Framed Section
+=================================== */
 .site-frame {
   max-width: 720px;
   width: 100%;
   margin: 2rem auto;
-  background-color: #fdf7e3;
+  background: rgba(255, 251, 240, 0.5);
   border: double 5px #5c3a1a;
   position: relative;
   z-index: 2;
-  background: rgba(255, 251, 240, 0.5)
 }
+
 .site-frame::after {
   content: "";
   position: absolute;
@@ -152,20 +150,19 @@ header, footer {
   width: 100%; height: 100%;
   z-index: 1;
   pointer-events: none;
-  background-image: url("/orachang/images/noise.png");
+  background: url("/orachang/images/noise.png") repeat;
   background-size: 128px 128px;
-  background-repeat: repeat;
   mix-blend-mode: multiply;
   opacity: 0.5;
 }
 
-/* ================================
-   記事タイトルラベル（共通）
-================================ */
+/* ===================================
+   Post Title Label
+=================================== */
 .post-title-label {
-display: block;
-width: 90%;
-margin: 0 auto;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
   padding: 0.5rem 0 1rem;
   background-color: #fff;
   color: #2e2e2e;
@@ -187,45 +184,51 @@ margin: 0 auto;
   position: relative;
   z-index: 3;
 }
+
 .post-title-label::before,
 .post-title-label::after {
   content: "";
   position: absolute;
-  top: 0rem;
-  width: 4.0rem;
+  top: 0;
+  width: 4rem;
   height: 1.6rem;
   background: #b79c7d;
   opacity: 0.8;
   z-index: 4;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 .post-title-label::before {
   left: -0.4rem;
   transform: rotate(-13deg);
   clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
 }
+
 .post-title-label::after {
   right: -0.75rem;
   transform: rotate(23deg);
   clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
 }
+
 .post-slug-label {
   font-size: 1rem;
   opacity: 0.6;
   line-height: 1.1;
 }
+
 .post-title-text {
   font-size: 1.5rem;
   line-height: 1.2;
 }
 
-/* ================================
-   投稿サムネイル
-================================ */
+/* ===================================
+   Post Thumbnail (Polaroid)
+=================================== */
 .post-img-wrapper {
   width: 90%;
   margin: 2rem auto;
 }
+
 .post-thumbnail {
   width: 100%;
   display: block;
@@ -233,23 +236,19 @@ margin: 0 auto;
   border-radius: 0.25rem;
 }
 
-/* ================================
-   ポラロイド風サムネイル（トップ用）
-================================ */
 .polaroid-thumb {
   background: #f5ebd3;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   padding: 0.5rem;
-  box-shadow: 0 2.5px 2.5px rgba(0,0,0,0.4);
   border-radius: 4px;
+  box-shadow: 0 2.5px 2.5px rgba(0,0,0,0.4);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
+
 .polaroid-thumb::after {
   content: "";
   position: absolute;
@@ -257,13 +256,13 @@ margin: 0 auto;
   width: 100%; height: 100%;
   z-index: 0;
   pointer-events: none;
-  background-image: url("/orachang/images/noise.png");
-  background-repeat: repeat;
+  background: url("/orachang/images/noise.png") repeat;
   background-size: 128px 128px;
   mix-blend-mode: multiply;
   opacity: 0.5;
   border-radius: 0.25rem;
 }
+
 .polaroid-label-top,
 .polaroid-label-bottom {
   font-size: 1.5rem;
@@ -272,26 +271,29 @@ margin: 0 auto;
   color: #210e00;
   line-height: 1.4;
 }
+
 .polaroid-label-top {
   margin-bottom: 1rem;
 }
+
 .polaroid-label-bottom {
   margin-top: 1rem;
 }
+
 .polaroid-thumb-wrapper {
   position: relative;
   z-index: 2;
 }
-
-/* ================================
-   アスペクト比維持ボックス
-================================ */
+/* ===================================
+   Aspect Ratio Box
+=================================== */
 .aspect-ratio-box {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
   overflow: hidden;
 }
+
 .aspect-ratio-box img {
   position: absolute;
   top: 0; left: 0;
@@ -299,41 +301,46 @@ margin: 0 auto;
   height: 100%;
   object-fit: cover;
 }
+
 .aspect-ratio-box.square {
   padding-top: 100%;
 }
 
-/* ================================
-   Swiper スライダー
-================================ */
+/* ===================================
+   Swiper Slider
+=================================== */
 .swiper.largeSwiper,
 .swiper.smallSwiper {
   width: 90%;
   margin: 0 auto;
 }
+
 .swiper.smallSwiper {
   max-width: 720px;
-  width: 90%;
   border-top: 1px dashed rgba(0, 0, 0, 0.75);
   border-bottom: 1px dashed rgba(0, 0, 0, 0.75);
+  background-color: transparent;
   box-sizing: border-box;
   position: relative;
-  background-color: transparent;
   z-index: 2;
 }
+
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .swiper-slide .post-title-label {
   overflow: visible !important;
 }
+
 .swiper-pagination.small-pagination {
-  margin-top: 1.0rem;
+  margin-top: 1rem;
   position: relative;
   text-align: center;
 }
+
 .swiper-pagination-bullet {
   background: #333;
   opacity: 0.3;
@@ -341,11 +348,15 @@ margin: 0 auto;
   height: 8px;
   margin: 0 4px;
 }
+
 .swiper-pagination-bullet-active {
   background: #210e00;
   opacity: 1;
 }
 
+/* ===================================
+   Memo and Notepad Styles
+=================================== */
 .memo-yellow-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -354,7 +365,7 @@ margin: 0 auto;
 }
 
 .memo-yellow {
-  background-color: #fffacc; /* やさしい黄色 */
+  background-color: #fffacc;
   font-size: 1rem;
   line-height: 1.5em;
   padding: 0.75em 1em;
@@ -362,20 +373,22 @@ margin: 0 auto;
   box-sizing: border-box;
 }
 
-
 .memo-notepad {
-  background-color: #fff; /* 紙の色 */
-  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 横罫線 */
+  background-color: #fff;
+  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px);
   background-size: 100% 1.5em;
   line-height: 1.5em;
   padding: 1.75rem 0.75em 1.5rem 1rem;
-  border: 1px solid #ccc; /* 外枠 */
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* 紙の浮き感 */
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
   margin: 1.5rem 0;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;
 }
 
+/* ===================================
+   Quote Block
+=================================== */
 .quote-block {
   position: relative;
   background: #f4f4f4;
@@ -383,13 +396,13 @@ margin: 0 auto;
   padding: 1.5em 1em;
   margin: 1.5em 0;
   font-family: "Yu Gothic", sans-serif;
-  font-size: 1.0em;
+  font-size: 1em;
   line-height: 1.5rem;
   color: #222;
 }
 
 .quote-meta {
-  font-size: 1,0em;
+  font-size: 1em;
   color: #555;
 }
 
@@ -398,7 +411,6 @@ margin: 0 auto;
   z-index: 1;
 }
 
-/* 左上の “ */
 .quote-block::before {
   content: "“";
   position: absolute;
@@ -410,7 +422,6 @@ margin: 0 auto;
   pointer-events: none;
 }
 
-/* 右下の ” */
 .quote-block::after {
   content: "”";
   position: absolute;
@@ -422,186 +433,58 @@ margin: 0 auto;
   line-height: 1;
   z-index: 0;
 }
-.content-section {
-  position: relative;
-  background-color: #fff;
-  z-index: 1;
-  padding: 1rem;
-  margin: 5rem auto;
-  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
-}
-
-.content-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  background-repeat: repeat;
-  background-size: 128px 128px;
-  mix-blend-mode: multiply;
-  opacity: 0.75;
-}
-
-.content-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("/orachang/images/noise.png");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-  opacity: 0.75; /* ノイズ濃度をここで柔らかく指定 */
-  mix-blend-mode: multiply;
-}
-
+/* ===================================
+   見出しタグ
+=================================== */
 .section-heading {
-  position: absolute;
-  top: -0.5rem;
-  left: -0.25rem;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 0;
   background-color: #f5f0e6;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
+  text-align: center;
   border-radius: 0.25rem;
   box-shadow: 0 0.15rem 0.25rem rgba(0, 0, 0, 0.25);
   z-index: 2;
   text-shadow: 0.02rem 0.02rem rgba(0, 0, 0, 0.05);
-}
+  margin: 1.5rem;
+  display: inline-block;
 
-.section-heading::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
   background-image: url("/orachang/images/noise.png");
   background-repeat: repeat;
   background-size: 128px 128px;
   opacity: 1.0;
   mix-blend-mode: multiply;
-  z-index: 0;
 }
 
-.section-title {
-  font-weight: bold;
-  color: #276396;
-  font-size: 1.25rem;
-  padding: 0.75rem 0;
-  margin-top: 1rem;
-  background-color: transparent;
+
+/* ===================================
+   Note
+=================================== */
+.note-board {
+
 }
 
-.res {
+.note-sheet {
   position: relative;
-  padding: 0 0.5rem;
-  border-bottom: none;
-}
-
-.res::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.15);
-  margin: 0.5rem 0;
-}
-
-.res-header {
-  font-weight: bold;
-  color: #444;
-  font-size: 0.75rem;
-  margin-bottom: 0.3rem;
-}
-
-.res-body {
-  font-size: 1.0rem;
-  line-height: 1.6;
-}
-
-.tweet {
-  margin-top: 1rem;
-  padding: 1rem;
   background-color: #fff;
-  border: 0.0625rem solid #ccc;
-  border-radius: 1rem;
-  color: #0f1419;
-  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.05);
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.tweet-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.tweet-icon {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  margin-right: 0.75rem;
-}
-
-.tweet-user {
-  display: flex;
-  flex-direction: column;
-}
-
-.tweet-name {
-  font-weight: bold;
-}
-
-.tweet-handle {
-  font-size: 0.9rem;
-  color: #536471;
-}
-
-.tweet-body {
+  z-index: 1;
+  margin: 5rem auto;
+  padding: 3rem 1rem;
+  box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
   font-size: 1rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
+  line-height: 1.5em;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
 
-.hashtags {
-  color: #276396;
-}
-
-.tweet-footer {
-  font-size: 0.75rem;
-  color: #536471;
-}
-
-.content-section {
-  /* 背景として横罫線＋ノイズを設定 */
-  background-image: 
-    linear-gradient(180deg, #eee 1px, transparent 1px);
-  background-size: 
-    100% 1.5em,
-    128px 128px;
+  background-image: linear-gradient(180deg, #eee 1px, transparent 1px);
+  background-size: 100% 1.5em,128px 128px;
   background-repeat: repeat;
   background-blend-mode: multiply;
 
-  /* テキストの行間を背景ピッチに揃える */
-  line-height: 1.5em;
-  font-size: 1rem;
-  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
-
-  /* 1行目のズレをなくすための上下パディング調整 */
-  padding-top: 3.0rem;
-  padding-bottom: 3.0rem;
 }
 
-.content-section::after {
+.note-sheet::after {
   content: "";
   position: absolute;
   top: 0;
@@ -613,6 +496,6 @@ margin: 0 auto;
   background-image: url("/orachang/images/noise.png");
   background-repeat: repeat;
   background-size: 128px 128px;
-  opacity: 0.75; /* ノイズ濃度をここで柔らかく指定 */
   mix-blend-mode: multiply;
+  opacity: 0.75;
 }

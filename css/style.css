@@ -361,7 +361,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 .memo-yellow {
@@ -394,8 +394,9 @@ footer {
   background: #f4f4f4;
   border-left: 0.25rem solid #aaa;
   padding: 1.5em 1em;
-  margin: 1.5em 0;
+  margin: 0;
   font-family: "Yu Gothic", sans-serif;
+  font-weight: normal;
   font-size: 1em;
   line-height: 1.5rem;
   color: #222;
@@ -492,7 +493,7 @@ footer {
   position: relative;
   background-color: #fff;
   z-index: 1;
-  margin: 1.5rem 0 auto;
+  margin: 0 0 1.5rem 0;
   padding: 1.5rem 1rem;
   font-size: 1rem;
   line-height: 1.5em;

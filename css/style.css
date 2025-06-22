@@ -10,13 +10,16 @@
 }
 
 html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
 }
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #333;
   background-color: #fdf5dc;
   min-height: 100vh;

@@ -112,7 +112,7 @@ footer {
   font-size: 2.0rem;
   font-weight: bold;
   color: #210e00;
-  padding: 0.25em 1.0em;
+  padding: 1.0rem 0.25rem;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
@@ -478,13 +478,13 @@ footer {
   background-color: #fff;
   z-index: 1;
   margin: 0 0 1.5rem 0;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;
   background-image: linear-gradient(180deg, #eee 0.05rem, transparent 1px);
-  background-size: 100% 1.5em,128px 128px;
+  background-size: 100% 1.5rem,128px 128px;
   background-repeat: repeat;
   background-blend-mode: multiply;
   border: 0.05rem solid rgba(0, 0, 0, 0.1);

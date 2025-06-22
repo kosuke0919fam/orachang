@@ -105,14 +105,16 @@ footer {
 }
 
 .site-title-label {
-  display: inline-block;
+  display: block;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
-  font-size: 2rem;
+  font-size: 2.0rem;
   font-weight: bold;
   color: #210e00;
-  padding: 0.3em 1.2em;
+  padding: 0.25em 1.0em;
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
+  word-break: break-word; 
 }
 
 .site-title-label::before,
@@ -188,30 +190,6 @@ footer {
   z-index: 3;
 }
 
-.post-title-label::before,
-.post-title-label::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 4rem;
-  height: 1.6rem;
-  background: #b79c7d;
-  opacity: 0.8;
-  z-index: 4;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.post-title-label::before {
-  left: -0.4rem;
-  transform: rotate(-13deg);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
-}
-
-.post-title-label::after {
-  right: -0.75rem;
-  transform: rotate(23deg);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%, 55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%, 20% 85%, 15% 100%, 10% 85%, 5% 100%, 0 85%);
-}
 
 .post-slug-label {
   font-size: 1rem;

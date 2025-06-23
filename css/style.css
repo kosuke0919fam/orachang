@@ -95,6 +95,23 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+.site-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 0;
+}
+
+.site-footer .footer-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer .footer-link:hover {
+  opacity: 0.6;
+}
 /* ===================================
    Site Title Block
 =================================== */
@@ -272,12 +289,23 @@ footer {
 .with-alt-caption + div {
   position: relative;
   z-index: 2;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #666;
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-align: center;
 }
+
+.image-caption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  line-height: 1.4;
+}
+
 /* ===================================
    Aspect Ratio Box
 =================================== */
@@ -541,4 +569,24 @@ footer {
   background-size: 128px 128px;
   mix-blend-mode: multiply;
   opacity: 0.75;
+}
+
+.note-epilogue {
+  position: relative;
+  background-color: #fff8e6;
+  padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+  border: 1px dashed #bfa25a;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
+  font-weight: bold;
+  line-height: 1.75rem;
+  background-image:
+    linear-gradient(180deg, #eee 0.05rem, transparent 1px),
+    url("/orachang/images/noise.png");
+  background-size: 100% 1.5rem, 128px 128px;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1) inset;
+  text-align: center;
+  color: #432;
 }

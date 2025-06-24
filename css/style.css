@@ -19,7 +19,7 @@ html {
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.5;
   color: #333;
   background-color: #fdf5dc;
   min-height: 100vh;
@@ -204,7 +204,6 @@ footer {
   background-size: 128px 128px;
   background-repeat: repeat;
   opacity: 0.96;
-  line-height: 1.2;
   position: relative;
   z-index: 3;
 }
@@ -213,12 +212,10 @@ footer {
 .post-slug-label {
   font-size: 1rem;
   opacity: 0.6;
-  line-height: 1.1;
 }
 
 .post-title-text {
   font-size: 1.5rem;
-  line-height: 1.5rem;
 }
 
 /* ===================================
@@ -270,7 +267,6 @@ footer {
   font-weight: bold;
   text-align: center;
   color: #210e00;
-  line-height: 1.5rem;
 }
 
 .polaroid-label-top {
@@ -304,7 +300,6 @@ footer {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-style: italic;
   text-align: center;
-  line-height: 1.5rem;
 }
 
 /* ===================================
@@ -397,54 +392,42 @@ footer {
 /* ===================================
    Note
 =================================== */
+
+/* ===================================
+   Note
+=================================== */
 .note-sheet {
   position: relative;
   background-color: #fff;
   z-index: 1;
   margin: 0 0 1.5rem 0;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;
-
-  /* 横罫線を背景で等間隔に引く */
-background-image: repeating-linear-gradient(
-  to bottom,
-  #ccc 0,
-  #ccc 1px,
-  transparent 1px,
-  transparent 1.5rem
-);
-
-  background-size: 100% 1.5rem;
+  background-image: linear-gradient(180deg, #eee 0.05rem, transparent 1px);
+  background-size: 100% 1.5rem,128px 128px;
   background-repeat: repeat;
-
-  /* 増強レイヤー（ノイズ等） */
   background-blend-mode: multiply;
-  border: 0.05rem solid rgba(0, 0, 0, 0.25);
-}
-
-.note-sheet * {
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
+  border: 0.05rem solid rgba(0, 0, 0, 0.1);
 }
 
 .note-sheet::after {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
   background-image: url("/orachang/images/noise.png");
   background-repeat: repeat;
   background-size: 128px 128px;
   mix-blend-mode: multiply;
-  opacity: 0.5;
+  opacity: 0.75;
 }
+
 
 /* ===================================
    Memo and Notepad Styles
@@ -457,8 +440,7 @@ background-image: repeating-linear-gradient(
 .memo-yellow {
   display: block;
   position: relative;
-  font-size: 1.25rem;
-  line-height: 3rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   color: #210e00;
@@ -480,7 +462,6 @@ background-image: repeating-linear-gradient(
   background-color: #fff;
   background-image: linear-gradient(180deg, #ccc 1px, transparent 1px);
   background-size: 100% 1.5rem;
-  line-height: 1.5rem;
   padding: 1.75rem 0.75rem 1.5rem 1rem;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
@@ -498,7 +479,6 @@ background-image: repeating-linear-gradient(
   margin: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1rem;
-  line-height: 1.5rem;
   background-color: rgba(255, 251, 240, 1); /* 生成風 */
   background-size: 128px 128px;
   background-repeat: repeat;
@@ -510,7 +490,6 @@ background-image: repeating-linear-gradient(
 .quote-block cite {
   display: block;
   font-size: 0.75rem;
-  line-height: 1.5rem;
   text-align: right;
   font-style: normal;
   color: #666;
@@ -519,13 +498,11 @@ background-image: repeating-linear-gradient(
 
 .quote-meta {
   font-size: 1rem;
-  line-height: 1.5rem;
   color: #555;
 }
 
 .quote-content {
   font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 /* ===================================
@@ -540,7 +517,6 @@ background-image: repeating-linear-gradient(
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1.25rem;
   font-weight: bold;
-  line-height: 1.5rem;
   color: #000;
   background-color: #f5f0e6;
   background-image: url("/orachang/images/noise.png");

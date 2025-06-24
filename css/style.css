@@ -419,26 +419,14 @@ footer {
 
 .note-lines {
   font-size: 1rem;
+  line-height: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;
-  line-height: 1.5;
-  background-image: linear-gradient(180deg, #eee 0.05rem, transparent 0.05rem);
+  background-image: linear-gradient(0deg, #eee 1px, transparent 0);
   background-size: 100% 1.5rem;
   background-repeat: repeat;
   background-blend-mode: multiply;
-  border: 0.05rem solid rgba(0, 0, 0, 0.1);
-  padding: 0 1rem;
-  position:relative;
-}
-.note-lines::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0.05rem; /* 太線の太さ */
-  background-color: #ccc;
+  padding: 0 0.5rem;
 }
 
 
@@ -450,13 +438,25 @@ footer {
 }
 
 .memo-yellow {
-  display: block;
   position: relative;
   font-size: 1.25rem;
   font-weight: bold;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   color: #210e00;
+  margin-bottom:3rem;
+  padding: 0;
 }
+
+.memo-yellow::after {
+  content: "";
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  bottom: 0;
+  height: 2px;
+  background-color: #ccc;
+}
+
 
 .memo-notepad {
   background-color: #fff;

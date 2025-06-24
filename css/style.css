@@ -471,6 +471,8 @@ footer {
 }
 
 .quote-content {
+  font-size: 1rem;
+  line-height: 1.5rem;  /* ← 固定値だとズレやすい */
   margin-bottom: 1.5rem;
 }
 

@@ -536,19 +536,24 @@ footer {
   background-color: #fff;
   z-index: 1;
   margin: 0 0 1.5rem 0;
-  padding: 1.5rem 1rem 1.5rem 1rem;
+  padding: 1.5rem 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-weight: bold;
-  background-image: linear-gradient(180deg, #eee 0.05rem, transparent 1px);
-  background-size: 100% 1.5rem,128px 128px;
+  background-image: linear-gradient(180deg, #eee 0.05rem, transparent 0.05rem);
+  background-size: 100% 1.5rem;
   background-repeat: repeat;
   background-blend-mode: multiply;
   border: 0.05rem solid rgba(0, 0, 0, 0.25);
-
-
 }
+.note-sheet * {
+  font-size: inherit;       /* 親要素（.note-sheet）のフォントサイズを継承 */
+  line-height: inherit;     /* 親要素の行間（line-height）を継承 */
+  margin: 0;                /* 要素ごとの余白（margin）をリセット */
+  padding: 0;               /* 要素ごとの内側余白（padding）をリセット */
+}
+
 
 .note-sheet::after {
   content: "";

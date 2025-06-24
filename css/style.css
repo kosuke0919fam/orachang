@@ -441,12 +441,12 @@ footer {
 =================================== */
 .quote-block {
   position: relative;
-  padding: 0 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1rem;
   line-height: 1.5rem;
-  background-color: rgba(255, 251, 240, 0.25); /* 生成風 */
+  background-color: rgba(255, 251, 240, 1); /* 生成風 */
   background-size: 128px 128px;
   background-repeat: repeat;
   box-shadow: inset 0 0 0.05rem rgba(255,255,255,0.8),
@@ -465,15 +465,14 @@ footer {
 }
 
 .quote-meta {
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   color: #555;
 }
 
 .quote-content {
   font-size: 1rem;
-  line-height: 1.5rem;  /* ← 固定値だとズレやすい */
-  margin-bottom: 1.5rem;
+  line-height: 1.5rem;
 }
 
 /* ===================================

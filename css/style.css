@@ -556,3 +556,53 @@ footer {
   box-shadow: inset 0 0 0.05rem rgba(255,255,255,0.8), 0 1px 3px rgba(0, 0, 0, 0.2), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 
+
+/*20250625追記*/
+/* Note block */
+.note-block { position: relative; margin: 1.5rem 0; }
+.note-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+.note-text { position: relative; z-index: 1; line-height: 1.5rem; font-size: 1rem; }
+
+/* Quote block */
+.quote-block { border: 1px solid #ccc; padding: 1rem; position: relative; background: #fff; }
+.quote-citation { position: absolute; right: 1rem; bottom: 0.5rem; font-size: 0.75rem; opacity: 0.75; }
+
+/* Thread */
+.thread-line { margin-bottom: 1rem; }
+.thread-meta span { display: inline-block; margin-right: 0.5rem; font-weight: bold; font-size: 0.9rem; }
+.thread-body { margin-left: 1rem; }
+
+/* DM */
+.dm-bubble { display: flex; margin-bottom: 1rem; }
+.dm-icon { width: 36px; height: 36px; border-radius: 50%; margin-right: 0.5rem; }
+.dm-content { background: #e3f2fd; border-radius: 1rem; padding: 0.75rem 1rem; max-width: 75%; }
+.dm-meta { font-size: 0.75rem; color: #555; margin-bottom: 0.25rem; }
+
+/* Twitter */
+.twitter-post { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background: #fff; font-family: 'Helvetica Neue'; max-width: 500px; }
+.twitter-header { display: flex; align-items: center; margin-bottom: 0.5rem; }
+.twitter-icon { width: 32px; height: 32px; border-radius: 50%; margin-right: 0.5rem; }
+.twitter-username { font-weight: bold; }
+.twitter-time { margin-left: auto; font-size: 0.8rem; color: #555; }
+.twitter-footer { font-size: 0.8rem; color: #777; display: flex; gap: 1rem; margin-top: 0.5rem; }
+
+/* Minutes */
+.minutes-table { border-collapse: separate; border-spacing: 0 0.5rem; width: 100%; }
+.minutes-speaker { font-weight: bold; background: #f9f9f9; width: 5rem; text-align: center; }
+.minutes-content { padding-left: 0.5rem; }
+
+.image-frame {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.image-frame img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.image-frame figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+

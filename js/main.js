@@ -1,38 +1,52 @@
-// main.js : ノート罫線などの描画処理を統合
-function drawNoteLines() {
-  document.querySelectorAll('.note-block').forEach(block => {
-    const canvas = block.querySelector('canvas.note-canvas');
-    const text = block.querySelector('.note-text');
-    if (!canvas || !text) return;
+const container = require('markdown-it-container');
 
-    const style = getComputedStyle(text);
-    const lineHeight = parseFloat(style.lineHeight);
-    const width = text.clientWidth;
-    const height = text.scrollHeight;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = '#ddd';
-    ctx.lineWidth = 1;
-
-    const lines = Math.ceil(height / lineHeight);
-    for (let i = 1; i <= lines; i++) {
-      const y = i * lineHeight;
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
+hexo.extend.filter.register('markdown-it:renderer', function (md) {
+  // :::note
+  md.use(container, 'note', {
+    render: (tokens, idx) =>
+      tokens[idx].nesting === 1
+        ? `<div class="note-block"><canvas class="note-canvas"></canvas><div class="note-text">\n`
+        : `</div></div>\n`
   });
-}
 
-window.addEventListener('DOMContentLoaded', () => {
-  drawNoteLines();
-  window.addEventListener('resize', () => {
-    clearTimeout(window._noteResizeTimer);
-    window._noteResizeTimer = setTimeout(drawNoteLines, 200);
+  // :::thread
+  md.use(container, 'thread', {
+    render: (tokens, idx) => tokens[idx].nesting === 1 ? '<div class="thread-block">\n' : '</div>\n'
   });
+
+  // :::twitter
+  md.use(container, 'twitter', {
+    render: (tokens, idx) => tokens[idx].nesting === 1 ? '<div class="twitter-post">\n' : '</div>\n'
+  });
+
+  // :::dm
+  md.use(container, 'dm', {
+    render: (tokens, idx) => tokens[idx].nesting === 1 ? '<div class="dm-bubble dm-twitter">\n' : '</div>\n'
+  });
+
+  // :::minutes
+  md.use(container, 'minutes', {
+    render: (tokens, idx) =>
+      tokens[idx].nesting === 1
+        ? '<table class="minutes-table"><tbody>\n'
+        : '</tbody></table>\n'
+  });
+
+  // :::section
+  md.use(container, 'section', {
+    render: (tokens, idx) =>
+      tokens[idx].nesting === 1 ? '<section>\n' : '</section>\n'
+  });
+
+  // 画像→<figure><figcaption>変換
+  const defaultImageRender = md.renderer.rules.image;
+  md.renderer.rules.image = function (tokens, idx) {
+    const token = tokens[idx];
+    const src = token.attrs[token.attrIndex('src')][1];
+    const alt = token.content;
+    return `<figure class="image-frame">
+  <img src="${src}" alt="${alt}">
+  <figcaption>${alt}</figcaption>
+</figure>`;
+  };
 });

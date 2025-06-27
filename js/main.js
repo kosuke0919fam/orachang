@@ -1,55 +1,3 @@
-const container = require('markdown-it-container');
-
-hexo.extend.filter.register('markdown-it:renderer', function (md) {
-  md.use(container, 'note', {
-    render(tokens, idx) {
-      const token = tokens[idx];
-      return token.nesting === 1 ? '<div class="note-block">' : '</div>';
-    }
-  });
-
-  md.use(container, 'thread', {
-    render(tokens, idx) {
-      return tokens[idx].nesting === 1 ? '<div class="thread-block">' : '</div>';
-    }
-  });
-
-  // :::twitter
-  md.use(container, 'twitter', {
-    render: (tokens, idx) => tokens[idx].nesting === 1 ? '<div class="twitter-post">\n' : '</div>\n'
-  });
-
-  // :::dm
-  md.use(container, 'dm', {
-    render: (tokens, idx) => tokens[idx].nesting === 1 ? '<div class="dm-bubble dm-twitter">\n' : '</div>\n'
-  });
-
-  // :::minutes
-  md.use(container, 'minutes', {
-    render: (tokens, idx) =>
-      tokens[idx].nesting === 1
-        ? '<table class="minutes-table"><tbody>\n'
-        : '</tbody></table>\n'
-  });
-
-  // :::section
-  md.use(container, 'section', {
-    render: (tokens, idx) =>
-      tokens[idx].nesting === 1 ? '<section>\n' : '</section>\n'
-  });
-
-  // 画像→<figure><figcaption>変換
-  const defaultImageRender = md.renderer.rules.image;
-  md.renderer.rules.image = function (tokens, idx) {
-    const token = tokens[idx];
-    const src = token.attrs[token.attrIndex('src')][1];
-    const alt = token.content;
-    return `<figure class="image-frame">
-  <img src="${src}" alt="${alt}">
-  <figcaption>${alt}</figcaption>
-</figure>`;
-  };
-});
 console.log("📏 canvas init");
 
 window.addEventListener("load", () => {
@@ -62,17 +10,8 @@ window.addEventListener("load", () => {
       return;
     }
 
-    const style = window.getComputedStyle(text);
-    const lineHeight = parseFloat(style.lineHeight);
-    const paddingTop = parseFloat(style.paddingTop || 0);
-    const paddingBottom = parseFloat(style.paddingBottom || 0);
+    // canvas サイズを noteBlock に合わせる
     const totalHeight = text.offsetHeight;
-
-    console.log({ lineHeight, paddingTop, paddingBottom, totalHeight });
-
-    const lines = Math.floor((totalHeight - paddingTop - paddingBottom) / lineHeight);
-
-    // canvasサイズ設定
     canvas.width = noteBlock.clientWidth;
     canvas.height = totalHeight;
 
@@ -80,11 +19,24 @@ window.addEventListener("load", () => {
     ctx.strokeStyle = "#c8b798";
     ctx.lineWidth = 1;
 
-    for (let i = 0; i < lines; i++) {
-      const y = paddingTop + i * lineHeight + 0.5;
+    // 基準矩形（top位置の補正用）
+    const baseRect = text.getBoundingClientRect();
+    const rects = text.getClientRects();
+
+    for (const rect of rects) {
+      const topY = rect.top - baseRect.top + 0.5;
+      const bottomY = rect.bottom - baseRect.top + 0.5;
+
+      // 各行の上端に線を引く
       ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(canvas.width, y);
+      ctx.moveTo(0, topY);
+      ctx.lineTo(canvas.width, topY);
+      ctx.stroke();
+
+      // 各行の下端にも線を引く（必要な場合）
+      ctx.beginPath();
+      ctx.moveTo(0, bottomY);
+      ctx.lineTo(canvas.width, bottomY);
       ctx.stroke();
     }
   });

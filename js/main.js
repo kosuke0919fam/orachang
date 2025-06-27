@@ -59,9 +59,14 @@ window.addEventListener("load", () => {
       const textDiv = noteBlock.querySelector(".note-text");
       if (!canvas || !textDiv) return;
 
-      // JSの属性でしっかり設定
-      canvas.width = noteBlock.offsetWidth;
-      canvas.height = noteBlock.offsetHeight;
+      // ★ ここで属性として指定
+      const w = noteBlock.offsetWidth;
+      const h = noteBlock.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
 
       const ctx = canvas.getContext("2d");
       ctx.strokeStyle = "#c8b798";
@@ -86,7 +91,7 @@ window.addEventListener("load", () => {
         ctx.stroke();
       });
     });
-  }, 100); // 100ms遅延
+  }, 100);
 });
 
 

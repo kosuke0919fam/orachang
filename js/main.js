@@ -52,46 +52,42 @@ hexo.extend.filter.register('markdown-it:renderer', function (md) {
 });
 
 console.log("📏 canvas init");
-
 window.addEventListener("load", () => {
-  document.querySelectorAll(".note-block").forEach(noteBlock => {
-    const canvas = noteBlock.querySelector(".note-canvas");
-    const textDiv = noteBlock.querySelector(".note-text");
+  setTimeout(() => {
+    document.querySelectorAll(".note-block").forEach(noteBlock => {
+      const canvas = noteBlock.querySelector(".note-canvas");
+      const textDiv = noteBlock.querySelector(".note-text");
+      if (!canvas || !textDiv) return;
 
-    if (!canvas || !textDiv) return;
+      // JSの属性でしっかり設定
+      canvas.width = noteBlock.offsetWidth;
+      canvas.height = noteBlock.offsetHeight;
 
-    // canvasサイズを.note-blockのサイズに合わせる
-    canvas.width = noteBlock.clientWidth;
-    canvas.height = noteBlock.clientHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.strokeStyle = "#c8b798";
+      ctx.lineWidth = 1;
 
-    const ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "#c8b798"; // 薄いブラウン
-    ctx.lineWidth = 1;
+      const paragraphs = textDiv.querySelectorAll('p');
+      const containerRect = textDiv.getBoundingClientRect();
 
-    // 各<p>の上下に線を引く
-    const paragraphs = textDiv.querySelectorAll('p');
-    const containerRect = textDiv.getBoundingClientRect();
+      paragraphs.forEach(p => {
+        const rect = p.getBoundingClientRect();
+        const topY = rect.top - containerRect.top + 0.5;
+        const bottomY = rect.bottom - containerRect.top + 0.5;
 
-    paragraphs.forEach(p => {
-      const rect = p.getBoundingClientRect();
+        ctx.beginPath();
+        ctx.moveTo(0, topY);
+        ctx.lineTo(canvas.width, topY);
+        ctx.stroke();
 
-      // pの相対位置
-      const topY = rect.top - containerRect.top + 0.5;
-      const bottomY = rect.bottom - containerRect.top + 0.5;
-
-      // 上線
-      ctx.beginPath();
-      ctx.moveTo(0, topY);
-      ctx.lineTo(canvas.width, topY);
-      ctx.stroke();
-
-      // 下線
-      ctx.beginPath();
-      ctx.moveTo(0, bottomY);
-      ctx.lineTo(canvas.width, bottomY);
-      ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, bottomY);
+        ctx.lineTo(canvas.width, bottomY);
+        ctx.stroke();
+      });
     });
-  });
+  }, 100); // 100ms遅延
 });
+
 
 

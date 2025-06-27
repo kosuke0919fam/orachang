@@ -59,26 +59,29 @@ window.addEventListener("load", () => {
       const textDiv = noteBlock.querySelector(".note-text");
       if (!canvas || !textDiv) return;
 
-      // ★ ここで属性として指定
-      const w = noteBlock.offsetWidth;
-      const h = noteBlock.offsetHeight;
-      canvas.width = w;
-      canvas.height = h;
+      canvas.width = noteBlock.offsetWidth;
+      canvas.height = noteBlock.offsetHeight;
 
-      canvas.style.width = w + "px";
-      canvas.style.height = h + "px";
+      // padding取得
+      const style = getComputedStyle(noteBlock);
+      const paddingTop = parseFloat(style.paddingTop) || 0;
+      const paddingLeft = parseFloat(style.paddingLeft) || 0;
 
       const ctx = canvas.getContext("2d");
       ctx.strokeStyle = "#c8b798";
       ctx.lineWidth = 1;
 
+      // debug
+      console.log('canvas:', canvas.width, canvas.height, 'padding:', paddingTop, paddingLeft);
+
       const paragraphs = textDiv.querySelectorAll('p');
-      const containerRect = textDiv.getBoundingClientRect();
+      const blockRect = noteBlock.getBoundingClientRect();
 
       paragraphs.forEach(p => {
         const rect = p.getBoundingClientRect();
-        const topY = rect.top - containerRect.top + 0.5;
-        const bottomY = rect.bottom - containerRect.top + 0.5;
+        // note-block基準にpaddingを加算
+        const topY = rect.top - blockRect.top + 0.5 + paddingTop;
+        const bottomY = rect.bottom - blockRect.top + 0.5 + paddingTop;
 
         ctx.beginPath();
         ctx.moveTo(0, topY);
@@ -91,8 +94,5 @@ window.addEventListener("load", () => {
         ctx.stroke();
       });
     });
-  }, 100);
+  }, 150);
 });
-
-
-

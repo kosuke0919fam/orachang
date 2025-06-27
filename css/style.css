@@ -428,22 +428,33 @@ footer {
   background-blend-mode: multiply;
   padding: 0;
 }
+
+/* Note block - 罫線付きノート背景 */
 .note-block {
   position: relative;
-  min-height: 2em; /* 必要に応じて */
+  margin: 1.5rem 0;
+  min-height: 2em;
+  padding: 1.2em 1em;
 }
+
+
 .note-canvas {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: 0;
   pointer-events: none;
-  background-color: transparent;
+  background: transparent;
   display: block;
 }
+
 .note-text {
   position: relative;
   z-index: 1;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
+  padding: 0;
 }
 
 
@@ -575,10 +586,6 @@ footer {
 
 
 /*20250625追記*/
-/* Note block */
-.note-block { position: relative; margin: 1.5rem 0; }
-.note-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
-.note-text { position: relative; z-index: 1; line-height: 1.5rem; font-size: 1rem; }
 
 /* Quote block */
 .quote-block { border: 1px solid #ccc; padding: 1rem; position: relative; background: #fff; }
@@ -623,15 +630,3 @@ footer {
   margin-top: 0.5rem;
 }
 
-.note-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  display: block;
-
-  /* ↓重要：これがないと描画されない */
-  width: 100%;
-  height: 100%;
-  background-color: transparent; /* 念のため */
-}

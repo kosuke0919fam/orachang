@@ -3,8 +3,13 @@ const container = require('markdown-it-container');
 hexo.extend.filter.register('markdown-it:renderer', function (md) {
   md.use(container, 'note', {
     render(tokens, idx) {
-      const token = tokens[idx];
-      return token.nesting === 1 ? '<div class="note-block">' : '</div>';
+      if (tokens[idx].nesting === 1) {
+        return `<div class="note-block">
+  <canvas class="note-canvas"></canvas>
+  <div class="note-text">\n`;
+      } else {
+        return `</div></div>\n`;
+      }
     }
   });
 
@@ -50,6 +55,7 @@ hexo.extend.filter.register('markdown-it:renderer', function (md) {
 </figure>`;
   };
 });
+
 console.log("📏 canvas init");
 
 window.addEventListener("load", () => {
@@ -69,9 +75,10 @@ window.addEventListener("load", () => {
 
     // 各<p>の上下に線を引く
     const paragraphs = textDiv.querySelectorAll('p');
+    const containerRect = textDiv.getBoundingClientRect();
+
     paragraphs.forEach(p => {
       const rect = p.getBoundingClientRect();
-      const containerRect = textDiv.getBoundingClientRect();
 
       // pの相対位置
       const topY = rect.top - containerRect.top + 0.5;

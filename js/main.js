@@ -55,21 +55,39 @@ console.log("📏 canvas init");
 window.addEventListener("load", () => {
   document.querySelectorAll(".note-block").forEach(noteBlock => {
     const canvas = noteBlock.querySelector(".note-canvas");
-    const text = noteBlock.querySelector(".note-text");
+    const textDiv = noteBlock.querySelector(".note-text");
 
-    if (!canvas || !text) {
-      console.warn("canvas or text element not found");
-      return;
-    }
+    if (!canvas || !textDiv) return;
 
-    const style = window.getComputedStyle(text);
-    const lineHeight = parseFloat(style.lineHeight);
-    const paddingTop = parseFloat(style.paddingTop || 0);
-    const paddingBottom = parseFloat(style.paddingBottom || 0);
-    const totalHeight = text.offsetHeight;
+    // canvasサイズを.note-blockのサイズに合わせる
+    canvas.width = noteBlock.clientWidth;
+    canvas.height = noteBlock.clientHeight;
 
-    console.log({ lineHeight, paddingTop, paddingBottom, totalHeight });
+    const ctx = canvas.getContext("2d");
+    ctx.strokeStyle = "#c8b798"; // 薄いブラウン
+    ctx.lineWidth = 1;
 
-    const lines = Math.floor((totalHeight - paddingTop - paddingBottom) / lineHeight);
+    // 各<p>の上下に線を引く
+    const paragraphs = textDiv.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      const rect = p.getBoundingClientRect();
+      const containerRect = textDiv.getBoundingClientRect();
 
+      // pの相対位置
+      const topY = rect.top - containerRect.top + 0.5;
+      const bottomY = rect.bottom - containerRect.top + 0.5;
 
+      // 上線
+      ctx.beginPath();
+      ctx.moveTo(0, topY);
+      ctx.lineTo(canvas.width, topY);
+      ctx.stroke();
+
+      // 下線
+      ctx.beginPath();
+      ctx.moveTo(0, bottomY);
+      ctx.lineTo(canvas.width, bottomY);
+      ctx.stroke();
+    });
+  });
+});

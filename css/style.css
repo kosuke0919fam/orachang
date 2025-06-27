@@ -430,6 +430,7 @@ footer {
 }
 .note-block {
   position: relative;
+  overflow: hidden;
 }
 .note-canvas {
   display: block;

@@ -1,6 +1,6 @@
 const container = require('markdown-it-container');
 
-hexo.extend.filter.register('markdown-it', function (md) {
+hexo.extend.filter.register('markdown-it:renderer', function (md) {
   md.use(container, 'note', {
     render(tokens, idx) {
       const token = tokens[idx];

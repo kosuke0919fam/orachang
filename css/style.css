@@ -428,6 +428,14 @@ footer {
   background-blend-mode: multiply;
   padding: 0;
 }
+.note-block {
+  position: relative;
+}
+.note-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 
 /* ===================================

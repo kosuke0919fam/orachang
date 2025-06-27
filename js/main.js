@@ -3,13 +3,8 @@ const container = require('markdown-it-container');
 hexo.extend.filter.register('markdown-it:renderer', function (md) {
   md.use(container, 'note', {
     render(tokens, idx) {
-      if (tokens[idx].nesting === 1) {
-        return `<div class="note-block">
-  <canvas class="note-canvas"></canvas>
-  <div class="note-text">\n`;
-      } else {
-        return `</div></div>\n`;
-      }
+      const token = tokens[idx];
+      return token.nesting === 1 ? '<div class="note-block">' : '</div>';
     }
   });
 
@@ -55,46 +50,26 @@ hexo.extend.filter.register('markdown-it:renderer', function (md) {
 </figure>`;
   };
 });
-
 console.log("📏 canvas init");
 
 window.addEventListener("load", () => {
   document.querySelectorAll(".note-block").forEach(noteBlock => {
     const canvas = noteBlock.querySelector(".note-canvas");
-    const textDiv = noteBlock.querySelector(".note-text");
+    const text = noteBlock.querySelector(".note-text");
 
-    if (!canvas || !textDiv) return;
+    if (!canvas || !text) {
+      console.warn("canvas or text element not found");
+      return;
+    }
 
-    // canvasサイズを.note-blockのサイズに合わせる
-    canvas.width = noteBlock.clientWidth;
-    canvas.height = noteBlock.clientHeight;
+    const style = window.getComputedStyle(text);
+    const lineHeight = parseFloat(style.lineHeight);
+    const paddingTop = parseFloat(style.paddingTop || 0);
+    const paddingBottom = parseFloat(style.paddingBottom || 0);
+    const totalHeight = text.offsetHeight;
 
-    const ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "#c8b798"; // 薄いブラウン
-    ctx.lineWidth = 1;
+    console.log({ lineHeight, paddingTop, paddingBottom, totalHeight });
 
-    // 各<p>の上下に線を引く
-    const paragraphs = textDiv.querySelectorAll('p');
-    const containerRect = textDiv.getBoundingClientRect();
+    const lines = Math.floor((totalHeight - paddingTop - paddingBottom) / lineHeight);
 
-    paragraphs.forEach(p => {
-      const rect = p.getBoundingClientRect();
 
-      // pの相対位置
-      const topY = rect.top - containerRect.top + 0.5;
-      const bottomY = rect.bottom - containerRect.top + 0.5;
-
-      // 上線
-      ctx.beginPath();
-      ctx.moveTo(0, topY);
-      ctx.lineTo(canvas.width, topY);
-      ctx.stroke();
-
-      // 下線
-      ctx.beginPath();
-      ctx.moveTo(0, bottomY);
-      ctx.lineTo(canvas.width, bottomY);
-      ctx.stroke();
-    });
-  });
-});

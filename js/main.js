@@ -15,9 +15,17 @@ function drawNoteLines() {
     const style = getComputedStyle(textDiv);
     const lineHeight = parseFloat(style.lineHeight);
 
-    // canvas.height まで必ず線を引く
+    // 1. lineHeight間隔で線
     for (let y = 0; y <= canvas.height; y += lineHeight) {
       const yDraw = Math.round(y) + 0.5;
+      ctx.beginPath();
+      ctx.moveTo(0, yDraw);
+      ctx.lineTo(canvas.width, yDraw);
+      ctx.stroke();
+    }
+    // 2. 必ずcanvas.heightにも線（すでに引いていなければ）
+    if ((canvas.height % lineHeight) !== 0) {
+      const yDraw = canvas.height + 0.5;
       ctx.beginPath();
       ctx.moveTo(0, yDraw);
       ctx.lineTo(canvas.width, yDraw);

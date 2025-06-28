@@ -14,28 +14,28 @@ function drawNoteLines() {
 
     const style = getComputedStyle(textDiv);
     const lineHeight = parseFloat(style.lineHeight);
+    const paddingTop = parseFloat(style.paddingTop) || 0;
+    const paddingBottom = parseFloat(style.paddingBottom) || 0;
+    const contentHeight = textDiv.scrollHeight - paddingTop - paddingBottom;
 
-    // 1. lineHeight間隔で線
-    for (let y = 0; y <= canvas.height; y += lineHeight) {
-      const yDraw = Math.round(y) + 0.5;
+    // 線を引く横幅（canvasの90%）
+    const margin = canvas.width * 0.05; // 左右5%ずつ
+    const startX = margin;
+    const endX = canvas.width - margin;
+
+    for (
+      let y = 0;
+      y <= contentHeight + 1;
+      y += lineHeight
+    ) {
+      const yDraw = Math.round(y + paddingTop) + 0.5;
       ctx.beginPath();
-      ctx.moveTo(0, yDraw);
-      ctx.lineTo(canvas.width, yDraw);
-      ctx.stroke();
-    }
-    // 2. 必ずcanvas.heightにも線（すでに引いていなければ）
-    if ((canvas.height % lineHeight) !== 0) {
-      const yDraw = canvas.height + 0.5;
-      ctx.beginPath();
-      ctx.moveTo(0, yDraw);
-      ctx.lineTo(canvas.width, yDraw);
+      ctx.moveTo(startX, yDraw);
+      ctx.lineTo(endX, yDraw);
       ctx.stroke();
     }
   });
 }
 
-
-// 初回
 window.addEventListener("load", drawNoteLines);
-// リサイズ時も
 window.addEventListener("resize", () => requestAnimationFrame(drawNoteLines));

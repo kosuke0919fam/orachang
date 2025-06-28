@@ -15,26 +15,26 @@ function drawNoteLines() {
     const style = getComputedStyle(textDiv);
     const lineHeight = parseFloat(style.lineHeight);
 
-    // 行数を算出
     const contentHeight = textDiv.scrollHeight;
-    const lines = Math.round(contentHeight / lineHeight);
 
-    // 1行目の上端だけ特別に線
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(canvas.width, 0);
-    ctx.stroke();
+    // y座標のリスト
+    let yList = [];
+    for (let y = 0; y <= contentHeight + 2; y += lineHeight) {
+      yList.push(Math.round(y));
+    }
 
-    // 2行目以降は「行の下端」にだけ線
-    for (let i = 1; i <= lines; i++) {
-      const y = Math.round(i * lineHeight);
+    // 1px以内の重複を排除
+    yList = yList.filter((y, idx, arr) => idx === 0 || Math.abs(y - arr[idx - 1]) > 1);
+
+    yList.forEach(y => {
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(canvas.width, y);
       ctx.stroke();
-    }
+    });
   });
 }
+
 
 
 // 初回

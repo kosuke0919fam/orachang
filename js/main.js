@@ -18,7 +18,7 @@ function drawNoteLines() {
 
     // Uタグの下線風に「各行のベースライン＋数px下」で線を引く
     // だいたい「y = (lineHeight - fontSize) / 2 + fontSize * 1.05」あたりが“下線”になる
-    const underlineOffset = (lineHeight - fontSize) / 2 + fontSize * 1.05;
+    const underlineOffset = (lineHeight - fontSize) / 2 + fontSize * 1;
 
     for (let y = 0; y < canvas.height; y += lineHeight) {
       const yDraw = y + underlineOffset;

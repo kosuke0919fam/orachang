@@ -9,8 +9,11 @@ function drawNoteLines() {
 
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "#c8b798";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#333";
+    ctx.lineWidth = 0.5;
+
+    // ★ここで点線指定（例: 4px線, 4px間隔）
+    ctx.setLineDash([1, 5]);
 
     textDiv.querySelectorAll("p").forEach(p => {
       const text = p.textContent;
@@ -21,7 +24,6 @@ function drawNoteLines() {
       let lastY = null;
       let lastLineBottom = null;
 
-      // 1文字ずつrangeを取って行末を特定
       for (let i = 0; i < text.length; i++) {
         const range = document.createRange();
         range.setStart(p.firstChild, i);
@@ -30,7 +32,6 @@ function drawNoteLines() {
         if (!rects.length) continue;
         const y = Math.round(rects[0].bottom - parentRect.top);
 
-        // 行が変わったときだけ下線
         if (y !== lastY) {
           if (lastLineBottom !== null) {
             ctx.beginPath();
@@ -51,10 +52,13 @@ function drawNoteLines() {
         ctx.stroke();
       }
     });
+
+    // ★描画後にリセットしておくのがベター
+    ctx.setLineDash([]);
   });
 }
 
 window.addEventListener("load", drawNoteLines);
 window.addEventListener("resize", () => requestAnimationFrame(drawNoteLines));
 window.addEventListener("orientationchange", drawNoteLines);
-setInterval(drawNoteLines, 800); // 念のため定期実行
+setInterval(drawNoteLines, 500);

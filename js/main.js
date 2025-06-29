@@ -18,7 +18,7 @@ function drawNoteLines() {
 
     // 1行ごとに「下線を“文字の下＋余白”」で引く
     // たとえばfontSizeの90%位置 or lineHeightの90%位置など
-    for (let y = lineHeight * 1.0; y <= canvas.height; y += lineHeight) {
+    for (let y = lineHeight * 0.9; y <= canvas.height; y += lineHeight + 0.5) {
       const yDraw = y + 0.5;
       ctx.beginPath();
       ctx.moveTo(0, yDraw);
@@ -35,4 +35,4 @@ window.addEventListener("orientationchange", drawNoteLines);
 
 
 // ←この下でOK
-setInterval(drawNoteLines, 1000); // 0.7秒ごとに再描画
+setInterval(drawNoteLines, 1000);

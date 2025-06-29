@@ -18,8 +18,8 @@ function drawNoteLines() {
 
     // 1行ごとに「下線を“文字の下＋余白”」で引く
     // たとえばfontSizeの90%位置 or lineHeightの90%位置など
-    for (let y = lineHeight * 0.75; y <= canvas.height; y += lineHeight + 0.5) {
-      const yDraw = y + 0.5;
+    for (let y = fontSize * 1; y <= canvas.height; y += lineHeight) {
+      const yDraw = y + 2;
       ctx.beginPath();
       ctx.moveTo(0, yDraw);
       ctx.lineTo(canvas.width, yDraw);

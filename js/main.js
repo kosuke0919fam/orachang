@@ -16,23 +16,21 @@ function drawNoteLines() {
     const lineHeight = parseFloat(style.lineHeight);
     const fontSize = parseFloat(style.fontSize);
 
-    // 1行ごとに「下線を“文字の下＋余白”」で引く
-    // たとえばfontSizeの90%位置 or lineHeightの90%位置など
-    for (let y = fontSize * 1; y < canvas.height; y += lineHeight) {
-      const yDraw = y + 2;
+    // Uタグの下線風に「各行のベースライン＋数px下」で線を引く
+    // だいたい「y = (lineHeight - fontSize) / 2 + fontSize * 1.05」あたりが“下線”になる
+    const underlineOffset = (lineHeight - fontSize) / 2 + fontSize * 1.05;
+
+    for (let y = 0; y < canvas.height; y += lineHeight) {
+      const yDraw = y + underlineOffset;
       ctx.beginPath();
-      ctx.moveTo(0, yDraw);
-      ctx.lineTo(canvas.width, yDraw);
+      ctx.moveTo(canvas.width * 0.05, yDraw);
+      ctx.lineTo(canvas.width * 0.95, yDraw);
       ctx.stroke();
     }
   });
 }
 
-
 window.addEventListener("load", drawNoteLines);
 window.addEventListener("resize", () => requestAnimationFrame(drawNoteLines));
 window.addEventListener("orientationchange", drawNoteLines);
-
-
-// ←この下でOK
 setInterval(drawNoteLines, 1000);

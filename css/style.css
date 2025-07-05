@@ -432,7 +432,7 @@ footer {
 /* Note block - 罫線付きノート背景 */
 .note-block {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 0 auto;
   min-height: 2em;
 }
 
@@ -632,3 +632,44 @@ footer {
   margin-top: 0.5rem;
 }
 
+h3 {
+position: relative;
+  margin: 1rem auto;
+  padding: 0.25rem 1rem;
+  max-width: 75%;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #f5f0e6;
+  background-image: url("/orachang/images/noise.png");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0.02rem 0.02rem rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  z-index: 2;
+  text-align: center;
+  display: block;
+}
+
+h4 {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
+  color: #210e00;
+}
+
+h4::after{
+  content: "";
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  bottom: 0;
+  height: 2px;
+  background-color: #ccc;
+}

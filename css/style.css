@@ -441,7 +441,7 @@ footer {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
   background: transparent;
   display: block;
@@ -633,7 +633,7 @@ footer {
 
 h3 {
 position: relative;
-  margin: 1rem auto;
+  margin: 0 auto;
   padding: 0.25rem 1rem;
   max-width: 75%;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
@@ -651,6 +651,7 @@ position: relative;
   z-index: 2;
   text-align: center;
   display: block;
+  top:-1.5rem;
 }
 
 h4 {
@@ -671,4 +672,26 @@ h4::after{
   bottom: 0;
   height: 0.05rem;
   background-color: rgba(0, 0, 0, 0.12);
+}
+
+.note-section {
+  position: relative;
+  background-color: #fff;
+  padding: 0.5rem;
+  margin: 5rem 0 auto;
+  box-shadow: inset 0 0 0.05rem rgba(255,255,255,0.8), 0 1px 3px rgba(0, 0, 0, 0.2), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+.note-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/orachang/images/noise.png");
+  background-size: 128px 128px;
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+  z-index: 0;
 }

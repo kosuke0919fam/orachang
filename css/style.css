@@ -454,7 +454,7 @@ footer {
   line-height: 1.5rem;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   padding: 1.5rem 0;
-  width: 95%;
+  width: 97.5%;
   margin: 0 auto;
 }
 
@@ -635,7 +635,7 @@ h3 {
 position: relative;
   margin: 0 auto;
   padding: 0.25rem 1rem;
-  max-width: 75%;
+  max-width: 90%;
   font-family: "Hiragino Mincho Pro", "Yu Mincho", "MS Mincho", serif;
   font-size: 1.25rem;
   font-weight: bold;
@@ -655,7 +655,7 @@ position: relative;
 }
 
 h4 {
-  width: 95%;
+  width: 97.5%;
   margin: 0 auto;
   position: relative;
   font-size: 1.25rem;

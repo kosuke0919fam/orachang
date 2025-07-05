@@ -34,8 +34,8 @@ function drawNoteLines() {
         if (y !== lastY) {
           if (!isFirstLine && lastLineBottom !== null) {
             ctx.beginPath();
-            ctx.moveTo(canvas.width * 0.025, lastLineBottom);
-            ctx.lineTo(canvas.width * 0.975, lastLineBottom);
+            ctx.moveTo(canvas.width * 0.0125, lastLineBottom);
+            ctx.lineTo(canvas.width * 0.9875, lastLineBottom);
             ctx.stroke();
           }
           isFirstLine = false;
@@ -47,8 +47,8 @@ function drawNoteLines() {
 
       if (lastLineBottom !== null) {
         ctx.beginPath();
-        ctx.moveTo(canvas.width * 0.025, lastLineBottom);
-        ctx.lineTo(canvas.width * 0.975, lastLineBottom);
+        ctx.moveTo(canvas.width * 0.0125, lastLineBottom);
+        ctx.lineTo(canvas.width * 0.9875, lastLineBottom);
         ctx.stroke();
       }
     });

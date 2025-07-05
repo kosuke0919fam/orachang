@@ -32,11 +32,10 @@ function drawNoteLines() {
         const y = Math.round(rects[0].bottom - parentRect.top);
 
         if (y !== lastY) {
-          // ★最初の行だけ線を引かない
           if (!isFirstLine && lastLineBottom !== null) {
             ctx.beginPath();
-            ctx.moveTo(canvas.width * 0.05, lastLineBottom);
-            ctx.lineTo(canvas.width * 0.95, lastLineBottom);
+            ctx.moveTo(canvas.width * 0.025, lastLineBottom);
+            ctx.lineTo(canvas.width * 0.975, lastLineBottom);
             ctx.stroke();
           }
           isFirstLine = false;
@@ -45,11 +44,11 @@ function drawNoteLines() {
         lastLineBottom = y;
         range.detach();
       }
-      // ★必ず最終行は線を描く
+
       if (lastLineBottom !== null) {
         ctx.beginPath();
-        ctx.moveTo(canvas.width * 0.05, lastLineBottom);
-        ctx.lineTo(canvas.width * 0.95, lastLineBottom);
+        ctx.moveTo(canvas.width * 0.025, lastLineBottom);
+        ctx.lineTo(canvas.width * 0.975, lastLineBottom);
         ctx.stroke();
       }
     });
@@ -58,7 +57,45 @@ function drawNoteLines() {
   });
 }
 
-window.addEventListener("load", drawNoteLines);
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector("article");
+  if (!container) return;
+
+  let section = null;
+  let node = container.firstElementChild;
+
+  while (node) {
+    const next = node.nextElementSibling;
+
+    // セクションが開かれていなければ、h3をトリガーに開く
+    if (!section && node.tagName === "H3") {
+      section = document.createElement("section");
+      section.classList.add("note-section");
+      container.insertBefore(section, node);
+    }
+
+    if (section) {
+      // "//" なら閉じる
+      if (
+        node.tagName === "P" &&
+        node.textContent.trim().toLowerCase() === "//"
+      ) {
+        container.removeChild(node);
+        section = null;
+      } else {
+        section.appendChild(node);
+      }
+    }
+
+    node = next;
+  }
+
+  drawNoteLines();
+});
+
+
+
+// イベントで再描画
 window.addEventListener("resize", () => requestAnimationFrame(drawNoteLines));
 window.addEventListener("orientationchange", drawNoteLines);
 setInterval(drawNoteLines, 500);
